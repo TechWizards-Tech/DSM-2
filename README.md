@@ -8,7 +8,7 @@
 
 ## Link para o Trello
 
-Clique [aqui](https://trello.com/invite/areadetrabalho41629874/ATTI6097fd5342bd7c33ed4d303ae13e59dcD299B0C7) para acessar o quadro do Trello do projeto.
+Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessar o quadro do Trello do projeto.
 
 ## SPRINTS
 
