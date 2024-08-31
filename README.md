@@ -14,9 +14,9 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | Sprint | Link        | Início      | Entrega     | Status |
 |--------|-------------|-------------|-------------|--------|
-| 01     | [Sprint 01](#sprint-1) | -  | -  |      |
-| 02     | [Sprint 02](#sprint-2) | -  | -  |      |
-| 03     | [Sprint 03](#sprint-3) | -  | -  |      |
+| 01     | [Sprint 01](#sprint-1) | 02/09/2024 | 20/09/2024 |      |
+| 02     | [Sprint 02](#sprint-2) | 23/09/2024 | 11/10/2024  |      |
+| 03     | [Sprint 03](#sprint-3) | 14/10/2024  | 08/11/2024 |      |
 
 <br>
 
@@ -30,7 +30,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
 |------------------------|------------------------------------------------------------------------------------------------------------|---------|
-| RF - 1                 | Criação de um protótipo do site                                                                            |   |
+| RF - 1                 | Criação de um protótipo do site usando Figma                                                                           |   |
 | RF - 2                 | Criar um Cadastro de usuário para o usuário se cadastrar                                                   |   |
 | RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email cadastrado                                |   |
 | RF - 4                 | Elaborar o Conteúdo do Curso, que será divido em aulas                                                     |   |
