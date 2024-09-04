@@ -55,13 +55,12 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 <br>
 
-| ID REFERENCIA | Remetente | Instrução | Finalidade | 
+| ID REFERÊNCIA | REMETENTE | INSTRUÇÃO | FINALIDADE |
 |---------------|-----------|-----------|------------|
-| RF - 1        | Cliente   | Como cliente, quero poder visualizar um protótipo do site | Para entender sua estrutura e funcionalidades |   
-| RF - 2/ RF - 3| Cliente   | Como cliente, eu quero que os usuários consigam se cadastrar no site e fazer login | Para terem acesso ao conteúdo do curso |   
-| RF - 4        | Usuário   | Como usuário, quero acessar o conteúdo do curso, organizado e de fácil entendimento | Para adquirir conhecimento e habilidades através do curso oferecido |   
-| RF - 5        | Usuário   | Como usuário, quero ser capaz de realizar uma avaliação de desempenho após concluir o curso | Para avaliar meu progresso e compreensão do curso |  
-| RF - 6        | Cliente   | Como cliente, eu quero que os usuários consigam emitir certificado após realizar uma avaliação de desempenho do curso | Para validar a finalização do curso e o conhecimento adquirido |   
-| RF - 7/ RNF-5 | Cliente   | Como cliente, quero ter um Modelo Visual do site intuitivo e responsivo | Para que os usuários tenham facilidade em navegar pelo site, independente do dispositivo pelo qual estão acessando  |   
+| RF -        | Usuário   | Quero me registrar com nome, e-mail e senha. E adicionar também informações como idade, peso, gênero, altura e objetivo de saúde ou restrição ao meu perfil. | Para que eu possa criar uma conta e acessar o site e ele possa recomendar uma dieta com base nas minhas necessidades. |
+| RF -   | Usuário  | Quero registrar os alimentos que consumo ao longo do dia, acessar uma base de dados com informações nutricionais sobre alimentos, e acessar uma sugestão de dieta de acordo com o meu cadastro. | Para que eu possa monitorar minha ingestão de calorias e macronutrientes, adicionar alimentos facilmente à minha ingestão diária e seguir um modelo personalizado. |
+| RF -         | Usuário   | Quero que o site calcule automaticamente o total de calorias com base no meu objetivo de saúde, monitorar a ingestão de calorias e macronutrientes, e ter um relatório diário com minha ingestão total. | Para que eu possa saber se estou atingindo minhas metas de calorias, garantindo uma dieta equilibrada onde consiga revisar meu progresso e seguir minha dieta conforme indicado. |
+| RF -        | Cliente  | Quero uma interface intuitiva, prática e fácil de usar com cores agradáveis, tendo uma visualização clara da ingestão de calorias e macronutrientes, incluindo o saldo positivo ou negativo diário. Ter acesso ao histórico das ingestões anteriores. | Para que o usuário possa visualizar as informações sem dificuldades e acompanhar seu progresso de forma simples e direta. |
+| RF -        | Cliente   | Quero que o site forneça dicas de saúde para o usuário de forma aleatória. | Para que o usuário possa ter uma experiência interativa e se manter informado sobre dicas saudáveis. |
 
 <br>
