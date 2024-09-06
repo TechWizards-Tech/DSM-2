@@ -30,11 +30,11 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
 |------------------------|------------------------------------------------------------------------------------------------------------|---------|
-| RF - 1                 | Criação de um protótipo do site usando Figma                                                                           |   |
-| RF - 2                 | Criar um Cadastro de usuário para o usuário se cadastrar                                                   |   |
-| RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email cadastrado                                |   |
-| RF - 4                 | Elaborar o Conteúdo do Curso, que será divido em aulas                                                     |   |
-| RF - 5                 | Ao finalizar todas as aulas do conteúdo do curso, o usuário deve conseguir realizar uma Avaliação de Desempenho com 20 questões que devem ser sorteadas aleatoriamente |  |
+| RF - 1                 | Criação de um protótipo do site usando Figma                                                          |   |
+| RF - 2                 | Usuário deve ser capaz de cadastrar com nome, email e senha                                              |   |
+| RF - 3                 | Usuário deve ser capaz de acessar suas informações pessoais no perfil, além de sua dieta personalizada     |   |
+| RF - 4                 | O sistema deve realizar avaliação do usuário para indicar melhor dieta                                     |   |
+| RF - 5                 | Usuário deve ser capaz de pesquisar e incluir alimentos  |  |
 | RF - 6                 | O usuário do site deve ser capaz de emitir Certificado de Conclusão ao finalizar o curso                   |   |
 | RF - 7                 | Criar o Modelo Visual do site                                                                              |   |
 | RF - 8                 | Navegabilidade do site                                                                                     |   |
