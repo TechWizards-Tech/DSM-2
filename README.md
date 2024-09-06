@@ -3,8 +3,20 @@
 # <p>Equipe 💻: TechWizards </p>
 <br>
 
-# SOBRE O PROJETO 
-## <p align="justify"> PREENCHER </p>
+# SOBRE O PROJETO
+
+## <p align="justify">
+Com o intuito de desenvolver uma aplicação web, o projeto visa criar um contador calórico que também sugere dietas personalizadas. A proposta foi desenvolvida para os alunos do 2° semestre do curso de Desenvolvimento de Software Multiplataforma (DSM) da FATEC de Jacareí, utilizando metodologias ágeis, especificamente o framework Scrum.
+
+A aplicação web será projetada para ajudar os usuários a monitorar sua ingestão de calorias e obter sugestões de dietas com base em suas necessidades e objetivos de saúde. Utilizando React e TypeScript para a construção da interface e a lógica de negócios, o projeto assegura uma aplicação interativa e robusta. O design da interface será elaborado no Figma, e a estruturação e estilização das páginas serão feitas com HTML5 e CSS3.
+
+Para o gerenciamento dos dados, será utilizado PostgreSQL, que permitirá o armazenamento eficiente e seguro das informações dos usuários. A aplicação também incorporará funcionalidades para o cálculo automático de calorias e a recomendação de dietas, baseadas nas informações fornecidas pelos usuários.
+
+O controle do desenvolvimento e das alterações será gerenciado através de Git e GitHub, com documentação detalhada disponível no Readme.MD. O projeto não apenas proporciona uma solução prática e personalizada para o monitoramento da dieta, mas também serve como uma aplicação real das práticas ágeis e das tecnologias modernas de desenvolvimento web.</p>
+
+
+<br>
+ </p>
 
 ## Link para o Trello
 
@@ -73,3 +85,59 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 
 <br>
+
+
+## :page_with_curl: EQUIPE
+
+<br>
+
+| NOME               | FUNÇÃO        | GITHUB                               |
+|--------------------|---------------|--------------------------------------|
+| Bruna Regra        | Scrum Master  | [regrabru](https://github.com/regrabru)  |
+| Pamela Freitas     | Project Owner | [PaamFreitas18](https://github.com/PaamFreitas18)     |
+| Raquel Nakamura    | Developer     | [nakamuraraquel](https://github.com/nakamuraraquel) |
+| Maria Eduarda      | Developer     | [ferreira-me](https://github.com/ferreira-me) |
+| Felipe Correa      | Developer     | [turnupthetaste](https://github.com/turnupthetaste) |
+| Pollyana Sousa     | Developer     | [Pollymeowth](https://github.com/Pollymeowth)  |
+| Leandro Barbosa    | Developer     | [gmlebc](https://github.com/gmlebc)|
+
+<br>
+
+## LINGUAGENS E FERRAMENTAS
+<br>
+<p align="left"> 
+  <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> 
+  </a> 
+  <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> 
+  </a> 
+  <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/> 
+  </a>
+  <a href="https://nodejs.org" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> 
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> 
+  </a> 
+</p>
+<br>
+
+
+<span id="sprint-1">
+
+## :page_with_curl: SPRINT 1 
+<p align="justify">Na Primeira Sprint,......</p>
+
+<br>
+
