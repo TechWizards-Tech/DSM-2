@@ -32,7 +32,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
 |------------------------|------------------------------------------------------------------------------------------------------------|---------|
-| RF - 1                 | Criação de um protótipo do site usando Figma                                                               |         |
+| RF - 1                 | Criação de um protótipo do site usando Figma                                                               |  #01       |
 | RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              |         |
 | RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.                      |         |
 | RF - 4                 | Usuário deve ser capaz de acessar uma dieta de acordo com as suas necessidades.                           |         |
