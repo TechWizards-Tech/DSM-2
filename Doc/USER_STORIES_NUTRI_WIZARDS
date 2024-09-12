@@ -1,0 +1,23 @@
+Site Fitness (Nutri Wizard )
+Desenvolver um site que permita aos usuários registrar e monitorar a ingestão diária de calorias e nutrientes, considerando as necessidades específicas descritas, 
+é importante criar um conjunto abrangente de requisitos. Vou detalhar esses requisitos abaixo:
+
+1.Cadastro de Usuário
+	Quero me registrar com nome, e-mail e senha. E adicionar também informações como idade, peso, gênero, altura e objetivo de saúde ou restrição ao meu perfil,
+	Para que eu possa criar uma conta e acessar o site e ele possa recomendar uma dieta com base nas minhas necessidades.
+
+2.Registro de Ingestão de Alimentos
+	Quero registrar os alimentos que consumo ao longo do dia, acessar uma base de dados com informações nutricionais sobre alimentos. E acessar uma sugestão de dieta de acordo com o meu cadastro.
+	Para que eu possa monitorar minha ingestão de calorias e macro nutrientes, possa adicionar alimentos facilmente à minha ingestão diária. E seguir um modelo personalizado.
+
+3.Controle de Calorias e Nutrientes
+	Quero que o site calcule automaticamente o total de calorias com base no meu objetivo de saúde. Monitorar a ingestão de calorias e macro nutrientes, tendo um relatório diário com minha ingestão total.
+	Para que eu possa saber se estou atingindo minhas metas de calorias, garantindo uma dieta equilibrada onde consiga revisar meu progresso e seguir minha dieta conforme indicado.
+
+4.Interface e Usabilidade
+	Quero uma interface intuitiva, prática e fácil de usar com cores agradáveis, tendo uma visualização clara da minha ingestão de calorias e macro nutrientes, incluindo o saldo positivo ou negativo diário. Ter acesso ao histórico das minhas ingestões anteriores.
+	Para que eu possa registrar dados e visualizar as informações sem dificuldades, acompanhar meu progresso de forma simples e direta.
+
+5.Experiência diferencial
+	Quero que o site forneça dicas de saúde para o usuário de forma aleatória.
+	Para que o usuário possa ter uma experiência interativa e se manter informado sobre dicas saudáveis. 
