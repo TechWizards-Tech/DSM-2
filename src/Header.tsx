@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import logotextosemfundo from './assets/logotextsemfundo1.svg'
+import logotextosemfundo from './assets/logotextsemfundo2.svg'
 
 const Header: React.FC = () => {
   return (
@@ -9,13 +9,8 @@ const Header: React.FC = () => {
         <img src={logotextosemfundo} />
       </div>
       <nav className="nav">
-        <a href="#about">About me</a>
-        <a href="#offer">My offer</a>
-        <a href="#transformations">Transformations</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
-        <a href="#en">EN</a>
+        <a href="#about">Sobre nós</a>
+        <a href="#contact">Contato</a>
       </nav>
     </header>
   );
