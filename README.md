@@ -45,14 +45,14 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
 |------------------------|------------------------------------------------------------------------------------------------------------|---------|
 | RF - 1                 | Criação de um protótipo do site usando Figma                                                               |  #01       |
-| RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              |         |
+| RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              | #01        |
 | RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.                      |         |
 | RF - 4                 | Usuário deve ser capaz de acessar uma dieta de acordo com as suas necessidades.                           |         |
 | RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |         |
 | RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |         |
 | RF - 7                 | Acessar o cálculo diário de calorias do site, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |         |
 | RF - 8                 | Ter acesso às calorias e aos macronutrientes dos alimentos consumidos.                                    |         |
-| RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |         |
+| RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01          |
 | RF - 10                | Visualizar um histórico de ingestão calórica.                                                             |         |
 | RF - 11                | Acessar dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável.                   |         |
 
@@ -60,13 +60,13 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO NÃO_FUNCIONAL_ID | REQUISITOS                                                                                          | SPRINTS |
 |----------------------------|-----------------------------------------------------------------------------------------------------|---------|
-| RNF - 1                    | Ter uma resposta rápida e um processo de dados eficiente usando Typescript, Node.js para o backend e Typescript, React para o frontend. |         |
+| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |  #01          |
 | RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |         |
 | RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |         |
-| RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. |         |
-| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |         |
+| RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01           |
+| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01          |
 | RNF - 6                    | Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |         |
-| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. |         |
+| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01           |
 
 
 ## :page_with_curl: USER STORIES
