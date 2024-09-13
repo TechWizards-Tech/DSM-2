@@ -26,7 +26,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | Sprint | Link        | Início      | Entrega     | Status |
 |--------|-------------|-------------|-------------|--------|
-| 01     | [Sprint 01](#sprint-1) | 02/09/2024 | 20/09/2024 |      |
+| 01     | [Sprint 01](#sprint-1) | 02/09/2024 | 20/09/2024 | EM ANDAMENTO     |
 | 02     | [Sprint 02](#sprint-2) | 23/09/2024 | 11/10/2024  |      |
 | 03     | [Sprint 03](#sprint-3) | 14/10/2024  | 08/11/2024 |      |
 
