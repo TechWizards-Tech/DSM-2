@@ -137,7 +137,16 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 <span id="sprint-1">
 
 ## :page_with_curl: SPRINT 1 
-<p align="justify">Na Primeira Sprint,......</p>
+<p align="justify">Na Sprint 1, estamos focados em estabelecer as bases fundamentais do nosso projeto, com as seguintes atividades principais:
+
+- **Interface Intuitiva e Dinâmica:** Desenvolvimento de uma interface que facilite a visualização das informações e o acompanhamento do progresso diário.
+- **Diagramas UML:** Criação dos Diagramas de Caso de Uso, Classe e Sequência para mapear a estrutura e funcionamento do sistema.
+- **Modelagem de Banco de Dados:** Elaboração do Diagrama Entidade-Relacionamento (DER) e Modelo Entidade-Relacionamento (MER).
+- **Documentação no GitHub:** Registro e organização de toda a documentação do projeto na plataforma GitHub.
+- **Metodologia SCRUM:** Aplicação da metodologia ágil SCRUM para gestão e acompanhamento das tarefas.
+- **Login de Acesso:** Implementação da funcionalidade de login com email e senha cadastrados.
+
+</p>
 
 <br>
 
