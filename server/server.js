@@ -1,6 +1,9 @@
 const express = require('express');
+const cors = require('cors'); // Importando cors
 const app = express();
+app.use(cors()); // Habilitando CORS
 app.use(express.json());
+
 
 let users = [];
 
