@@ -26,7 +26,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | Sprint | Link        | Início      | Entrega     | Status |
 |--------|-------------|-------------|-------------|--------|
-| 01     | [Sprint 01](#sprint-1) | 02/09/2024 | 20/09/2024 | EM ANDAMENTO     |
+| 01     | [Sprint 01](#sprint-1) | 02/09/2024 | 20/09/2024 | ✔    |
 | 02     | [Sprint 02](#sprint-2) | 23/09/2024 | 11/10/2024  |  NÃO INICIADA    |
 | 03     | [Sprint 03](#sprint-3) | 14/10/2024  | 08/11/2024 |  NÃO INICIADA    |
 
@@ -44,29 +44,29 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
 |------------------------|------------------------------------------------------------------------------------------------------------|---------|
-| RF - 1                 | Criação de um protótipo do site usando Figma                                                               |  #01       |
-| RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              | #01        |
+| RF - 1                 | Criação de um protótipo do site usando Figma                                                               |  #01✔       |
+| RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              | #01✔        |
 | RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.                      |         |
 | RF - 4                 | Usuário deve ser capaz de acessar uma dieta de acordo com as suas necessidades.                           |         |
 | RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |         |
 | RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |         |
 | RF - 7                 | Acessar o cálculo diário de calorias do site, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |         |
 | RF - 8                 | Ter acesso às calorias e aos macronutrientes dos alimentos consumidos.                                    |         |
-| RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01          |
+| RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01✔          |
 | RF - 10                | Visualizar um histórico de ingestão calórica.                                                             |         |
-| RF - 11                | Acessar dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável.                   |         |
+| RF - 11                | Acessar dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável.                   |  #01✔       |
 
 ## REQUISITOS NÃO FUNCIONAIS
 
 | REQUISITO NÃO_FUNCIONAL_ID | REQUISITOS                                                                                          | SPRINTS |
 |----------------------------|-----------------------------------------------------------------------------------------------------|---------|
-| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |  #01          |
-| RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |         |
+| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |  #01✔          |
+| RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |  #01✔        |
 | RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |         |
-| RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01           |
-| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01          |
+| RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01✔           |
+| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔         |
 | RNF - 6                    | Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |         |
-| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01           |
+| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔          |
 
 
 ## :page_with_curl: USER STORIES
@@ -148,5 +148,24 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 </p>
 
+<br>
+
+### • Sprint Backlog
+<br>
+
+| ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
+|---------------|--------------------|---------------|-----------------|-----------------|------------------|
+|  RF - 1    | 21 |Estruturar os Diagramas de Caso de Uso, Classe e Sequencia.(UML) |Maria Eduarda e Pamela | ✔  |✔  |
+| RF - 1/RF - 9/RNF - 1/RNF - 4 | 21 |Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário.|Raquel, Leandro e Pollyana  | ✔  |✔  |
+|  RNF - 2   | 34 |Criação do DER e do MER Banco de Dados |Felipe |  ✔  |✔  |
+|  RF - 2 /RNF - 1  | 21 |1ª parte - Cadastro e login de usuário (sem implementação) |Pollyana e Leandro|  ✔  |✔  |
+|  RF - 11   | 8 |Pesquisa e coleta de dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável  |Pamela (sem implementação) | ✔  |✔  |
+| RNF - 5    | 8 |Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |Bruna e Pollyana   | ✔  |✔  |
+|  RNF - 7    | 8 |Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades.|Bruna  | ✔  |✔  |
+
+<br>
+<br>
+
+### • Burndown Sprint 1
 <br>
 
