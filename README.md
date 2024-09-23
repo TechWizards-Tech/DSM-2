@@ -60,7 +60,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO NÃO_FUNCIONAL_ID | REQUISITOS                                                                                          | SPRINTS |
 |----------------------------|-----------------------------------------------------------------------------------------------------|---------|
-| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |  #01✔          |
+| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |            |
 | RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |  #01✔        |
 | RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |         |
 | RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01✔           |
