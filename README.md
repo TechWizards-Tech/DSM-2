@@ -27,7 +27,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | Sprint | Link        | Início      | Entrega     | Status |
 |--------|-------------|-------------|-------------|--------|
 | 01     | [Sprint 01](#sprint-1) | 02/09/2024 | 20/09/2024 | ✔    |
-| 02     | [Sprint 02](#sprint-2) | 23/09/2024 | 11/10/2024  |  NÃO INICIADA    |
+| 02     | [Sprint 02](#sprint-2) | 23/09/2024 | 11/10/2024 | ✔   |
 | 03     | [Sprint 03](#sprint-3) | 14/10/2024  | 08/11/2024 |  NÃO INICIADA    |
 
 <br>
@@ -44,9 +44,9 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
 |------------------------|------------------------------------------------------------------------------------------------------------|---------|
-| RF - 1                 | Criação de um protótipo do site usando Figma                                                               |  #01✔       |
+| RF - 1                 | Criação de um protótipo do site usando Figma                                                               | #01✔        |
 | RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              | #01✔        |
-| RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.                      |         |
+| RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.                      | #02✔        |
 | RF - 4                 | Usuário deve ser capaz de acessar uma dieta de acordo com as suas necessidades.                           |         |
 | RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |         |
 | RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |         |
@@ -65,7 +65,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |         |
 | RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01✔           |
 | RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔         |
-| RNF - 6                    | Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |         |
+| RNF - 6                    | Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. | #02✔        |
 | RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔          |
 
 
@@ -167,5 +167,39 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 <br>
 
 ### • Burndown Sprint 1
+<br>
+
+![Burndown 1](https://github.com/user-attachments/assets/187d8d0a-54d0-45b6-9b04-827e873a5fd8)
+
+<br> 
+
+<span id="sprint-2">
+
+## :page_with_curl: SPRINT 2 
+<p align="justify"> Na Sprint 2, fizemos progressos significativos no desenvolvimento da nossa aplicação, focando em três áreas principais:
+
+- **Acesso à Base de Dados dos Alimentos**: Implementamos a funcionalidade de acesso a uma base de dados contendo informações sobre os alimentos e seus macronutrientes. Com isso, conseguimos filtrar os dados da tabela Taco, permitindo que os usuários visualizem rapidamente os macronutrientes disponíveis.
+
+- **Cadastro de Dados na Dieta**: Embora os usuários ainda não consigam acessar suas dietas personalizadas, já deixamos os itens cadastrados no banco de dados. Essa etapa prepara o caminho para que, futuramente, os usuários possam inserir dados sobre suas refeições e acompanhar sua ingestão calórica e de macronutrientes.
+
+- **Interface Intuitiva e Dinâmica**: Criamos uma interface de usuário que é ao mesmo tempo intuitiva e dinâmica, facilitando a navegação. Implementamos também as funcionalidades de login e cadastro, permitindo que os usuários acessem suas contas de forma segura. Essa etapa é crucial para a personalização da experiência do usuário.
+
+Embora ainda faltem a conectividade entre os usuários e suas dietas, estamos no caminho para aprimorar a funcionalidade da aplicação. Na próxima sprint, vamos focar em integrar o acesso às dietas e otimizar ainda mais a interface.
+</p>
+<br>
+
+### • Sprint Backlog
+<br>
+
+| ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
+|---------------|--------------------|---------------|-----------------|-----------------|------------------|
+|  RF - 1    | 21 |Estruturar os Diagramas de Caso de Uso, Classe e Sequencia.(UML) |Maria Eduarda e Pamela | ✔  |✔  |
+| RF - 1/RF - 9/RNF - 1/RNF - 4 | 21 |Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário.|Raquel, Leandro e Pollyana  | ✔  |✔  |
+|  RNF - 2   | 34 |Criação do DER e do MER Banco de Dados |Felipe |  ✔  |✔  |
+|  RF - 2 /RNF - 1  | 21 |1ª parte - Cadastro e login de usuário (sem implementação) |Pollyana e Leandro|  ✔  |✔  |
+|  RF - 11   | 8 |Pesquisa e coleta de dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável  |Pamela (sem implementação) | ✔  |✔  |
+| RNF - 5    | 8 |Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |Bruna e Pollyana   | ✔  |✔  |
+|  RNF - 7    | 8 |Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades.|Bruna  | ✔  |✔  |
+
 <br>
 
