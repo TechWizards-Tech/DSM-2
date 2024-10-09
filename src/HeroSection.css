@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    padding: 50px;
+    padding: 20px;
     background-image: url('../public/wallpaper.jpg');
     background-size: cover;
     background-position: center;
@@ -14,8 +14,9 @@
 .hero-left {
     display: flex;
     flex-direction: column;
-    justify-content: stretch;
-    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
 }
 
 .hero-text {
@@ -42,7 +43,7 @@
     align-items: center;
     position: relative;
     left: 25%;
-    bottom: -15%;
+    bottom: -20%;
     transform: scale(1.15);
 }
 

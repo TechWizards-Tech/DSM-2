@@ -1,3 +1,20 @@
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('../public/wallpaper.jpg');
+  background-size: cover; /* Para cobrir toda a área da página */
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
+  background-attachment: fixed; /* Faz o background se fixar ao scroll */
+  background-position: center; /* Centraliza a imagem */
+}
+
 .App {
   text-align: center;
 }

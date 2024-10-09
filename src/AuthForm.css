@@ -1,8 +1,8 @@
 .auth-container {
     width: 100%;
-    max-width: 400px;
+    max-width: auto;
     background-color: #fff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -32,7 +32,10 @@
   }
   
   .form-group {
+    display: flex;
     margin-bottom: 15px;
+    justify-content: center;
+  
   }
   
   .form-group label {

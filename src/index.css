@@ -11,3 +11,105 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root {
+  --green-50: #f2f7f3;
+  --green-100: #dfecdf;
+  --green-200: #c2d8c4;
+  --green-300: #98bd9d;
+  --green-400: #64946d;
+  --green-500: #4b7e56;
+  --green-600: #386343;
+  --green-700: #2d4f37;
+  --green-800: #25402c;
+  --green-900: #1f3525;
+  --green-950: #111d15;
+}
+
+.bg-green-50 {
+  background-color: var(--green-50);
+}
+
+.bg-green-100 {
+  background-color: var(--green-100);
+}
+
+.bg-green-200 {
+  background-color: var(--green-200);
+}
+
+.bg-green-300 {
+  background-color: var(--green-300);
+}
+
+.bg-green-400 {
+  background-color: var(--green-400);
+}
+
+.bg-green-500 {
+  background-color: var(--green-500);
+}
+
+.bg-green-600 {
+  background-color: var(--green-600);
+}
+
+.bg-green-700 {
+  background-color: var(--green-700);
+}
+
+.bg-green-800 {
+  background-color: var(--green-800);
+}
+
+.bg-green-900 {
+  background-color: var(--green-900);
+}
+
+.bg-green-950 {
+  background-color: var(--green-950);
+}
+
+.text-green-50 {
+  color: var(--green-50);
+}
+
+.text-green-100 {
+  color: var(--green-100);
+}
+
+.text-green-200 {
+  color: var(--green-200);
+}
+
+.text-green-300 {
+  color: var(--green-300);
+}
+
+.text-green-400 {
+  color: var(--green-400);
+}
+
+.text-green-500 {
+  color: var(--green-500);
+}
+
+.text-green-600 {
+  color: var(--green-600);
+}
+
+.text-green-700 {
+  color: var(--green-700);
+}
+
+.text-green-800 {
+  color: var(--green-800);
+}
+
+.text-green-900 {
+  color: var(--green-900);
+}
+
+.text-green-950 {
+  color: var(--green-950);
+}
