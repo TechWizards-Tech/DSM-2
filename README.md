@@ -176,16 +176,15 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 <span id="sprint-2">
 
 ## :page_with_curl: SPRINT 2 
-<p align="justify"> Na Sprint 2, fizemos progressos significativos no desenvolvimento da nossa aplicação, focando em três áreas principais:
+<p align="justify"> Na Sprint 2, fizemos progressos importantes no desenvolvimento da nossa aplicação, focando em três áreas principais:
 
-- **Acesso à Base de Dados dos Alimentos**: Implementamos a funcionalidade de acesso a uma base de dados contendo informações sobre os alimentos e seus macronutrientes. Com isso, conseguimos filtrar os dados da tabela Taco, permitindo que os usuários visualizem rapidamente os macronutrientes disponíveis.
+- **Tabela dos Alimentos**: Inserimos os dados na base de dados, registrando informações detalhadas sobre os alimentos e seus macronutrientes. Embora consigamos filtrar os macronutrientes disponíveis, os usuários ainda não têm acesso direto a essa base.
 
-- **Cadastro de Dados na Dieta**: Embora os usuários ainda não consigam acessar suas dietas personalizadas, já deixamos os itens cadastrados no banco de dados. Essa etapa prepara o caminho para que, futuramente, os usuários possam inserir dados sobre suas refeições e acompanhar sua ingestão calórica e de macronutrientes.
+- **Preparação para Inserção de Dados na Dieta**: Embora os usuários ainda não consigam acessar suas dietas personalizadas, já deixamos os itens cadastrados no banco de dados. Isso prepara o caminho para que, em futuras etapas, os usuários possam registrar e acompanhar suas refeições conforme suas necessidades nutricionais.
 
-- **Interface Intuitiva e Dinâmica**: Criamos uma interface de usuário que é ao mesmo tempo intuitiva e dinâmica, facilitando a navegação. Implementamos também as funcionalidades de login e cadastro, permitindo que os usuários acessem suas contas de forma segura. Essa etapa é crucial para a personalização da experiência do usuário.
+- **Interface Intuitiva e Dinâmica**: Desenvolvemos uma primeira interface de usuário intuitiva e dinâmica, na qual implementamos as funcionalidades de login e cadastro, permitindo que os usuários criem suas contas de forma segura. Essa base é essencial para a personalização da experiência do usuário no futuro.
 
-Embora ainda faltem a conectividade entre os usuários e suas dietas, estamos no caminho para aprimorar a funcionalidade da aplicação. Na próxima sprint, vamos focar em integrar o acesso às dietas e otimizar ainda mais a interface.
-</p>
+Estamos avançando conforme planejado e, nas próximas sprints, vamos focar em conectar os usuários às suas dietas e otimizar ainda mais a interface.
 <br>
 
 ### • Sprint Backlog
@@ -193,13 +192,11 @@ Embora ainda faltem a conectividade entre os usuários e suas dietas, estamos no
 
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
-|  RF - 1    | 21 |Estruturar os Diagramas de Caso de Uso, Classe e Sequencia.(UML) |Maria Eduarda e Pamela | ✔  |✔  |
-| RF - 1/RF - 9/RNF - 1/RNF - 4 | 21 |Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário.|Raquel, Leandro e Pollyana  | ✔  |✔  |
-|  RNF - 2   | 34 |Criação do DER e do MER Banco de Dados |Felipe |  ✔  |✔  |
-|  RF - 2 /RNF - 1  | 21 |1ª parte - Cadastro e login de usuário (sem implementação) |Pollyana e Leandro|  ✔  |✔  |
-|  RF - 11   | 8 |Pesquisa e coleta de dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável  |Pamela (sem implementação) | ✔  |✔  |
-| RNF - 5    | 8 |Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |Bruna e Pollyana   | ✔  |✔  |
-|  RNF - 7    | 8 |Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades.|Bruna  | ✔  |✔  |
+| RF - 1    | 21 |Ajuste dos Diagramas de Caso de Uso, Classe e Sequencia.(UML) | Maria Eduarda e Pamela | ✔  |✔  |
+| RF - 3 | 21 |Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.|Raquel, Leandro e Maria Eduarda  | ✔  |✔  |
+| RNF - 6  | 21 |Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |Pollyana, Leandro, Felipe e Raquel |  ✔  |✔  |
 
 <br>
 
+### • Burndown Sprint 2
+<br>
