@@ -43,7 +43,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
 |------------------------|------------------------------------------------------------------------------------------------------------|---------|
 | RF - 1                 | Criação de um protótipo do site usando Figma                                                               | #01✔        |
-| RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              | #01✔        |
+| RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              | #01✔#02✔         |
 | RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.                      | #02✔        |
 | RF - 4                 | Usuário deve ser capaz de acessar uma dieta de acordo com as suas necessidades.                           |         |
 | RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |         |
@@ -58,13 +58,15 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO NÃO_FUNCIONAL_ID | REQUISITOS                                                                                          | SPRINTS |
 |----------------------------|-----------------------------------------------------------------------------------------------------|---------|
-| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |   #01✔         |
+| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |   #01✔#02✔          |
 | RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |  #01✔        |
 | RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |         |
 | RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01✔           |
-| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔         |
+| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔#02✔          |
 | RNF - 6                    | Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. | #02✔        |
-| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔          |
+| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔#02✔          |
+| RNF - 8                    | Conexão do backend com o banco de dados| #02✔          |
+
 
 
 ## :page_with_curl: USER STORIES
@@ -76,7 +78,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | ID REFERÊNCIA                            | REMETENTE | INSTRUÇÃO                                                                                                                                                                | FINALIDADE                                                                                                                                                        |
 |------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | RF - 2 / RF - 3 / RNF - 6                | Usuário   | Quero me registrar com nome, e-mail e senha. E adicionar também informações como idade, peso, gênero, altura e objetivo de saúde ou restrição ao meu perfil.            | Para que eu possa criar uma conta e acessar o site e ele possa recomendar uma dieta com base nas minhas necessidades.                                           |
-| RF - 4 / RF - 5 / RF - 6 / RNF - 2       | Usuário   | Quero registrar os alimentos que consumo ao longo do dia, acessar uma base de dados com informações nutricionais sobre alimentos, e acessar uma sugestão de dieta de acordo com o meu cadastro. | Para que eu possa monitorar minha ingestão de calorias e macronutrientes, adicionar alimentos facilmente à minha ingestão diária e seguir um modelo personalizado. |
+| RF - 4 / RF - 5 / RF - 6 / RNF - 2  /RNF - 8     | Usuário   | Quero registrar os alimentos que consumo ao longo do dia, acessar uma base de dados com informações nutricionais sobre alimentos, e acessar uma sugestão de dieta de acordo com o meu cadastro. | Para que eu possa monitorar minha ingestão de calorias e macronutrientes, adicionar alimentos facilmente à minha ingestão diária e seguir um modelo personalizado. |
 | RF - 7 / RNF - 1 / RNF - 3 / RNF - 6     | Usuário   | Quero que o site calcule automaticamente o total de calorias com base no meu objetivo de saúde, monitorar a ingestão de calorias e macronutrientes, e ter um relatório diário com minha ingestão total. | Para que eu possa saber se estou atingindo minhas metas de calorias, garantindo uma dieta equilibrada onde consiga revisar meu progresso e seguir minha dieta conforme indicado. |
 | RF - 8 / RF - 9 / RNF - 3 / RNF - 4      | Cliente   | Quero uma interface intuitiva, prática e fácil de usar com cores agradáveis, tendo uma visualização clara da ingestão de calorias e macronutrientes, incluindo o saldo positivo ou negativo diário. Ter acesso ao histórico das ingestões anteriores. | Para que o usuário possa visualizar as informações sem dificuldades e acompanhar seu progresso de forma simples e direta.                                           |
 | RF - 11 / RNF - 1                       | Cliente   | Quero que o site forneça dicas de saúde para o usuário de forma aleatória.                                                                                             | Para que o usuário possa ter uma experiência interativa e se manter informado sobre dicas saudáveis.                                                             |
@@ -174,15 +176,17 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 <span id="sprint-2">
 
 ## :page_with_curl: SPRINT 2 
-<p align="justify"> Na Sprint 2, fizemos progressos importantes no desenvolvimento da nossa aplicação, focando em três áreas principais:
+<p align="justify"> Na Sprint 2, fizemos progresso no desenvolvimento da nossa aplicação, focando em três áreas principais:
 
+- **Conexões**: Fizemos a conexão do back-end com o banco de dados.
+ 
 - **Tabela dos Alimentos**: Inserimos os dados na base de dados, registrando informações detalhadas sobre os alimentos e seus macronutrientes. Embora consigamos filtrar os macronutrientes disponíveis, os usuários ainda não têm acesso direto a essa base.
 
-- **Preparação para Inserção de Dados na Dieta**: Embora os usuários ainda não consigam acessar suas dietas personalizadas, já deixamos os itens cadastrados no banco de dados. Isso prepara o caminho para que, em futuras etapas, os usuários possam registrar e acompanhar suas refeições conforme suas necessidades nutricionais.
+- **Preparação para Inserção de Dados na Dieta**: Embora os usuários ainda não consigam acessar suas dietas personalizadas, já deixamos os itens cadastrados no banco de dados. Isso prepara o caminho para que, na próxima sprint, os usuários possam registrar e acompanhar suas refeições conforme suas necessidades nutricionais. 
 
 - **Interface Intuitiva e Dinâmica**: Desenvolvemos uma primeira interface de usuário intuitiva e dinâmica, na qual implementamos as funcionalidades de login e cadastro, permitindo que os usuários criem suas contas de forma segura. Essa base é essencial para a personalização da experiência do usuário no futuro.
 
-Estamos avançando conforme planejado e, nas próximas sprints, vamos focar em conectar os usuários às suas dietas e otimizar ainda mais a interface.
+Estamos avançando no projeto, porém com algumas dificuldades no desenvolvimento. Na próxima sprint, vamos focar em usuario acessar perfil e se conectar às suas dietas, e otimizando a interface da aplicação.
 <br>
 
 ### • Sprint Backlog
@@ -191,8 +195,10 @@ Estamos avançando conforme planejado e, nas próximas sprints, vamos focar em c
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
 | RF - 1    | 21 |Ajuste dos Diagramas de Caso de Uso, Classe e Sequencia.(UML) | Maria Eduarda e Pamela | ✔ | ✔ |
-| RF - 3 | 21 |Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.|Raquel, Leandro e Maria Eduarda  | ✔ | ✔ |
+| RF - 3 | 21 |Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.|Raquel, Leandro e Maria Eduarda, Pollyana  | ✔ | ✔ |
+| RF - 3 | 21 |Conectar o back-end no banco de dados.|Felipe e Pollyana  | ✔ | ✔ |
 | RNF - 6  | 21 |Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |Pollyana, Leandro, Felipe e Raquel | ✔ | ✔ |
+| RNF - 8  | 21 |Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |Pollyana, Leandro, Felipe e Raquel | ✔ | ✔ |
 
 <br>
 
