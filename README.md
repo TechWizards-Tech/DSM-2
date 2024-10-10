@@ -38,8 +38,6 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 ## :page_with_curl: Product Backlog
 
-### REQUISITOS FUNCIONAIS
-
 ## REQUISITOS FUNCIONAIS
 
 | REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
@@ -153,11 +151,11 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 ### • Sprint Backlog
 <br>
 
-| ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
+| ID REFERENCIA | Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
 |  RF - 1    | 21 |Estruturar os Diagramas de Caso de Uso, Classe e Sequencia.(UML) |Maria Eduarda e Pamela | ✔  |✔  |
 | RF - 1/RF - 9/RNF - 1/RNF - 4 | 21 |Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário.|Raquel, Leandro e Pollyana  | ✔  |✔  |
-|  RNF - 2   | 34 |Criação do DER e do MER Banco de Dados |Felipe |  ✔  |✔  |
+|  RNF - 2   | 34 |Criação do DER e do MER Banco de Dados |Felipe | ✔ | ✔ |
 |  RF - 2 /RNF - 1  | 21 |1ª parte - Cadastro e login de usuário (sem implementação) |Pollyana e Leandro|  ✔  |✔  |
 |  RF - 11   | 8 |Pesquisa e coleta de dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável  |Pamela (sem implementação) | ✔  |✔  |
 | RNF - 5    | 8 |Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |Bruna e Pollyana   | ✔  |✔  |
@@ -192,9 +190,9 @@ Estamos avançando conforme planejado e, nas próximas sprints, vamos focar em c
 
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
-| RF - 1    | 21 |Ajuste dos Diagramas de Caso de Uso, Classe e Sequencia.(UML) | Maria Eduarda e Pamela | ✔  |✔  |
-| RF - 3 | 21 |Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.|Raquel, Leandro e Maria Eduarda  | ✔  |✔  |
-| RNF - 6  | 21 |Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |Pollyana, Leandro, Felipe e Raquel |  ✔  |✔  |
+| RF - 1    | 21 |Ajuste dos Diagramas de Caso de Uso, Classe e Sequencia.(UML) | Maria Eduarda e Pamela | ✔ | ✔ |
+| RF - 3 | 21 |Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.|Raquel, Leandro e Maria Eduarda  | ✔ | ✔ |
+| RNF - 6  | 21 |Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |Pollyana, Leandro, Felipe e Raquel | ✔ | ✔ |
 
 <br>
 
