@@ -185,7 +185,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 - **Interface Intuitiva e Dinâmica**: Desenvolvemos uma primeira interface de usuário intuitiva e dinâmica, na qual implementamos as funcionalidades de login e cadastro, permitindo que os usuários criem suas contas de forma segura. Essa base é essencial para a personalização da experiência do usuário no futuro.
 
-Estamos avançando no projeto, porém com algumas dificuldades no desenvolvimento. Na próxima sprint, vamos focar em usuario acessar perfil e se conectar às suas dietas, e otimizando a interface da aplicação.
+Estamos avançando no projeto e para a próxima sprint, vamos focar em usuario acessar perfil e se conectar às suas dietas, e otimizando a interface da aplicação.
 <br>
 
 ### • Sprint Backlog
