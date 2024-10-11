@@ -42,14 +42,14 @@ async function init() {
             name VARCHAR(40) NULL,
             PRIMARY KEY(id)
         );
+            CREATE TABLE IF NOT EXISTS diet (
+              idD SERIAL PRIMARY KEY,
+              diet INT NOT NULL,
+              objective INT NOT NULL,
+              text VARCHAR(45) NOT NULL,
+              period INT NOT NULL
+            );
 
-        CREATE TABLE IF NOT EXISTS diet (
-            "idDiet" SERIAL PRIMARY KEY,
-            "diet" INT DEFAULT NULL,
-            "objective" INT DEFAULT NULL,
-            "text" VARCHAR(45) DEFAULT NULL,
-            "period" INT DEFAULT NULL
-          );
 
         CREATE TABLE foods (
             id SERIAL NOT NULL,
