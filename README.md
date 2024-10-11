@@ -41,17 +41,17 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 ## REQUISITOS FUNCIONAIS
 
-| REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                 | SPRINTS |
-|------------------------|------------------------------------------------------------------------------------------------------------|---------|
-| RF - 1                 | Criação de um protótipo do site usando Figma                                                               | #01✔        |
-| RF - 2                 | Criar um Perfil de usuário para ele se cadastre com seus dados, email e senha                              | #01✔#02✔         |
-| RF - 3                 | Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.                      | #02✔        |
-| RF - 4                 | Usuário deve ser capaz de acessar uma dieta de acordo com as suas necessidades.                           |         |
+| REQUISITO FUNCIONAL_ID | REQUISITOS                                                                                                | SPRINTS |
+|------------------------|-----------------------------------------------------------------------------------------------------------|---------|
+| RF - 1                 | Criação de um protótipo do site usando Figma                                                              | #01✔        |
+| RF - 2                 | Criação e ajustes da interface onde o usuário faça login e cadastro com seu nome, email e senha.          | #01✔#02✔    |
+| RF - 3                 | Usuário é capaz de fazer Login de Acesso utilizando email e senha cadastrados.                            | #02✔        |
+| RF - 4                 | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |         |
 | RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |         |
 | RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |         |
-| RF - 7                 | Acessar o cálculo diário de calorias do site, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |         |
-| RF - 8                 | Ter acesso às calorias e aos macronutrientes dos alimentos consumidos.                                    |         |
-| RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01✔          |
+| RF - 7                 | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |         |
+| RF - 8                 | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |         |
+| RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01✔      |
 | RF - 10                | Visualizar um histórico de ingestão calórica.                                                             |         |
 | RF - 11                | Acessar dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável.                   |  #01✔       |
 
@@ -64,10 +64,8 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |         |
 | RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01✔           |
 | RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔#02✔          |
-| RNF - 6                    | Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. | #02✔        |
+| RNF - 6                    | Conexão do backend com o banco de dados | #02✔        |
 | RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔#02✔          |
-| RNF - 8                    | Conexão do backend com o banco de dados| #02✔          |
-
 
 
 ## :page_with_curl: USER STORIES
@@ -156,7 +154,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | ID REFERENCIA | Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
-|  RF - 1    | 21 |Estruturar os Diagramas de Caso de Uso, Classe e Sequencia.(UML) |Maria Eduarda e Pamela | ✔  |✔  |
+|  RF - 1    | 13 |Estruturar os Diagramas de Caso de Uso, Classe e Sequencia.(UML) |Maria Eduarda e Pamela | ✔  |✔  |
 | RF - 1/RF - 9/RNF - 1/RNF - 4 | 21 |Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário.|Raquel, Leandro e Pollyana  | ✔  |✔  |
 |  RNF - 2   | 34 |Criação do DER e do MER Banco de Dados |Felipe | ✔ | ✔ |
 |  RF - 2 /RNF - 1  | 21 |1ª parte - Cadastro e login de usuário (sem implementação) |Pollyana e Leandro|  ✔  |✔  |
@@ -195,11 +193,10 @@ Estamos avançando no projeto, porém com algumas dificuldades no desenvolviment
 
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
-| RF - 1    | 21 |Ajuste dos Diagramas de Caso de Uso, Classe e Sequencia.(UML) | Maria Eduarda e Pamela | ✔ | ✔ |
-| RF - 3 | 21 |Usuário deve ser capaz de fazer Login de Acesso utilizando email e senha cadastrados.|Raquel, Leandro e Maria Eduarda, Pollyana  | ✔ | ✔ |
-| RF - 3 | 21 |Conectar o back-end no banco de dados.|Felipe e Pollyana  | ✔ | ✔ |
-| RNF - 6  | 21 |Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |Pollyana, Leandro, Felipe e Raquel | ✔ | ✔ |
-| RNF - 8  | 21 |Implementação de acesso via senha para garantir uma proteção maior ao usuário, com dados manipulados de forma segura. |Pollyana, Leandro, Felipe e Raquel | ✔ | ✔ |
+| RF - 1    | 13 | Ajuste dos Diagramas de Caso de Uso, Classe e Sequencia.(UML) | Maria Eduarda e Pamela | ✔ | ✔ |
+| RF - 2 | 21 | Criação e ajustes da interface onde o usuário faça login e cadastro com seu nome, email e senha. | Raquel, Leandro e Maria Eduarda, Pollyana | ✔ | ✔ |
+| RF - 3 | 34 | Usuário é capaz de fazer Login de Acesso utilizando email e senha cadastrados. | Felipe, Leandro e Pollyana  | ✔ | ✔ |
+| RNF - 6  | 21 | Conexão do backend com o banco de dados | Pollyana e Felipe | ✔ | ✔ |
 
 <br>
 
