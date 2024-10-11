@@ -189,7 +189,8 @@ Estamos avançando no projeto, porém com algumas dificuldades no desenvolviment
 <br>
 
 ### • Sprint Backlog
-<br>
+<br> 
+
 
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
