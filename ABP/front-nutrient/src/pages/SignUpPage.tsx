@@ -4,9 +4,9 @@ import { Input, Button, Header, Error, LinkButton } from "../components";
 import { useUser } from "../hooks";
 
 export default function SignUpPage() {
-  const [alias, setAlias] = useState("Ana Maria");
-  const [mail, setMail] = useState("aba@teste.com");
-  const [password, setPassword] = useState("123456");
+  const [alias, setAlias] = useState("");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
   const { create, error, setError } = useUser();
 
   const handleCreate = () => {
@@ -27,7 +27,7 @@ export default function SignUpPage() {
       {error && <Error>{error.error}</Error>}
       <FieldWrapper>
         
-        <TextSld>Cadastro de novo usuário</TextSld>
+        <TextSld>CADASTRO</TextSld>
         <Input
           type="text"
           id="alias"
@@ -38,7 +38,7 @@ export default function SignUpPage() {
         <Input
           type="text"
           id="mail"
-          label="e-mail"
+          label="E-mail"
           value={mail}
           setValue={setMail}
         />
@@ -74,7 +74,7 @@ const TextSld = styled.div`
   display: flex;
   font-size: 120%;
   font-weight: bold;
-  color: #333;
+  color: green;
   margin: 10px 0px;
 `;
 

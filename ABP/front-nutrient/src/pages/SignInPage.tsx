@@ -6,8 +6,8 @@ import { loadFromLocalStorage } from "../utils";
 import { useNavigate } from "react-router-dom";
 
 export default function SignInPage() {
-  const [mail, setMail] = useState("aba@teste.com");
-  const [password, setPassword] = useState("123456");
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
   const { token, setToken, login, error, setError } = useUser();
   const navigate = useNavigate();
 
@@ -38,11 +38,11 @@ export default function SignInPage() {
       <Header />
       {error && <Error>{error.error}</Error>}
       <FieldWrapper>
-        <TextSld>Login</TextSld>
+        <TextSld>LOGIN</TextSld>
         <Input
           type="text"
           id="mail"
-          label="e-mail"
+          label="E-mail"
           value={mail}
           setValue={setMail}
         />
@@ -78,7 +78,7 @@ const TextSld = styled.div`
   display: flex;
   font-size: 120%;
   font-weight: bold;
-  color: #333;
+  color: green;
   margin: 10px 0px;
 `;
 
