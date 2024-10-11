@@ -195,7 +195,7 @@ Estamos avançando no projeto e para a próxima sprint, vamos focar em usuario a
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
 | RF - 1    | 13 | Ajuste dos Diagramas de Caso de Uso, Classe e Sequencia.(UML) | Maria Eduarda e Pamela | ✔ | ✔ |
-| RF - 2 | 21 | Criação e ajustes da interface onde o usuário faça login e cadastro com seu nome, email e senha. | Raquel, Leandro e Maria Eduarda, Pollyana | ✔ | ✔ |
+| RF - 2 | 21 | Criação e ajustes da interface onde o usuário faça login e cadastro com seu nome, email e senha. | Raquel, Leandro, Maria Eduarda e Pollyana | ✔ | ✔ |
 | RF - 3 | 34 | Usuário é capaz de fazer Login de Acesso utilizando email e senha cadastrados. | Felipe, Leandro e Pollyana  | ✔ | ✔ |
 | RNF - 6  | 21 | Conexão do backend com o banco de dados | Pollyana e Felipe | ✔ | ✔ |
 
