@@ -204,3 +204,7 @@ Estamos avançando no projeto, porém com algumas dificuldades no desenvolviment
 
 ### • Burndown Sprint 2
 <br>
+
+![gráfico de burndown 2](https://github.com/user-attachments/assets/10857f5d-6888-4878-bf77-66df588795eb)
+
+<br>
