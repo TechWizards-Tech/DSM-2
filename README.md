@@ -204,7 +204,7 @@ Estamos avançando no projeto e para a próxima sprint, vamos focar em usuario a
 ### • Burndown Sprint 2
 <br>
 
-![gráfico de burndown 2](https://github.com/user-attachments/assets/10857f5d-6888-4878-bf77-66df588795eb)
+![burndown 2](https://github.com/user-attachments/assets/9086c0cd-481e-4f00-8133-48d4932b8da9)
 
 <br>
 ****
