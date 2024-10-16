@@ -163,14 +163,19 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 |  RNF - 7    | 8 |Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades.|Bruna  | ✔  |✔  |
 
 <br>
-<br>
 
 ### • Burndown Sprint 1
 <br>
 
 ![Burndown 1](https://github.com/user-attachments/assets/187d8d0a-54d0-45b6-9b04-827e873a5fd8)
 
-<br> 
+### • Sprint Retrospective
+
+Na Sprint 1, focamos na criação das bases do projeto, incluindo uma interface intuitiva, diagramas UML, modelagem de banco de dados, documentação no GitHub, aplicação da metodologia SCRUM. A interface desenvolvida a princípio no Figma foi bem desenvolvida já. Os diagramas UML foram elaborados com sucesso, mas necessitam de mais detalhes e entendimento compartilhado. A modelagem de banco de dados foi semi-concluída, necessitando apenas algumas revisões. A documentação no GitHub foi bem organizada. A metodologia SCRUM foi aplicada sem problemas também. 
+
+Na próxima sprint, além de melhorar os pontos mencionados, avançaremos na continuidade do desenvolvimento das páginas da interface, como login e cadastro, aprimorando a navegação e a experiência do usuário. Também detalharemos mais os diagramas UML, alinharemos melhor a modelagem de dados, manteremos a documentação atualizada. Essas ações visam garantir a evolução contínua e o sucesso do projeto.
+<br>
+<br>
 
 <span id="sprint-2">
 
@@ -207,4 +212,11 @@ Estamos avançando no projeto e para a próxima sprint, vamos focar em usuario a
 ![burndown 2](https://github.com/user-attachments/assets/9086c0cd-481e-4f00-8133-48d4932b8da9)
 
 <br>
+
+### • Sprint Retrospective
+
+Realizamos a conexão do back-end com o banco de dados, começando pela Tabela dos Alimentos, onde inserimos dados detalhados sobre os alimentos e seus macronutrientes. Embora a filtragem dos macronutrientes esteja funcionando, os usuários ainda não têm acesso direto a essas informações. Também preparamos a Inserção de Dados na Dieta, com itens já cadastrados no banco, preparando o ambiente para que, na próxima e ultima sprint, os usuários possam registrar e acompanhar suas refeições conforme suas necessidades nutricionais. Além disso, implementamos as funcionalidades de login e cadastro, permitindo aos usuários criarem suas contas de forma segura.
+
+Na Sprint 3, avançaremos permitindo que os usuários acessem seus perfis, o contador de calores e se conectem às suas dietas personalizadas. E otimizaremos a interface da aplicação, aprimorando a navegação e a experiência do usuário, para torná-la ainda mais fluida e intuitiva.
+
 ****
