@@ -1,10 +1,11 @@
-
 .carousel-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
 .carousel-container {
+  display: flex;
+  flex-direction: column;
   width: 80%;
   background-color: #fff;
   padding: 20px;
@@ -13,34 +14,125 @@
 }
 
 .progress-bar {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-    height: 8px; /* Altura da barra de progresso */
-    background-color: #e0e0e0; /* Cor de fundo da barra */
-    border-radius: 4px; /* Bordas arredondadas */
-    overflow: hidden; /* Para ocultar a parte que excede */
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  height: 8px;
+  /* Altura da barra de progresso */
+  background-color: #e0e0e0;
+  /* Cor de fundo da barra */
+  border-radius: 4px;
+  /* Bordas arredondadas */
+  overflow: hidden;
+  /* Para ocultar a parte que excede */
+}
+
+.progress-segment {
+  flex: 1;
+  /* Cada segmento ocupa igual espaço */
+  height: 100%;
+  /* Altura do segmento */
+  background-color: #ccc;
+  /* Cor do segmento inativo */
+  transition: background-color 0.3s, width 1s;
+  /* Suaviza a transição e aumenta a duração */
+  width: 0;
+  /* Inicia com largura zero */
+}
+
+.progress-segment.active {
+  background-color: #004d00;
+  /* Cor do segmento ativo */
+  animation: grow 2s forwards;
+  /* Animação de crescimento mais lenta */
+}
+
+@keyframes grow {
+  from {
+    width: 0;
   }
-  
-  .progress-segment {
-    flex: 1; /* Cada segmento ocupa igual espaço */
-    height: 100%; /* Altura do segmento */
-    background-color: #ccc; /* Cor do segmento inativo */
-    transition: background-color 0.3s, width 1s; /* Suaviza a transição e aumenta a duração */
-    width: 0; /* Inicia com largura zero */
+
+  to {
+    width: 100%;
+    /* Aumenta para 100% do espaço disponível */
   }
-  
-  .progress-segment.active {
-    background-color: #004d00; /* Cor do segmento ativo */
-    animation: grow 2s forwards; /* Animação de crescimento mais lenta */
+}
+
+
+.carousel-slide {
+  margin: 10px;
+}
+
+
+/* Estilo padrão */
+.input-custom {
+  /* display: flex; */
+  width: 50%;
+  border-radius: 0.375rem;
+  border: none;
+  color: #111827;
+  box-shadow: inset 0 0 0 1px #D1D5DB;
+  padding: 0.625rem;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  outline: 3px solid #98bd9d;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.input-custom::placeholder {
+  color: #dfecdf;
+  /* placeholder:text-gray-300 */
+}
+
+/* Quando em foco */
+.input-custom:focus {
+  outline: 1px solid #4b7e56;
+  /* focus:outline-2 */
+  box-shadow: inset 0 0 0 2px #4b7e56;
+  /* focus:ring-2 focus:ring-inset focus:ring-purple-600 */
+}
+
+/* Quando desabilitado */
+.input-custom:disabled {
+  cursor: not-allowed;
+  /* disabled:cursor-not-allowed */
+  background-color: #F9FAFB;
+  /* disabled:bg-gray-50 */
+  color: #9CA3AF;
+  /* disabled:text-gray-400 */
+  box-shadow: inset 0 0 0 1px #E5E7EB;
+  /* disabled:ring-gray-200 */
+}
+
+/* Quando há erro (data-error=true) */
+.input-custom[data-error="true"] {
+  color: #7F1D1D;
+  /* data-[error=true]:text-red-900 */
+  background-color: #FEF2F2;
+  /* data-[error=true]:bg-red-50 */
+  box-shadow: inset 0 0 0 1px #FCA5A5;
+  /* data-[error=true]:ring-red-300 */
+}
+
+.input-custom[data-error="true"]::placeholder {
+  color: #FCA5A5;
+  /* data-[error=true]:placeholder:text-red-300 */
+}
+
+.input-custom[data-error="true"]:focus {
+  box-shadow: inset 0 0 0 2px #EF4444;
+  /* data-[error=true]:focus:ring-red-500 */
+}
+
+/* Para telas pequenas (sm) */
+@media (max-width: 640px) {
+  .input-custom {
+    outline: 3px solid #98bd9d;
   }
-  
-  @keyframes grow {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%; /* Aumenta para 100% do espaço disponível */
-    }
-  }
-  
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
