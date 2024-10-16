@@ -211,7 +211,6 @@ Estamos avançando no projeto e para a próxima sprint, vamos focar em usuario a
 
 ![burndown 2](https://github.com/user-attachments/assets/9086c0cd-481e-4f00-8133-48d4932b8da9)
 
-<br>
 
 ### • Sprint Retrospective
 
