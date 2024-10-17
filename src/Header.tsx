@@ -10,7 +10,7 @@ const Header: React.FC = () => {
         <img src={logotextosemfundo} />
       </div>
       <nav className="nav ">
-        <a href="#about">Sobre nós</a>
+        <a href="about">Sobre nós</a>
         <a href="https://github.com/TechWizards-Tech/DSM-2" target="blank">Contato</a>
         <a href="https://github.com/TechWizards-Tech/DSM-2" target="blank"> <img src={ github } /> </a>
       </nav>

@@ -7,16 +7,31 @@
   color: white;
   border-radius: 25px;
   margin: 10px;
-  box-shadow: -10px 10px 0px 0px rgba(0, 77, 0, 0.2); 
+  box-shadow: -10px 10px 0px 0px rgba(0, 77, 0, 0.2);
   height: 96px;
 }
 
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: space-between;
+}
+
 .logo img {
-  transform: scale(0.6);
+  max-width: 100%;
+  /* A imagem nunca será maior que a largura da div */
+  max-height: 100%;
+  /* A imagem nunca será maior que a altura da div */
+  object-fit: contain;
+  /* Mantém a proporção da imagem e garante que ela se encaixe */
 }
 
 
-.nav{
+
+.nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -26,11 +41,14 @@
 
 .nav a {
   color: white;
-  text-decoration: none;
-  font-size: 24px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    /* color: #000; */
+    text-decoration: none;
+    font-size: 18px;
 }
 
 .nav a:hover {
   text-decoration: underline;
 }
-
