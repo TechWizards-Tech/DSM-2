@@ -1,0 +1,74 @@
+.colum {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.calories-container {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  gap: 10px;
+
+  flex-direction: column;
+}
+
+.text-bold {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.text-fit {
+  font-size: 34px;
+  font-weight: lighter;
+  margin: 0;
+  color: #000;
+}
+
+.calories-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10em;
+  height: 10em;
+  background-color: #dfecdf;
+  border-radius: 50% 0% 0% 50%;
+  border: 5px solid #98bd9d;
+  /* font-size: 20px; */
+  text-align: center;
+}
+
+
+.circle-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10em;
+  height: 10em;
+  background-color: #dfecdf;
+  /* border-radius: 50%; */
+  border: 5px solid #98bd9d;
+  /* font-size: 20px; */
+  text-align: center;
+}
+
+
+.calories-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10em;
+  height: 10em;
+  background-color: #dfecdf;
+  border-radius: 0% 50% 50% 0%;
+  border: 5px solid #98bd9d;
+  /* font-size: 20px; */
+  text-align: center;
+}
