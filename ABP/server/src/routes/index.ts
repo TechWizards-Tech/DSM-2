@@ -1,12 +1,21 @@
 import { Router, Request, Response } from "express";
 import { UserController } from "../controllers";
 import { validadeAcess } from "../middlewares";
-
+import field from "./field";
+import category from "./category";
+import food from "./food";
+import profile from "./profile";
 import user from "./user";
+import eatFood from "./eatFood";
 
 const routes = Router();
 
 routes.post("/login", UserController.login);
+routes.use("/food", food);
+routes.use("/category", category);
+routes.use("/eat/food", validadeAcess, eatFood);
+routes.use("/field", field);
+routes.use("/profile", validadeAcess, profile);
 routes.use("/user", user);
 
 //aceita qualquer método HTTP ou URL
