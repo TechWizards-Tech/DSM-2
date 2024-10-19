@@ -15,18 +15,16 @@ Pauta da Reunião:
 
 1.	Atualização sobre Conexão com o Banco de Dados:
 
-2.	Realizamos a conexão do back-end com o banco de dados, começando pela Tabela dos Alimentos, onde foram inseridos dados detalhados sobre os alimentos e seus macronutrientes.
+o	  Realizamos a conexão do back-end com o banco de dados, começando pela Tabela dos Alimentos, onde foram inseridos dados detalhados sobre os alimentos e seus macronutrientes.
 A filtragem dos macronutrientes está funcionando, mas os usuários ainda não têm acesso direto a essas informações.
-Preparação para Inserção de Dados na Dieta:
 
-3.	Itens já cadastrados no banco foram preparados, permitindo que, na próxima e última sprint, os usuários possam registrar e acompanhar suas refeições conforme suas necessidades nutricionais.
+3.	Preparação para Inserção de Dados na Dieta:
+o	Itens já cadastrados no banco foram preparados, permitindo que, na próxima e última sprint, os usuários possam registrar e acompanhar suas refeições conforme suas necessidades nutricionais.
 Funcionalidades de Login e Cadastro:
 
-4.	Implementadas com sucesso, permitindo que os usuários criem suas contas de forma segura.
+3.	Metas para a Sprint 3:
 
-Metas para a Sprint 3:
-
-5.	Avançaremos permitindo que os usuários acessem seus perfis, o contador de calorias e se conectem às suas dietas personalizadas.
+o	.	Avançaremos permitindo que os usuários acessem seus perfis, o contador de calorias e se conectem às suas dietas personalizadas.
 Planejamos otimizar a interface da aplicação, aprimorando a navegação e a experiência do usuário, tornando-a mais fluida e intuitiva.
 
 
