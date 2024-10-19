@@ -1,0 +1,31 @@
+Ata de Reunião 8
+Data: 18/10/2024
+
+Participantes:
+
+Bruna (Scrum Master)
+Pamela (Product Owner)
+Raquel (Desenvolvedora)
+Leandro (Desenvolvedor)
+Felipe (Desenvolvedor)
+Polly (Desenvolvedora)
+Duda (Desenvolvedora)
+
+
+Pauta da Reunião
+
+1.	Funções Básicas:
+
+2.	Implementação de funções básicas de insert/update/delete para todas as tabelas do banco de dados.
+Listagem de Alimentos:
+
+3.	Função para listar alimentos está funcionando corretamente.
+Cadastro de Alimentos Consumidos:
+
+4.	A funcionalidade para cadastrar alimentos consumidos foi iniciada, mas falta separar por período.
+Cadastro/Ver Perfil:
+
+5.	A função para cadastrar e visualizar o perfil do usuário está em andamento, sendo necessário adaptar todos os campos para o uso específico.
+Login de Acesso:
+
+6.	Usuário consegue fazer login utilizando email e senha cadastrados. Status: Parcial
