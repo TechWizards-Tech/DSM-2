@@ -7,6 +7,7 @@
     border-radius: 40px; /* Bordas arredondadas */
     padding: 10px 20px; /* Espaçamento interno */
     width: 500px; /* Largura fixa */
+    max-width: 100%;
     height: 80px; /* Altura fixa */
     box-shadow: -5px 6px 0px 0px rgba(0, 105, 0, 0.3);
   }

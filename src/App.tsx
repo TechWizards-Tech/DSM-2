@@ -8,6 +8,7 @@ import Button from './Button';
 import CalorieTracker from './CalorieTracker';
 import MealCard from './MealCard';
 
+
 const App: React.FC = () => {
   return (
     <div className="App">
@@ -19,7 +20,7 @@ const App: React.FC = () => {
           {/* <HeroSection /> */}
           {/* <Carousel /> */}
 
-          <CalorieTracker/>
+          <CalorieTracker />
 
 
         </div>
