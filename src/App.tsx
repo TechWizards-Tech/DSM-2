@@ -7,6 +7,7 @@ import Carousel from './Carousel';
 import Button from './Button';
 import CalorieTracker from './CalorieTracker';
 import MealCard from './MealCard';
+import FoodForm from './FoodForm';
 
 
 const App: React.FC = () => {
@@ -19,8 +20,8 @@ const App: React.FC = () => {
 
           {/* <HeroSection /> */}
           {/* <Carousel /> */}
-
-          <CalorieTracker />
+          {/* <CalorieTracker /> */}
+          <FoodForm />
 
 
         </div>

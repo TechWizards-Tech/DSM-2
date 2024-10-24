@@ -1,0 +1,13 @@
+ul.dropdown li.dropli {
+    list-style-type: none;
+    padding: 10px;
+    cursor: pointer;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  ul.dropdown li.dropli:hover {
+    background-color: #f0f0f0; /* Altere essa cor para a desejada */
+    color: #000; /* Se quiser mudar a cor do texto ao passar o mouse */
+  }

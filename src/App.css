@@ -8,8 +8,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../public/14.jpg');
-  /* background-image: url('../public/99.png'); */
+  /* background-image: url('../public/9.jpg'); */
+  background-image: url('../public/99.png');
   background-size: cover; /* Para cobrir toda a área da página */
   background-repeat: no-repeat; /* Impede a repetição da imagem */
   background-attachment: fixed; /* Faz o backgrou2d se fixar ao scroll */

@@ -22,11 +22,8 @@
 
 .logo img {
   max-width: 100%;
-  /* A imagem nunca será maior que a largura da div */
   max-height: 100%;
-  /* A imagem nunca será maior que a altura da div */
   object-fit: contain;
-  /* Mantém a proporção da imagem e garante que ela se encaixe */
 }
 
 
