@@ -22,6 +22,7 @@ O controle do desenvolvimento e das alterações será gerenciado através de Gi
 ## Link para o Trello
 
 Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessar o quadro do Trello do projeto.
+<br>
 
 ## SPRINTS
 
@@ -54,6 +55,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01✔      |
 | RF - 10                | Visualizar um histórico de ingestão calórica.                                                             |         |
 | RF - 11                | Acessar dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável.                   |  #01✔       |
+<br>
 
 ## REQUISITOS NÃO FUNCIONAIS
 
@@ -66,14 +68,13 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔#02✔          |
 | RNF - 6                    | Conexão do backend com o banco de dados | #02✔        |
 | RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔#02✔          |
-
+<br>
 
 ## :page_with_curl: USER STORIES
 
 <br>
 
 ## USER STORIES
-
 | ID REFERÊNCIA                            | REMETENTE | INSTRUÇÃO                                                                                                                                                                | FINALIDADE                                                                                                                                                        |
 |------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | RF - 2 / RF - 3 / RNF - 3             | Usuário   | Quero me registrar com nome, e-mail e senha. E adicionar também informações como idade, peso, gênero, altura e objetivo de saúde ou restrição ao meu perfil.            | Para que eu possa criar uma conta e acessar o site e ele possa recomendar uma dieta com base nas minhas necessidades.                                           |
@@ -175,6 +176,9 @@ Na Sprint 1, focamos na criação das bases do projeto, incluindo uma interface 
 
 Na próxima sprint, além de melhorar os pontos mencionados, avançaremos na continuidade do desenvolvimento das páginas da interface, como login e cadastro, aprimorando a navegação e a experiência do usuário. Também detalharemos mais os diagramas UML, alinharemos melhor a modelagem de dados, manteremos a documentação atualizada. Essas ações visam garantir a evolução contínua e o sucesso do projeto.
 <br>
+
+
+****
 <br>
 
 <span id="sprint-2">
@@ -219,3 +223,49 @@ Realizamos a conexão do back-end com o banco de dados, começando pela Tabela d
 Na Sprint 3, avançaremos permitindo que os usuários acessem seus perfis, o contador de calores e se conectem às suas dietas personalizadas. E otimizaremos a interface da aplicação, aprimorando a navegação e a experiência do usuário, para torná-la ainda mais fluida e intuitiva.
 
 ****
+<br>
+
+<span id="sprint-3">
+
+## :page_with_curl: SPRINT 3 
+
+Na Sprint 3, concluímos o desenvolvimento da nossa aplicação, integrando funcionalidades que aprimoram a experiência do usuário de maneira significativa:
+
+**Interface Responsiva e Dinâmica:** Finalizamos a criação de uma interface que se adapta perfeitamente a diferentes tamanhos de tela, garantindo uma experiência intuitiva e fluida em qualquer dispositivo.
+
+**Questionário Personalizado:** Implementamos um questionário inicial que coleta informações sobre gênero, objetivo, nível de atividade física, peso e altura. Essa personalização permite que os usuários tenham dietas mais alinhadas às suas necessidades.
+
+**Acesso à Base de Dados de Alimentos:** Os usuários agora têm acesso à nossa base de dados, onde podem consultar informações detalhadas sobre alimentos e seus macronutrientes.
+
+**Registro de Alimentos Consumidos:** Desenvolvemos a funcionalidade que permite registrar e contabilizar os alimentos consumidos ao longo do dia, facilitando o acompanhamento das dietas.
+
+**Cálculo Diário de Calorias:** Adicionamos um recurso que fornece um cálculo diário de calorias, permitindo aos usuários verificar se estão acima ou abaixo de suas metas e acompanhar seu progresso de forma eficaz.
+
+**Gerenciamento da Dieta:** Os usuários podem facilmente incluir ou excluir itens de suas dietas, proporcionando um controle maior sobre suas escolhas alimentares.
+
+**Histórico de Ingestão Calórica:** Implementamos uma funcionalidade que permite visualizar um histórico detalhado da ingestão calórica, ajudando na análise e reflexão sobre as decisões alimentares.
+
+**Opções de Dieta Personalizadas:** A aplicação agora oferece opções de dieta ajustadas às necessidades de cada usuário, garantindo que suas metas nutricionais sejam atendidas de maneira eficiente.
+
+Estamos satisfeitos com os resultados alcançados e acreditamos que essas funcionalidades finais proporcionam uma experiência completa e personalizada para os usuários. Agradecemos a todos que contribuíram para este projeto!
+
+<br>
+
+### • Sprint Backlog
+
+<br>
+
+| ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
+|---------------|--------------------|---------------|-----------------|-----------------|------------------|
+| RF - 4     |      34     | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |     Pollyana, Felipe e Leandro           |      |
+| RF - 5     |     21      | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |   Pollyana, Felipe e Pamela              |      |
+| RF - 6     |      21     | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |    Pollyana, Felipe e Pamela             |      |
+| RF - 7     |      21     | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |     Pollyana, Felipe e Pamela      |      |
+| RF - 8     |      8      | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |    Pamela, Maria Eduarda e Leandro       |      |
+| RF - 10    |     21      | Visualizar um histórico de ingestão calórica.                                                             |    Pollyana, Felipe, Maria Eduarda, Raquel e Leandro          |      |
+| RNF - 3    |      21     | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |    Pollyana, Maria Eduarda, Raquel e Leandro     |      |
+
+<br>
+
+### • Burndown Sprint 3
+<br>
