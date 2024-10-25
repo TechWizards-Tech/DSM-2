@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FoodForm.css'
 
 const FoodForm = () => {
     // Lista de alimentos (simulação de uma tabela de alimentos)
@@ -80,7 +81,12 @@ const FoodForm = () => {
             {filteredFoods.length > 0 && (
                 <ul className="dropdown">
                     {filteredFoods.map((food, index) => (
-                        <li  className='dropli' key={index} onClick={() => handleSelectFood(food)}>
+                        <li
+                            key={index}
+                            className='dropli'
+                            onClick={() => handleSelectFood(food)}
+                            style={{ backgroundColor: selectedFood === food ? '#ffcc00' : '' }}
+                        >
                             {food}
                         </li>
                     ))}

@@ -5,7 +5,7 @@ import github from './assets/github.svg'
 
 const Header: React.FC = () => {
   return (
-    <header className="header bg-green-400">
+    <header className="header bg-green-300">
       <div className="logo">
         <img src={logotextosemfundo} />
       </div>

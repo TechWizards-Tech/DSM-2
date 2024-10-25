@@ -3,18 +3,21 @@
     justify-content: space-between;
     align-items: stretch;
     padding: 20px;
-    background-image: url('../public/wallpaper.jpg');
+    background-image: url(http://localhost:3000/static/media/wallpaper.a19aaaedcd0f8341e798.jpg);
     background-size: cover;
     background-position: center;
     height: 100%;
     flex-grow: 1;
+    border-radius: 20px;
+    margin: 25px;
+    border: solid 5px;
 }
 
 
 .hero-left {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    /* justify-content: space-evenly; */
     align-items: center;
     width: 60%;
 }

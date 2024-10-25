@@ -19,33 +19,22 @@
   justify-content: space-between;
   margin: 20px 0;
   height: 8px;
-  /* Altura da barra de progresso */
   background-color: #e0e0e0;
-  /* Cor de fundo da barra */
   border-radius: 4px;
-  /* Bordas arredondadas */
   overflow: hidden;
-  /* Para ocultar a parte que excede */
 }
 
 .progress-segment {
   flex: 1;
-  /* Cada segmento ocupa igual espaço */
   height: 100%;
-  /* Altura do segmento */
   background-color: #ccc;
-  /* Cor do segmento inativo */
   transition: background-color 0.3s, width 1s;
-  /* Suaviza a transição e aumenta a duração */
   width: 0;
-  /* Inicia com largura zero */
 }
 
 .progress-segment.active {
   background-color: #004d00;
-  /* Cor do segmento ativo */
   animation: grow 2s forwards;
-  /* Animação de crescimento mais lenta */
 }
 
 @keyframes grow {
