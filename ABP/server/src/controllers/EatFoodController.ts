@@ -4,6 +4,7 @@ import { query } from "../database/connection";
 class EatFoodController {
   public async list(req: Request, res: Response): Promise<void> {
     const date = req.query.date as string;
+    const period = req.query.period as string;
     const { id:user } = res.locals;
 
     if (!isValidDate(date)) {
@@ -12,13 +13,14 @@ class EatFoodController {
       try {
         const result: any = await query(
           `SELECT A.id::varchar, TO_CHAR(A.date, 'YYYY-MM-DD') AS date, A.quantity, 
-            B.description, B.energy, B.protein, 
+            A.period, B.description, B.energy, B.protein, 
             B.carbohydrate, B.dietary_fiber, B.calcium, B.sodium
-          FROM eat_foods AS A INNER JOIN foods as B 
+          FROM eat_foods AS A 
+          INNER JOIN foods AS B 
           ON A.food = B.id
-          WHERE A._user=$1 AND A.date=$2
+          WHERE A._user=$1 AND A.date=$2 AND A.period=$3
           ORDER BY B.description`,
-          [user, date]
+          [user, date, period]
         );
 
         res.json(result);
@@ -28,26 +30,31 @@ class EatFoodController {
     }
   }
 
+  
+
   private isInvalid(value: any) {
     return value === undefined || value === "";
   }
 
   public create = async (req: Request, res: Response): Promise<void> => {
-    const { food, date, quantity } = req.body;
+    const { food, date, quantity, period } = req.body;
     const { id: user } = res.locals;
+  
     if (this.isInvalid(food)) {
       res.json({ error: "Forneça o alimento" });
     } else if (!isValidDate(date)) {
       res.json({ error: "Forneça uma data válida" });
     } else if (this.isInvalid(quantity)) {
       res.json({ error: "Forneça a quantidade consumida" });
+    } else if (this.isInvalid(period)) {
+      res.json({ error: "Forneça o período" });
     } else {
       try {
         const result: any = await query(
-          `INSERT INTO eat_foods(_user, food, date, quantity) 
-             VALUES($1,$2,$3,$4)
-             RETURNING id::varchar, food, TO_CHAR(date, 'YYYY-MM-DD') AS date, quantity`,
-          [user, food, date, quantity]
+          `INSERT INTO eat_foods(_user, food, date, quantity, period) 
+             VALUES($1, $2, $3, $4, $5)
+             RETURNING id::varchar, food, TO_CHAR(date, 'YYYY-MM-DD') AS date, quantity, period`,
+          [user, food, date, quantity, period]
         );
         res.json(result);
       } catch (e: any) {
@@ -56,6 +63,60 @@ class EatFoodController {
     }
   };
 
+  public async periodsum(req: Request, res: Response): Promise<void> {
+    const date = req.query.date as string;
+    const period = req.query.period as string;
+    const { id: user } = res.locals;
+  
+    if (!isValidDate(date)) {
+      res.json({ error: "Forneça uma data válida" });
+    } else {
+      try {
+        const result: any = await query(
+          `SELECT TO_CHAR(A.date, 'YYYY-MM-DD') AS date, 
+                  A.period, 
+                  SUM(B.energy * A.quantity) AS total_energy
+            FROM eat_foods AS A 
+            INNER JOIN foods AS B 
+            ON A.food = B.id
+            WHERE A._user = $1 AND A.date = $2 AND A.period = $3
+            GROUP BY A.date, A.period`,
+          [user, date, period]
+        );
+  
+        res.json(result);
+      } catch (e: any) {
+        res.status(502).json({ error: e.message });
+      }
+    }
+  }
+
+  public async dailysum(req: Request, res: Response): Promise<void> {
+    const date = req.query.date as string;
+    const { id: user } = res.locals;
+  
+    if (!isValidDate(date)) {
+      res.json({ error: "Forneça uma data válida" });
+    } else {
+      try {
+        const result: any = await query(
+          `SELECT TO_CHAR(A.date, 'YYYY-MM-DD') AS date, 
+                  SUM(B.energy * A.quantity) AS total_energy
+            FROM eat_foods AS A 
+            INNER JOIN foods AS B 
+            ON A.food = B.id
+            WHERE A._user = $1 AND A.date = $2
+            GROUP BY A.date`,
+          [user, date]
+        );
+  
+        res.json(result);
+      } catch (e: any) {
+        res.status(502).json({ error: e.message });
+      }
+    }
+  }
+  
   public update = async (req: Request, res: Response): Promise<void> => {
     const { id, food, date, quantity } = req.body;
     const { id: user } = res.locals;
