@@ -1,14 +1,16 @@
-import './Teste.css'
 
-function Teste() {
+import React from "react";
+import "./Teste.css";
+
+const Teste = () => {
+
+
     return (
-        <ul className="dropdown">
-            <li className="dropli">teste1</li>
-            <li className="dropli">teste2</li>
-            <li className="dropli">teste3</li>
-            <li className="dropli">teste4</li>
-        </ul>
-    );
+     
+            <p>Meu modal!</p>
+    
+    )
 }
+
 
 export default Teste;

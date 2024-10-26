@@ -22,8 +22,9 @@ const App: React.FC = () => {
           {/* <HeroSection />  */}
           {/* <Carousel /> */}
           <CalorieTracker />
-          <FoodForm />
 
+          {/* <Teste/> */}
+          
         </div>
 
       </div>

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import './FoodForm.css'
+import { Calendar, CalendarCheck } from 'lucide-react';
+import './FoodForm.css';
+import Button from './Button';
 
 const FoodForm = () => {
-    // Lista de alimentos (simulação de uma tabela de alimentos)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const foodList = [
         'Arroz carreteiro',
         'Arroz, integral, cozido',
@@ -17,17 +20,16 @@ const FoodForm = () => {
         'Farinha, de arroz, enriquecida'
     ];
 
-    // Estados para armazenar valores
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredFoods, setFilteredFoods] = useState<string[]>([]);
     const [selectedFood, setSelectedFood] = useState<string | null>(null);
     const [consumptionDate, setConsumptionDate] = useState('');
     const [consumedAmount, setConsumedAmount] = useState('');
+    const [mealType, setMealType] = useState(''); // Novo estado para o tipo de refeição
     const [consumptionRecords, setConsumptionRecords] = useState<
-        { food: string; date: string; amount: string }[]
+        { food: string; date: string; amount: string; meal: string }[]
     >([]);
 
-    // Função para filtrar alimentos com base no termo de busca
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const search = e.target.value;
         setSearchTerm(search);
@@ -41,92 +43,115 @@ const FoodForm = () => {
         }
     };
 
-    // Função para selecionar o alimento do dropdown
     const handleSelectFood = (food: string) => {
         setSelectedFood(food);
-        setSearchTerm(food); // Preenche o input com o alimento selecionado
-        setFilteredFoods([]); // Fecha o dropdown
+        setSearchTerm(food);
+        setFilteredFoods([]);
     };
 
-    // Função para salvar as informações
     const handleSave = () => {
-        if (selectedFood && consumptionDate && consumedAmount) {
+        if (selectedFood && consumptionDate && consumedAmount && mealType) {
             const newRecord = {
                 food: selectedFood,
                 date: consumptionDate,
                 amount: consumedAmount,
+                meal: mealType, // Adiciona o tipo de refeição ao registro
             };
             setConsumptionRecords([...consumptionRecords, newRecord]);
-            // Limpa os campos
             setSearchTerm('');
             setSelectedFood(null);
             setConsumptionDate('');
             setConsumedAmount('');
+            setMealType(''); // Limpa o campo de refeição
         } else {
             alert('Por favor, preencha todos os campos.');
         }
     };
 
     return (
-        <div>
-            <h3>Registro de Consumo Alimentar</h3>
-            <label>Busca alimento ou produto consumido:</label>
-            <input
-                type="text"
-                value={searchTerm}
-                onChange={handleSearchChange}
-                placeholder="Digite para buscar"
+        <div className={isModalOpen ? 'blurred-background' : ''}>
+            <CalendarCheck
+                className='svg-stroke-green-700'
+                onClick={() => setIsModalOpen(true)}
+                style={{ cursor: 'pointer', width: '70px', height: '70px' }}
             />
-            {/* Dropdown para alimentos filtrados */}
-            {filteredFoods.length > 0 && (
-                <ul className="dropdown">
-                    {filteredFoods.map((food, index) => (
-                        <li
-                            key={index}
-                            className='dropli'
-                            onClick={() => handleSelectFood(food)}
-                            style={{ backgroundColor: selectedFood === food ? '#ffcc00' : '' }}
+
+            {isModalOpen && (
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={() => setIsModalOpen(false)}>
+                            &times;
+                        </span>
+                        <h3>Registro de Consumo Alimentar</h3>
+
+                        <label>Busca alimento ou produto consumido:</label>
+                        <input
+                            className='input-custom'
+                            type="text"
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                            placeholder="Digite para buscar"
+                        />
+                        {filteredFoods.length > 0 && (
+                            <ul className="dropdown">
+                                {filteredFoods.map((food, index) => (
+                                    <li
+                                        key={index}
+                                        className='dropli'
+                                        onClick={() => handleSelectFood(food)}
+                                        style={{ backgroundColor: selectedFood === food ? '#4b7e56' : '', color: selectedFood === food ? '#f2f7f3' : '' }}
+                                    >
+                                        {food}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
+                        <label>Data de consumo:</label>
+                        <input
+                            className='input-custom'
+                            type="date"
+                            value={consumptionDate}
+                            onChange={(e) => setConsumptionDate(e.target.value)}
+                        />
+
+                        <label>Quantidade consumida:</label>
+                        <input
+                            className='input-custom'
+                            type="text"
+                            value={consumedAmount}
+                            onChange={(e) => setConsumedAmount(e.target.value)}
+                            placeholder="Ex: 3 colheres"
+                        />
+
+                        {/* Novo campo de seleção para o tipo de refeição */}
+                        <label>Tipo de refeição:</label>
+                        <select
+                            className='input-custom'
+                            value={mealType}
+                            onChange={(e) => setMealType(e.target.value)}
+
                         >
-                            {food}
-                        </li>
-                    ))}
-                </ul>
-            )}
+                            <option value="">Selecione</option>
+                            <option value="Cafe da manha">Café da manhã</option>
+                            <option value="Almoço">Almoço</option>
+                            <option value="Cafe da tarde">Café da tarde</option>
+                            <option value="Janta">Janta</option>
+                        </select>
+                    
+                        <Button label={'Salvar'} onClick={handleSave} />
 
-            <br />
 
-            <label>Data de consumo:</label>
-            <input
-                type="date"
-                value={consumptionDate}
-                onChange={(e) => setConsumptionDate(e.target.value)}
-            />
 
-            <br />
-
-            <label>Quantidade consumida:</label>
-            <input
-                type="text"
-                value={consumedAmount}
-                onChange={(e) => setConsumedAmount(e.target.value)}
-                placeholder="Ex: 3 colheres"
-            />
-
-            <br />
-
-            <button onClick={handleSave}>Salvar</button>
-
-            {/* Lista de registros salvos */}
-            {consumptionRecords.length > 0 && (
-                <div>
-                    <h4>Registros de Consumo</h4>
-                    <ul>
-                        {consumptionRecords.map((record, index) => (
-                            <li key={index}>
-                                {record.food} - {record.amount} - {record.date}
-                            </li>
+                        {consumptionRecords.map((record) => (
+                            <p>
+                                {record.food} - {record.amount} - {record.date} - {record.meal}
+                            </p>
                         ))}
-                    </ul>
+
+
+
+                    </div>
                 </div>
             )}
         </div>

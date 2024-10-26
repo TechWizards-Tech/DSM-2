@@ -1,6 +1,7 @@
 import React from 'react';
 import './CalorieTracker.css'; // Importa os estilos
 import MealCard from './MealCard';
+import FoodForm from './FoodForm';
 
 const CalorieTracker = () => {
     const caloriesConsumed = 9999; // valor inicial
@@ -25,17 +26,15 @@ const CalorieTracker = () => {
 
 
                 <div className="calories-right">
-                    <p className='text-bold'>Exercícios</p>
-                    <p className='text-fit'>{caloriesExercise} kcal</p>
+                    <FoodForm />
                 </div>
             </div>
 
-            <MealCard time='08:00' mealName='Cafe Manha' caloriesConsumed={10} totalCalories={120}/>
-            <MealCard time='08:00' mealName='Almoço' caloriesConsumed={50} totalCalories={420}/>
-            <MealCard time='08:00' mealName='Cafe Tarde' caloriesConsumed={10} totalCalories={110}/>
-            <MealCard time='08:00' mealName='Janta' caloriesConsumed={80} totalCalories={510}/>
-
-
+            <MealCard time='08:00' mealName='Cafe Manha' caloriesConsumed={10} totalCalories={120} />
+            <MealCard time='08:00' mealName='Almoço' caloriesConsumed={50} totalCalories={420} />
+            <MealCard time='08:00' mealName='Cafe Tarde' caloriesConsumed={10} totalCalories={110} />
+            <MealCard time='08:00' mealName='Janta' caloriesConsumed={80} totalCalories={510} />
+          
         </div>
     );
 };
