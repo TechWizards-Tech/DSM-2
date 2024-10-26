@@ -274,9 +274,8 @@ Estamos satisfeitos com os resultados alcançados e acreditamos que essas funcio
 
 
 ### • Sprint Retrospective
-<br>
-1. O que funcionou bem durante o sprint?
 
+1. O que funcionou bem durante o sprint?
 
 2. O que não funcionou tão bem durante o sprint?
 
