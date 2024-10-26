@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
 import HeroSection from './HeroSection';
@@ -10,25 +11,26 @@ import MealCard from './MealCard';
 import FoodForm from './FoodForm';
 import Teste from './Teste';
 
-
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <div style={{ height: '100svh', maxHeight: '100svh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <Router>
 
-        <Header />
-        <div className='main'>
+      <div className="App">
+        <div style={{ height: '100svh', maxHeight: '100svh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+          <Header />
+          <div className='main'>
 
-          {/* <HeroSection />  */}
-          {/* <Carousel /> */}
-          <CalorieTracker />
+            <Routes>
+              <Route path="/" element={<HeroSection />} />
+              <Route path="/carousel" element={<Carousel />} />
+              <Route path="/calorietracker" element={<CalorieTracker />} />
+            </Routes>
 
-          {/* <Teste/> */}
-          
+          </div>
         </div>
-
       </div>
-    </div>
+
+    </Router>
   );
 }
 
