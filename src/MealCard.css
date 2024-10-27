@@ -54,6 +54,7 @@
   .add-button-container {
     display: flex;
     align-items: center;
+    background-color: transparent;
   }
   
   .add-button {
@@ -74,3 +75,8 @@
     background-color: #f0f0f0; /* Efeito hover */
   }
   
+  .timer-svg{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+  }

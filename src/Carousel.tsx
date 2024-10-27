@@ -82,36 +82,36 @@ const Carousel = () => {
           {/* Exibe os botões de objetivos no primeiro slide */}
           {currentIndex === 0 && (
             <div className="objective-buttons">
-              <Button label="Perder peso" onClick={() => handleObjectiveSelection('Perder peso')} />
-              <Button label="Ganhar peso" onClick={() => handleObjectiveSelection('Ganhar peso')} />
-              <Button label="Manter peso" onClick={() => handleObjectiveSelection('Manter peso')} />
+              <Button label="Perder peso" onClick={() => handleObjectiveSelection('Perder peso')} className='auth-button'/>
+              <Button label="Ganhar peso" onClick={() => handleObjectiveSelection('Ganhar peso')} className='auth-button'/>
+              <Button label="Manter peso" onClick={() => handleObjectiveSelection('Manter peso')} className='auth-button'/>
             </div>
           )}
 
           {/* Exibe os botões de seleção no segundo slide */}
           {currentIndex === 1 && (
             <div className="category-buttons">
-              <Button label="Leve" onClick={() => handleOptionSelection('Leve')} />
-              <Button label="Moderado" onClick={() => handleOptionSelection('Moderado')} />
-              <Button label="Intenso" onClick={() => handleOptionSelection('Intenso')} />
+              <Button label="Leve" onClick={() => handleOptionSelection('Leve')} className='auth-button' />
+              <Button label="Moderado" onClick={() => handleOptionSelection('Moderado')} className='auth-button' />
+              <Button label="Intenso" onClick={() => handleOptionSelection('Intenso')} className='auth-button' />
             </div>
           )}
 
           {/* Exibe os inputs no terceiro slide */}
           {currentIndex === 2 && (
             <div className="gender-selection">
-              <Button label="Masculino" onClick={() => handleGenderSelection('Masculino')} />
-              <Button label="Feminino" onClick={() => handleGenderSelection('Feminino')} />
-              <Button label="Outro" onClick={() => handleGenderSelection('Outro')} />
+              <Button label="Masculino" onClick={() => handleGenderSelection('Masculino')} className='auth-button' />
+              <Button label="Feminino" onClick={() => handleGenderSelection('Feminino')} className='auth-button' />
+              <Button label="Outro" onClick={() => handleGenderSelection('Outro')} className='auth-button' />
             </div>
           )}
 
           {/* Exibe as opções de dieta especial no sexto slide */}
           {currentIndex === 3 && (
-            <div className="diet-buttons ">
-              <Button label="Dieta1" onClick={() => handleDietSelection('Dieta1')} />
-              <Button label="Dieta2" onClick={() => handleDietSelection('Dieta2')} />
-              <Button label="Dieta3" onClick={() => handleDietSelection('Dieta3')} />
+            <div className="diet-buttons">
+              <Button label="Dieta1" onClick={() => handleDietSelection('Dieta1')} className='auth-button' />
+              <Button label="Dieta2" onClick={() => handleDietSelection('Dieta2')} className='auth-button' />
+              <Button label="Dieta3" onClick={() => handleDietSelection('Dieta3')} className='auth-button' />
             </div>
           )}
         </div>
@@ -146,7 +146,7 @@ const Carousel = () => {
       </div>
 
       {/* Botões de navegação */}
-      <div className='objective-buttons'>
+      <div className='objective-buttons ' >
         <Button label="Anterior" onClick={prevSlide} className="carousel-button prev-button " />
         <Button
           label="Próximo"

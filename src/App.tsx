@@ -16,7 +16,10 @@ const App: React.FC = () => {
     <Router>
 
       <div className="App">
-        <div style={{ height: '100svh', maxHeight: '100svh', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+
+      <div className="background-blur"></div>
+
+        <div className='full-height-container'>
           <Header />
           <div className='main'>
 

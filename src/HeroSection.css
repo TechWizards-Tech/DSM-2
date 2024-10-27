@@ -4,22 +4,23 @@
     justify-content: space-between;
     align-items: stretch;
     /* padding: 20px; */
-    background-image: url(../public/wallpaper.jpg);
+    background-image: url(http://localhost:3000/static/media/wallpaper.a19aaaedcd0f8341e798.jpg);
     background-size: cover;
     background-position: center;
     /* height: 100%; */
-    flex-grow: 1;
+    /* flex-grow: 1; */
     border-radius: 20px;
     margin: 10px;
     border: solid 3px black;
     gap: 5px;
+    width: 90%;
 }
 
 .hero h1 {
     font-size: 34px;
     font-weight: lighter;
     margin: 0;
-    color: #222;
+    color: #333;
     letter-spacing: -.025em;
 }
 
@@ -36,7 +37,7 @@
     font-size: 34px;
     font-weight: lighter;
     margin: 0;
-    color: #222;
+    color: #333;
     letter-spacing: -.025em;
 }
 
@@ -99,4 +100,47 @@
 .underline:hover::after {
     transform: scaleX(1);
     transform-origin: bottom left;
+}
+
+.hero-image {
+    display: flex;
+    position: relative; /* Cria um contexto para o posicionamento absoluto */
+}
+
+.logo1 {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    animation: float 4s ease-in-out infinite, pulse 4s ease-in-out infinite;
+    margin-top: 4%;
+}
+
+.logo2 {
+    display: flex;
+    /* position: absolute; */
+    top: 0;
+    left: 0; 
+    z-index: 1; 
+}
+
+/* Efeito de flutuação */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Efeito de pulsação */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
 }

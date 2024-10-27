@@ -1,3 +1,7 @@
+h2{
+  color: #333;
+}
+
 .main {
   display: flex;
   justify-content: center;
@@ -31,13 +35,13 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../public/8.jpg');
+  /* background-image: url('../public/17.jpg'); */
   /* background-image: url('../public/99.png'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  
+  /* filter: blur(10px); */
 }
 
 .App {
@@ -79,4 +83,62 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.underline-center {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-center::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* Ajuste a altura da linha conforme necessário */
+  background-color: var(--green-700); /* A linha usará a mesma cor do texto */
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.underline-center:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Opcional: para um efeito mais suave de volta ao estado inicial */
+.underline-center::after {
+  width: 0;
+  left: 50%;
+}
+
+.background-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../public/12.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  filter: blur(1px);
+  z-index: -1; /* Mantém o fundo atrás do conteúdo */
+  /* transform: translateX(-1%); */
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  /* Estilos adicionais para o conteúdo principal */
+}
+
+.full-height-container {
+  height: 100svh;
+  max-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  filter: drop-shadow(2px 4px 6px black);
 }
