@@ -4,6 +4,7 @@
   background-color: transparent;
   flex-direction: row;
   gap: 15px;
+  
 }
 
 .calories-container {
@@ -11,8 +12,8 @@
   align-items: center;
   background-color: transparent;
   gap: 10px;
-
   flex-direction: column;
+  margin: 10px;
 }
 
 .text-bold {

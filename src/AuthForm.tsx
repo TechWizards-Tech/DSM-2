@@ -7,8 +7,8 @@ const AuthForm: React.FC = () => {
   return (
     <div className="auth-container">
       <div className="auth-tabs">
-        <button onClick={() => setIsLogin(true)} className={ isLogin ? 'active' : '' }>Login</button>
-        <button onClick={() => setIsLogin(false)} className={ !isLogin ? 'active' : '' }>Cadastro</button>
+        <button onClick={() => setIsLogin(true)} className={ isLogin ? 'active' : 'underline' }>Login</button>
+        <button onClick={() => setIsLogin(false)} className={ !isLogin ? 'active' : 'underline' }>Cadastro</button>
       </div>
 
       {isLogin ? (
@@ -39,7 +39,7 @@ const AuthForm: React.FC = () => {
             <label>Senha</label>
             <input type="password" required />
           </div>
-          <button type="submit" className="auth-button">Cadastrar</button>
+          <button type="submit" className="auth-button ">Cadastrar</button>
         </form>
       )}
     </div>

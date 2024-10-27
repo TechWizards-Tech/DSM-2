@@ -125,7 +125,7 @@ const FoodForm = () => {
                         />
 
                         {/* Novo campo de seleção para o tipo de refeição */}
-                        <label>Tipo de refeição:</label>
+                        <label>Periodo:</label>
                         <select
                             className='input-custom'
                             value={mealType}

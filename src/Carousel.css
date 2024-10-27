@@ -10,9 +10,13 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   box-shadow: -5px 6px 0px 0px rgba(0, 105, 0, 0.3);
-  height: fit-content;
+  height: 50%;
+  border: solid 3px black;
+  background-image: url(http://localhost:3000/static/media/wallpaper.a19aaaedcd0f8341e798.jpg);
+  background-size: cover;
+  background-position: center;
+  margin: 10px;
 }
 
 .progress-bar {
@@ -125,4 +129,35 @@ input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+/* .button-wrapper{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+} */
+
+.objective-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.gender-selection {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.input-field {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }

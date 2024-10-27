@@ -2,10 +2,9 @@
   display: flex;
   justify-content: center;
   height: 100vh;
-  padding-top: 10px;
+  padding-top: 0px;
   overflow-y: auto;
   scroll-behavior: smooth;
-  /* Rola suavemente */
 }
 
 .main::-webkit-scrollbar {
@@ -32,20 +31,18 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../public/12.jpg');
+  background-image: url('../public/8.jpg');
   /* background-image: url('../public/99.png'); */
   background-size: cover;
-  /* Para cobrir toda a área da página */
   background-repeat: no-repeat;
-  /* Impede a repetição da imagem */
   background-attachment: fixed;
-  /* Faz o backgrou2d se fixar ao scroll */
   background-position: center;
-  /* Centraliza a imagem */
+  
 }
 
 .App {
   text-align: center;
+  filter: drop-shadow(2px 4px 6px black);
 }
 
 .App-logo {
