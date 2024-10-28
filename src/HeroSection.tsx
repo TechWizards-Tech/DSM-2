@@ -15,7 +15,7 @@ const HeroSection: React.FC = () => {
 
         <div className='hero-text'>
           <h1>Dietas <span className='text-green-800 underline'>MAGICAMENTE</span> personalizadas!</h1>
-          <p>Transformamos suas metas em resultados mágicos!</p>
+          <p>Transformando metas em resultados mágicos</p>
         </div>
 
         {/* <p>Transformamos suas metas em resultados mágicos!</p> */}
