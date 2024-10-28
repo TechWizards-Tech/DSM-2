@@ -4,7 +4,7 @@
     justify-content: space-between;
     align-items: stretch;
     /* padding: 20px; */
-    background-image: url(http://localhost:3000/static/media/wallpaper.a19aaaedcd0f8341e798.jpg);
+    background-image: url('./assets/wallpaper.jpg');
     background-size: cover;
     background-position: center;
     /* height: 100%; */

@@ -13,7 +13,7 @@
   box-shadow: -5px 6px 0px 0px rgba(0, 105, 0, 0.3);
   height: 50%;
   border: solid 3px black;
-  background-image: url(http://localhost:3000/static/media/wallpaper.a19aaaedcd0f8341e798.jpg);
+  background-image: url('./assets/wallpaper.jpg');
   background-size: cover;
   background-position: center;
   margin: 10px;
