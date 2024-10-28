@@ -139,7 +139,7 @@ const FoodForm = () => {
                             <option value="Janta">Janta</option>
                         </select>
                     
-                        <Button label={'Salvar'} onClick={handleSave} />
+                        <Button label={'Salvar'} onClick={handleSave} className='auth-button'/>
 
 
 

@@ -16,11 +16,11 @@ const AuthForm: React.FC = () => {
           <h2>Login</h2>
           <div className="form-group">
             <label>Email</label>
-            <input type="email" required />
+            <input type="email" required className='input-custom'/>
           </div>
           <div className="form-group">
             <label>Senha</label>
-            <input type="password" required />
+            <input type="password" required className='input-custom'/>
           </div>
           <button type="submit" className="auth-button">Entrar</button>
         </form>

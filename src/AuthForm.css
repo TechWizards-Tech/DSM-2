@@ -38,13 +38,14 @@
   /* justify-content: inherit; */
   flex-direction: row;
   align-items: center;
-  gap: 5px;
+  /* gap: 8px; */
 }
 
 .form-group label {
-  font-size: 14px;
+  font-size: 18px;
   color: #333;
   margin-bottom: 5px;
+  width: 20%;
 }
 
 .form-group input {
@@ -53,6 +54,7 @@
   border-radius: 4px;
   font-size: 14px;
   width: 100%;
+  cursor: pointer;
 }
 
 .auth-button {
