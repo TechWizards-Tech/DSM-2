@@ -27,6 +27,10 @@ const App: React.FC = () => {
               <Route path="/" element={<HeroSection />} />
               <Route path="/carousel" element={<Carousel />} />
               <Route path="/calorietracker" element={<CalorieTracker />} />
+
+              
+              <Route path="/userpage" element={<Teste />} />
+
             </Routes>
 
           </div>

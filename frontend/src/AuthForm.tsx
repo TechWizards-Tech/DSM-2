@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
 
 const AuthForm: React.FC = () => {
@@ -11,6 +12,7 @@ const AuthForm: React.FC = () => {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate(); // Hook para navegação
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -22,26 +24,27 @@ const AuthForm: React.FC = () => {
     setError('');
     setSuccess('');
 
-    // const endpoint = isLogin ? '/api/login' : '/api/register';
     const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
 
     try {
       const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}${endpoint}`, // Usando a URL do backend do .env
+        `${process.env.REACT_APP_SERVER_URL}${endpoint}`,
         {
           ...formData,
-          ...(isLogin ? {} : { alias: formData.alias }) // Adiciona alias apenas no cadastro
+          ...(isLogin ? {} : { alias: formData.alias })
         }
       );
-      setSuccess(isLogin ? 'Login realizado com sucesso!' : 'Cadastro realizado com sucesso!');
-      console.log(response.data); // Aqui você pode armazenar o token ou redirecionar o usuário
 
-      // Limpa os campos após o cadastro
-      if (!isLogin) {
+      setSuccess(isLogin ? 'Login realizado com sucesso!' : 'Cadastro realizado com sucesso!');
+      console.log(response.data);
+
+      if (isLogin) {
+        navigate('/userpage'); // Redireciona para UserPage após login bem-sucedido
+      } else {
         setFormData({ alias: '', mail: '', password: '' });
+        navigate('/carousel'); // Redireciona para Carousel após cadastro bem-sucedido
       }
     } catch (err: any) {
-      // Exibe uma mensagem de erro mais detalhada
       setError(err.response?.data?.error || 'Erro ao processar a solicitação.');
     }
   };

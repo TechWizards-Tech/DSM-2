@@ -7,7 +7,7 @@ const Teste = () => {
 
     return (
      
-            <p>Meu modal!</p>
+            <p>TESTE USER PAGE!</p>
     
     )
 }

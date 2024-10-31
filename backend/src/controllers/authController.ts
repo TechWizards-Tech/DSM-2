@@ -28,9 +28,10 @@ class AuthController {
 
     try {
       const result = await query("SELECT * FROM users WHERE mail = $1", [mail]);
-      console.log(result.length)
+      console.log(result)
       if (result.length === 0) {
         res.status(401).json({ error: "Credenciais inválidas" });
+        console.log(result)
         return;
       }
 
