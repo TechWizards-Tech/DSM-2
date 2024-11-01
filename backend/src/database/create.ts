@@ -23,18 +23,24 @@ async function init() {
             CONSTRAINT users_mail_unique UNIQUE (mail)
         );
 
-        CREATE TABLE profiles (
-            id SERIAL NOT NULL,
-            _user INTEGER NOT NULL,
-            birth_date DATE NOT NULL,
-            weight FLOAT NOT NULL,
-            sex enum_sex NULL,
-            PRIMARY KEY(id),
-            FOREIGN KEY(_user)
-                REFERENCES users(id)
-                ON DELETE RESTRICT
-                ON UPDATE CASCADE
-        );
+        
+                CREATE TABLE profiles (
+    id SERIAL NOT NULL,
+    _user INTEGER NOT NULL,
+    age SMALLINT NOT NULL, -- idade em anos
+    weight DECIMAL(5, 2) NOT NULL, -- peso com duas casas decimais
+    height_cm DECIMAL(5, 2) NOT NULL, -- altura em centímetros com duas casas decimais
+    objective SMALLINT NOT NULL CHECK (objective BETWEEN 0 AND 2), -- objetivo 0 a 2
+    activity_level SMALLINT NOT NULL CHECK (activity_level BETWEEN 0 AND 2), -- nível de atividade física 0 a 2
+    diet_type SMALLINT NOT NULL CHECK (diet_type BETWEEN 0 AND 2), -- tipo de dieta 0 a 2
+    gender enum_sex, -- tipo enum já existente para o gênero
+    PRIMARY KEY (id),
+    FOREIGN KEY (_user)
+        REFERENCES users(id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE
+);
+
 
         CREATE TABLE fields (
             id SERIAL NOT NULL,

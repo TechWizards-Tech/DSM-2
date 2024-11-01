@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
 import user from './services/user';
+import { saveToLocalStorage } from './utils/localStorage'; // Função para salvar dados no localStorage
 
 const AuthForm: React.FC = () => {
   const navigate = useNavigate();
@@ -34,13 +35,19 @@ const AuthForm: React.FC = () => {
       } else {
         setSuccess(isLogin ? 'Login realizado com sucesso!' : 'Cadastro realizado com sucesso!');
 
-        if (isLogin) {
-          // Redireciona para UserPage após login
-          navigate('/perfiluser');
+        // Se for cadastro, realiza login imediato
+        if (!isLogin) {
+          const loginResponse = await user.login(formData.mail, formData.password);
+
+          if ('error' in loginResponse) {
+            setError('Erro ao efetuar login após o cadastro');
+          } else {
+            saveToLocalStorage('userSession', loginResponse); // Salva a sessão
+            navigate('/carousel'); // Redireciona para o carrossel
+          }
         } else {
-          // Limpa os campos e redireciona para Carousel após cadastro
-          setFormData({ alias: '', mail: '', password: '' });
-          navigate('/carousel');
+          saveToLocalStorage('userSession', response); // Salva a sessão após login
+          navigate('/perfiluser'); // Redireciona para página de perfil do usuário
         }
       }
     } catch (err: any) {
@@ -100,4 +107,3 @@ const AuthForm: React.FC = () => {
 };
 
 export default AuthForm;
-

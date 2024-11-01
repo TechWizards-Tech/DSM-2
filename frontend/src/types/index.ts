@@ -17,9 +17,13 @@ export interface UserContextProps {
   updateMail: (mail: string) => Promise<boolean>;
   updatePassword: (password: string) => Promise<boolean>;
   saveProfile: (
-    birth_date: string,
-    weight: string,
-    sex: string
+    age: number,
+    weight: number,
+    height_cm: number,
+    objective: number,
+    activity_level: number,
+    diet_type: number,
+    gender: 'female' | 'male' // ou enum se você definir
   ) => Promise<boolean>;
   deleteProfile: () => Promise<boolean>;
 }
@@ -42,7 +46,7 @@ export interface FoodProps {
 export interface FoodNutrientsProps {
   id: string;
   description: string;
-  category: CategoryProps;
+  category: CategoryProps; // Assumindo que você terá uma relação
   moisture: ValueProps;
   energy: ValueProps;
   protein: ValueProps;
@@ -109,8 +113,8 @@ export interface ProductContextProps {
     calcium: number | null,
     sodium: number | null
   ) => Promise<boolean>;
-  remove: (id:string) => Promise<boolean>;
-  search: (term:string) => Promise<ProductNutrientsProps[]>;
+  remove: (id: string) => Promise<boolean>;
+  search: (term: string) => Promise<ProductNutrientsProps[]>;
 }
 
 export interface EatContextProps {
@@ -120,14 +124,14 @@ export interface EatContextProps {
   foods: FoodProps[];
   error: ErrorProps | null;
   setError: (value: ErrorProps | null) => void;
-  createProduct: (product:string, date:string, quantity:number) => Promise<boolean>;
-  createFood: (food:string, date:string, quantity:number) => Promise<boolean>;
-  removeProduct: (id:string) => Promise<boolean>;
-  removeFood: (id:string) => Promise<boolean>;
+  createProduct: (product: string, date: string, quantity: number) => Promise<boolean>;
+  createFood: (food: string, date: string, quantity: number) => Promise<boolean>;
+  removeProduct: (id: string) => Promise<boolean>;
+  removeFood: (id: string) => Promise<boolean>;
   date: Date | null;
-  setDate: (value:Date | null) => void;
-  searchFood: (term:string) => Promise<boolean>;
-  searchProduct: (term:string) => Promise<boolean>;
+  setDate: (value: Date | null) => void;
+  searchFood: (term: string) => Promise<boolean>;
+  searchProduct: (term: string) => Promise<boolean>;
 }
 
 export interface ProductNutrientsProps {
@@ -179,18 +183,36 @@ export interface UserProps {
   id: string;
   alias: string;
   mail: string;
-  role: string;
+  role: 'user' | 'adm'; // usando enum para os papéis
 }
 
 export interface TokenProps extends UserProps {
   token: string;
 }
 
-export interface ProfileProps {
-  birth_date: string;
-  weight: string;
-  sex: string;
+
+// Definição do enum para o gênero
+export enum Gender {
+  Male = 'male',
+  Female = 'female',
 }
+
+// Interface ProfileProps atualizada
+export interface ProfileProps {
+  age: number; // Idade em anos
+  weight: number; // Peso em kg
+  height_cm: number; // Altura em centímetros
+  objective: number; // Objetivo, entre 0 e 2
+  activity_level: number; // Nível de atividade física, entre 0 e 2
+  diet_type: number; // Tipo de dieta, entre 0 e 2
+  gender: Gender; // Gênero, usando o enum Gender
+}
+
+
+export interface ErrorProps {
+  error: string; // Estrutura de erro para respostas de erro
+}
+
 
 export interface EatProductProps {
   id: string;

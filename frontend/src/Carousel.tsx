@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Carousel.css';
 import Button from './Button';
+import profileService from './services/profile'; // Importa o serviço de perfil
+import { Gender } from './types'; // Importa o enum Gender
 
 const Carousel = () => {
   // Estado para controlar a posição do carrossel
@@ -8,14 +10,36 @@ const Carousel = () => {
 
   const [selectedObjective, setSelectedObjective] = useState<string | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const [selectedGender, setSelectedGender] = useState<string | null>(null);
+  const [selectedGender, setSelectedGender] = useState<Gender | null>(null); // Altera para Gender
   const [weight, setWeight] = useState<string | null>(null);
   const [height, setHeight] = useState<string | null>(null);
   const [selectedDiet, setSelectedDiet] = useState<string | null>(null);
+  const [age, setAge] = useState<number | null>(null); // Estado para a idade
 
-  const totalSlides = 6;
+  const totalSlides = 7; // Total de slides, incluindo idade
 
-  const perfil = [selectedObjective, selectedOption, selectedGender, weight, height, selectedDiet];
+  // Função para enviar o perfil criado para a API
+  const handleCreateProfile = async () => {
+    try {
+      // Converte dados para tipos esperados
+      const profileData = {
+        objective: parseInt(selectedObjective || '0', 10),
+        activity_level: parseInt(selectedOption || '0', 10),
+        gender: selectedGender || Gender.Male, // Usa Gender enum, assume masculino se não selecionado
+        weight: parseFloat(weight || '0'),
+        height_cm: parseFloat(height || '0'), // Mudança de 'height' para 'height_cm'
+        diet_type: parseInt(selectedDiet || '0', 10),
+        age: age !== null ? age : 0 // Usa a idade inserida pelo usuário
+      };
+
+      const response = await profileService.create(profileData);
+      console.log("Perfil criado com sucesso:", response);
+      alert("Perfil criado com sucesso!");
+    } catch (error) {
+      console.error("Erro ao criar perfil:", error);
+      alert("Erro ao criar perfil. Tente novamente.");
+    }
+  };
 
   // Função para mudar para o próximo slide, sem permitir loop
   const nextSlide = () => {
@@ -42,7 +66,7 @@ const Carousel = () => {
     nextSlide();
   };
 
-  const handleGenderSelection = (gender: string) => {
+  const handleGenderSelection = (gender: Gender) => { // Altera o tipo para Gender
     setSelectedGender(gender);
     nextSlide();
   };
@@ -57,9 +81,10 @@ const Carousel = () => {
     { title: 'Qual é o seu objetivo?' },
     { title: 'Qual é o seu nível de atividade física diária?' },
     { title: 'Qual é o seu gênero?' },
-    { title: 'Dieta especiais?' },
+    { title: 'Dieta especial?' },
     { title: 'Qual é o seu peso?' },
-    { title: 'Qual é a sua altura?' }
+    { title: 'Qual é a sua altura?' },
+    { title: 'Qual é a sua idade?' } // Slide para a idade
   ];
 
   return (
@@ -82,41 +107,39 @@ const Carousel = () => {
           {/* Exibe os botões de objetivos no primeiro slide */}
           {currentIndex === 0 && (
             <div className="objective-buttons">
-              <Button label="Perder peso" onClick={() => handleObjectiveSelection('Perder peso')} className='auth-button'/>
-              <Button label="Ganhar peso" onClick={() => handleObjectiveSelection('Ganhar peso')} className='auth-button'/>
-              <Button label="Manter peso" onClick={() => handleObjectiveSelection('Manter peso')} className='auth-button'/>
+              <Button label="Perder peso" onClick={() => handleObjectiveSelection('0')} className='auth-button' />
+              <Button label="Ganhar peso" onClick={() => handleObjectiveSelection('1')} className='auth-button' />
+              <Button label="Manter peso" onClick={() => handleObjectiveSelection('2')} className='auth-button' />
             </div>
           )}
 
           {/* Exibe os botões de seleção no segundo slide */}
           {currentIndex === 1 && (
             <div className="category-buttons">
-              <Button label="Leve" onClick={() => handleOptionSelection('Leve')} className='auth-button' />
-              <Button label="Moderado" onClick={() => handleOptionSelection('Moderado')} className='auth-button' />
-              <Button label="Intenso" onClick={() => handleOptionSelection('Intenso')} className='auth-button' />
+              <Button label="Leve" onClick={() => handleOptionSelection('0')} className='auth-button' />
+              <Button label="Moderado" onClick={() => handleOptionSelection('1')} className='auth-button' />
+              <Button label="Intenso" onClick={() => handleOptionSelection('2')} className='auth-button' />
             </div>
           )}
 
           {/* Exibe os inputs no terceiro slide */}
           {currentIndex === 2 && (
             <div className="gender-selection">
-              <Button label="Masculino" onClick={() => handleGenderSelection('Masculino')} className='auth-button' />
-              <Button label="Feminino" onClick={() => handleGenderSelection('Feminino')} className='auth-button' />
-              <Button label="Outro" onClick={() => handleGenderSelection('Outro')} className='auth-button' />
+              <Button label="Masculino" onClick={() => handleGenderSelection(Gender.Male)} className='auth-button' />
+              <Button label="Feminino" onClick={() => handleGenderSelection(Gender.Female)} className='auth-button' />
             </div>
           )}
 
-          {/* Exibe as opções de dieta especial no sexto slide */}
+          {/* Exibe as opções de dieta especial no quarto slide */}
           {currentIndex === 3 && (
             <div className="diet-buttons">
-              <Button label="Dieta1" onClick={() => handleDietSelection('Dieta1')} className='auth-button' />
-              <Button label="Dieta2" onClick={() => handleDietSelection('Dieta2')} className='auth-button' />
-              <Button label="Dieta3" onClick={() => handleDietSelection('Dieta3')} className='auth-button' />
+              <Button label="Dieta1" onClick={() => handleDietSelection('0')} className='auth-button' />
+              <Button label="Dieta2" onClick={() => handleDietSelection('1')} className='auth-button' />
+              <Button label="Dieta3" onClick={() => handleDietSelection('2')} className='auth-button' />
             </div>
           )}
-        </div>
 
-          {/* Exibe o input de peso no quarto slide */}
+          {/* Exibe o input de peso no quinto slide */}
           {currentIndex === 4 && (
             <div className="input-field">
               <input
@@ -129,7 +152,7 @@ const Carousel = () => {
             </div>
           )}
 
-          {/* Exibe o input de altura no quinto slide */}
+          {/* Exibe o input de altura no sexto slide */}
           {currentIndex === 5 && (
             <div className="input-field">
               <input
@@ -142,28 +165,43 @@ const Carousel = () => {
             </div>
           )}
 
-          
+          {/* Exibe o input de idade no sétimo slide */}
+          {currentIndex === 6 && (
+            <div className="input-field">
+              <input
+                className="input-custom"
+                type="number"
+                value={age || ''}
+                onChange={(e) => setAge(parseInt(e.target.value, 10) || null)} // Converte para número
+                placeholder="Ex: 25"
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Botões de navegação */}
-      <div className='objective-buttons ' >
-        <Button label="Anterior" onClick={prevSlide} className="carousel-button prev-button " />
-        <Button
-          label="Próximo"
-          onClick={nextSlide}
-          className="carousel-button next-button"
-          disabled={
-            (currentIndex === 0 && !selectedObjective) ||
-            (currentIndex === 1 && !selectedOption) ||
-            (currentIndex === 2 && !selectedGender) ||
-            (currentIndex === 3 && !selectedDiet) ||
-            (currentIndex === 4 && !weight) ||
-            (currentIndex === 5 && !height)
-          }
-        />
+      <div className='objective-buttons'>
+        <Button label="Anterior" onClick={prevSlide} className="carousel-button prev-button" />
+        {currentIndex < totalSlides - 1 ? (
+          <Button
+            label="Próximo"
+            onClick={nextSlide}
+            className="carousel-button next-button"
+            disabled={
+              (currentIndex === 0 && !selectedObjective) ||
+              (currentIndex === 1 && !selectedOption) ||
+              (currentIndex === 2 && !selectedGender) ||
+              (currentIndex === 3 && !selectedDiet) ||
+              (currentIndex === 4 && !weight) ||
+              (currentIndex === 5 && !height) ||
+              (currentIndex === 6 && age === null) // Verifica se a idade está preenchida
+            }
+          />
+        ) : (
+          <Button label="Finalizar" onClick={handleCreateProfile} className="carousel-button finish-button" />
+        )}
       </div>
-
-      {/* <p>{perfil}</p> */}
     </div>
   );
 };
