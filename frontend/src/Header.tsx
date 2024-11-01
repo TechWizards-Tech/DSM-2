@@ -16,7 +16,7 @@ const Header: React.FC = () => {
       <nav className="nav ">
 
         <Link to="/"><House className='svg-stroke-green-700' />Home</Link>
-        <Link to="/carousel"><PanelRightOpen className='svg-stroke-green-700' />Carousel</Link>
+        <Link to="/carousel"><PanelRightOpen className='svg-stroke-green-700' />Carrosel</Link>
         <Link to="/calorietracker"><UtensilsCrossed className='svg-stroke-green-700' />Calorias</Link>
         <Link to="https://github.com/TechWizards-Tech/DSM-2" target="blank"><Github className='svg-stroke-green-700' target="blank" />Github</Link>
 

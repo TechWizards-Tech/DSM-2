@@ -22,16 +22,4 @@ const Teste: React.FC = () => {
   );
 };
 
-<<<<<<< HEAD
 export default Teste;
-=======
-    return (
-     
-            <p>TESTE USER PAGE!</p>
-    
-    )
-}
-
-
-export default Teste;
->>>>>>> ad7bdf2d7cf6c2256ea1a73013617532c5d72e82
