@@ -5,8 +5,14 @@
   "scripts": {
     "create": "ts-node ./src/database/create",
     "load": "ts-node ./src/database/load",
+<<<<<<< HEAD
     "start": "ts-node ./src",
     "dev": "ts-node-dev ./src"
+=======
+    "start": "ts-node ./src/index.ts",
+    "dev": "ts-node-dev ./src",
+    "start2": "nodemon --exec ts-node ./src/index.ts"
+>>>>>>> ad7bdf2d7cf6c2256ea1a73013617532c5d72e82
   },
   "keywords": [],
   "author": "",
