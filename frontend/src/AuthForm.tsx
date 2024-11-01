@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
+import user from './services/user';
 
 const AuthForm: React.FC = () => {
+  const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     alias: '',
@@ -22,27 +24,28 @@ const AuthForm: React.FC = () => {
     setError('');
     setSuccess('');
 
-    // const endpoint = isLogin ? '/api/login' : '/api/register';
-    const endpoint = isLogin ? '/api/auth/login' : '/api/auth/register';
-
     try {
-      const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}${endpoint}`, // Usando a URL do backend do .env
-        {
-          ...formData,
-          ...(isLogin ? {} : { alias: formData.alias }) // Adiciona alias apenas no cadastro
-        }
-      );
-      setSuccess(isLogin ? 'Login realizado com sucesso!' : 'Cadastro realizado com sucesso!');
-      console.log(response.data); // Aqui você pode armazenar o token ou redirecionar o usuário
+      const response = isLogin
+        ? await user.login(formData.mail, formData.password)
+        : await user.create(formData.alias, formData.mail, formData.password);
 
-      // Limpa os campos após o cadastro
-      if (!isLogin) {
-        setFormData({ alias: '', mail: '', password: '' });
+      if ('error' in response) {
+        setError(response.error);
+      } else {
+        setSuccess(isLogin ? 'Login realizado com sucesso!' : 'Cadastro realizado com sucesso!');
+
+        if (isLogin) {
+          // Redireciona para UserPage após login
+          navigate('/perfiluser');
+        } else {
+          // Limpa os campos e redireciona para Carousel após cadastro
+          setFormData({ alias: '', mail: '', password: '' });
+          navigate('/carousel');
+        }
       }
     } catch (err: any) {
-      // Exibe uma mensagem de erro mais detalhada
-      setError(err.response?.data?.error || 'Erro ao processar a solicitação.');
+      console.error('Erro completo:', err);
+      setError('Erro ao processar a solicitação');
     }
   };
 
@@ -97,3 +100,4 @@ const AuthForm: React.FC = () => {
 };
 
 export default AuthForm;
+

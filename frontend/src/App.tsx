@@ -10,6 +10,7 @@ import CalorieTracker from './CalorieTracker';
 import MealCard from './MealCard';
 import FoodForm from './FoodForm';
 import Teste from './Teste';
+import PerfilUser from './PerfilUser';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC = () => {
               <Route path="/" element={<HeroSection />} />
               <Route path="/carousel" element={<Carousel />} />
               <Route path="/calorietracker" element={<CalorieTracker />} />
+              <Route path="/perfiluser" element={<PerfilUser />} />
             </Routes>
 
           </div>
