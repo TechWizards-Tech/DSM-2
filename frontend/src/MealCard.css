@@ -1,0 +1,82 @@
+/* Container principal da MealCard */
+.meal-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: #d3d3d3; */
+    border-radius: 40px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    width: 500px; /* Largura fixa */
+    max-width: 100%;
+    height: 80px; /* Altura fixa */
+    box-shadow: -5px 6px 0px 0px rgba(0, 105, 0, 0.3);
+  }
+  
+  /* Seção de informações da refeição */
+  .meal-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .meal-time {
+    font-size: 12px;
+    color: #555; /* Cor do texto para horário */
+    margin: 0;
+  }
+  
+  .meal-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #000;
+  }
+  
+  .meal-calories {
+    font-size: 14px;
+    color: #888; /* Cor das calorias */
+    margin: 0;
+  }
+  
+  /* Barra de progresso */
+  .progress-bar-container {
+    flex-grow: 1;
+    margin: 0 10px;
+  }
+  
+  .progress-bar {
+    height: 6px;
+    background-color: #fff; /* Cor de fundo da barra */
+    border-radius: 3px;
+    position: relative;
+  }
+  
+  /* Botão de adicionar */
+  .add-button-container {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+  }
+  
+  .add-button {
+    background-color: transparent;
+    border: 2px solid #000;
+    color: #000;
+    font-size: 24px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .add-button:hover {
+    background-color: #f0f0f0; /* Efeito hover */
+  }
+  
+  .timer-svg{
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+  }

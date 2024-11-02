@@ -1,0 +1,51 @@
+.menu-container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .side-menu {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .side-menu button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 1s;
+  }
+  
+  .side-menu button:hover {
+    background-color: #0056b3;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    position: relative; /* Necessário para o efeito de transição */
+    overflow: hidden; /* Esconde o conteúdo fora dos limites durante a animação */
+  }
+  
+  .content-transition {
+    transition: opacity 3s ease, transform 3s ease;
+    opacity: 1;
+  }
+  
+  .content-transition-enter {
+    opacity: 0;
+    transform: translateX(20px); /* Ajuste para a direção desejada */
+  }
+  
+  .content-transition-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
