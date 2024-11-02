@@ -3,8 +3,16 @@ import './PerfilUser.css';
 import user from './assets/user.jpeg';
 import perderpeso from './assets/perderpeso.jpg';
 import especial from './assets/especial.jpeg';
+import { useNavigate } from 'react-router';
 
 const PerfilUser = () => {
+
+    const navigate = useNavigate();
+
+    function handleClick() {
+        navigate("/calorietracker");
+      }
+
     const handleObjectiveClick = () => {
         // Adicione a lógica para o clique no objetivo aqui
         console.log("Objetivo clicado");
@@ -67,7 +75,7 @@ const PerfilUser = () => {
                     <p>Meta de peso</p>
 
                 </div>
-                <button className="weight-card" onClick={handleIngestaoClick}>
+                <button className="weight-card" onClick={handleClick}>
                     <p>Ingestão Diária</p>
                 </button>
             </div>

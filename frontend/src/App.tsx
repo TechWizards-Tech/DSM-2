@@ -28,7 +28,7 @@ const App: React.FC = () => {
               <Route path="/" element={<HeroSection />} />
               <Route path="/carousel" element={<Carousel />} />
               <Route path="/calorietracker" element={<CalorieTracker />} />
-              <Route path="/perfiluser" element={<PerfilUser />} />
+              <Route path="/userprofile" element={<PerfilUser />} />
             </Routes>
 
           </div>
