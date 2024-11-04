@@ -14,6 +14,7 @@ class ProfileService {
 
   // Método para criar um novo perfil
   async create(profileData: {
+    userId: number; // Adiciona userId
     age: number; // Idade em anos
     weight: number; // Peso em kg
     height_cm: number; // Altura em centímetros
@@ -32,6 +33,7 @@ class ProfileService {
 
   // Método para atualizar o perfil existente
   async update(profileData: {
+    userId: number; // Adiciona userId
     age: number; // Idade em anos
     weight: number; // Peso em kg
     height_cm: number; // Altura em centímetros

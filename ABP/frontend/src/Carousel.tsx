@@ -16,9 +16,21 @@ const Carousel = () => {
 
   const totalSlides = 7;
 
+  const loadFromLocalStorage = (key: string) => {
+    const item = localStorage.getItem(key);
+    return item ? JSON.parse(item) : null;
+  };
+
   const handleCreateProfile = async () => {
+    const userId = loadFromLocalStorage('userSession')?.id; // Carrega o userId do localStorage
+    if (!userId) {
+      alert("Erro: ID do usuário não encontrado.");
+      return;
+    }
+
     try {
       const profileData = {
+        userId, // Inclui o userId
         objective: parseInt(selectedObjective || '0', 10),
         activity_level: parseInt(selectedOption || '0', 10),
         gender: selectedGender || Gender.Male,

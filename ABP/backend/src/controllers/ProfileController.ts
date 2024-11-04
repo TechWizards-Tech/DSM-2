@@ -19,9 +19,8 @@ class ProfileController {
   }
 
   public async save(req: Request, res: Response): Promise<void> {
-    const { age, weight, height_cm, objective, activity_level, diet_type, gender } = req.body; // Ajuste dos campos conforme a tabela
-    const { id } = res.locals; // O id do usuário deve estar em res.locals
-    console.log(id);
+    const { age, weight, height_cm, objective, activity_level, diet_type, gender, userId } = req.body; // Agora incluímos userId no corpo da requisição
+    console.log(userId); // ID do usuário a partir do front-end
     console.log(req.body);
     
     // Validações dos dados recebidos
@@ -52,7 +51,7 @@ class ProfileController {
         // Verifica se o usuário já possui um perfil cadastrado
         const queryProfile: any = await query(
             "SELECT _user FROM profiles WHERE _user=$1",
-            [id]
+            [userId] // Usando userId do corpo da requisição
         );
 
         if (queryProfile.length === 0) {
@@ -61,7 +60,7 @@ class ProfileController {
                 `INSERT INTO profiles(_user, age, weight, height_cm, objective, activity_level, diet_type, gender) 
                  VALUES($1, $2, $3, $4, $5, $6, $7, $8)
                  RETURNING _user, age, weight, height_cm, objective, activity_level, diet_type, gender`,
-                [id, age, weight, height_cm, objective, activity_level, diet_type, gender]
+                [userId, age, weight, height_cm, objective, activity_level, diet_type, gender] // Usando userId
             );
             res.json(result);
         } else {
@@ -71,7 +70,7 @@ class ProfileController {
                  SET age = $1, weight = $2, height_cm = $3, objective = $4, activity_level = $5, diet_type = $6, gender = $7 
                  WHERE _user = $8
                  RETURNING _user, age, weight, height_cm, objective, activity_level, diet_type, gender`,
-                [age, weight, height_cm, objective, activity_level, diet_type, gender, id]
+                [age, weight, height_cm, objective, activity_level, diet_type, gender, userId] // Usando userId
             );
             res.json(result.rows.length ? result.rows : result);
         }
@@ -79,6 +78,7 @@ class ProfileController {
         res.status(502).json({ error: e.message });
     }
 }
+
 
 
   public async update(req: Request, res: Response): Promise<void> {
