@@ -1,66 +1,75 @@
 .hero {
-    display: flex;
+    /* display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: stretch;
-    /* padding: 20px; */
-    background-image: url('./assets/wallpaper.jpg');
-    background-size: cover;
-    background-position: center;
-    /* height: 100%; */
-    /* flex-grow: 1; */
-    border-radius: 20px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.650);
+    border-radius: 25px;
     margin: 10px;
-    border: solid 3px black;
+    border: solid 3px #0d260e;
     gap: 5px;
-    width: 90%;
+    width: 60vw;
+    min-height: 80%;
     overflow: hidden;
+    padding: 10px; */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80vw;
+    max-width: 1200px;
+    /* height: 85vh; */
+    padding: 20px;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0 auto;
+    border-radius: 25px;
+    border: solid 3px #0d260e;
 }
 
-.hero h1 {
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    color: white;
+    text-shadow:
+        -2px -2px 5px #0d260e,
+        2px -2px 5px #0d260e,
+        -2px 2px 5px #0d260e,
+        2px 2px 5px #0d260e;
+}
+
+.hero h1,
+p {
     font-size: 34px;
     font-weight: lighter;
     margin: 0;
-    color: #333;
     letter-spacing: -.025em;
     line-height: 1.75;
 }
 
 .hero span {
     margin: 0;
+    padding: 2px;
     font-size: 2.75rem;
     line-height: 1;
     font-weight: 700;
-    letter-spacing: -.025em;
-    /* text-decoration: underline; */
-    -webkit-text-stroke: 0.5px black;
-    color: var(--green-500);
-    text-shadow: 3px 3px 0 #000,
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-    letter-spacing: -5px;
-}
-
-.hero p {
-    font-size: 34px;
-    font-weight: lighter;
-    margin: 0;
-    color: #333;
-    letter-spacing: -.025em;
+    -webkit-text-stroke: 0.1px black;
+    color: #57b459;
 }
 
 .hero-left {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 60%;
     gap: 10px;
-    justify-content: space-evenly;
 }
 
 .hero-right {
-    margin: 0;
     width: 40%;
     display: flex;
     justify-content: center;
@@ -68,78 +77,46 @@
     margin: 30px;
 }
 
-@media (max-width: 1024px) {
-    .hero {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        /* gap: 10px; */
-    }
-
-    .hero-left,
-    .hero-right {
-        width: 95%;
-    }
-
-    .hero-image img {
-        display: none;
-    }
-}
-
-
-.underline {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.underline::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    /* Espessura da linha */
-    background-color: var(--green-800);
-    /* Cor da linha */
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.3s ease;
-}
-
-.underline:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-}
-
 .hero-image {
     display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    /* Cria um contexto para o posicionamento absoluto */
+    /* Para manter o contexto de sobreposição */
 }
 
 .logo1 {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
+    width: 100%;
+    /* Ajusta a largura para 100% do contêiner */
+    max-width: 250px;
+    /* Aumenta a largura máxima */
+    height: auto;
+    /* Mantém a proporção */
     z-index: 2;
+    /* Fica atrás */
     animation: float 4s ease-in-out infinite, pulse 4s ease-in-out infinite;
-    margin-top: 4%;
-    width: 110%;
-    left: -6px;
 }
 
 .logo2 {
-    display: flex;
-    /* position: absolute; */
-    top: 0;
-    left: 0;
+    width: 100%;
+    /* Ajusta a largura para 100% do contêiner */
+    max-width: 300px;
+    /* Aumenta a largura máxima */
+    height: auto;
+    /* Mantém a proporção */
     z-index: 1;
+    /* Fica na frente */
+    position: absolute;
+    /* Permite sobreposição */
+    left: 0;
+    /* Alinha à esquerda */
+    top: 0;
+    /* Alinha ao topo */
 }
 
-/* Efeito de flutuação */
+/* Animações */
+
+/* animação da imagem */
 @keyframes float {
 
     0%,
@@ -152,7 +129,6 @@
     }
 }
 
-/* Efeito de pulsação */
 @keyframes pulse {
 
     0%,
@@ -163,4 +139,101 @@
     50% {
         transform: scale(1.2);
     }
+}
+
+
+/* teste mudança de cor elemento span */
+
+.hero span:hover {
+    animation: colorChange 1s forwards;
+    /* Inicia a animação ao passar o mouse */
+}
+
+@keyframes colorChange {
+    0% {
+        color: #57b459;
+        /* Cor original */
+    }
+
+    100% {
+        color: #fd793a;
+        /* Nova cor */
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero {
+        width: 90%;
+        height: auto; /* Permite que a altura do contêiner se ajuste automaticamente */
+        
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 30px;
+    }
+    
+    .hero-left {
+        width: 100%;
+        height: 40%;
+    }
+
+    .hero-right {
+        width: 100%;
+        height: 60%;
+    }
+
+    .hero-text {
+        margin-top: 20px;
+    }
+
+    .hero-text h1,
+    .hero-text p {
+        font-size: 24px;
+        /* Ajusta o tamanho da fonte para dispositivos menores */
+        text-align: center;
+        /* Centraliza o texto */
+    }
+
+    .hero span {
+        font-size: 26px;
+    }
+
+
+    /* Oculta as imagens */
+    .hero-image {
+        display: none;
+        /* Esconde a imagem */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1080px) {
+    .hero {
+        width: 90%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hero-left {
+        padding: 5px;
+        margin-top: 10px;
+        width: 60%;
+    }
+
+    .hero span {
+        font-size: 28px;
+    }
+
+    .hero-right {
+        width: 40%;
+    }
+
+    .hero-text h1,
+    .hero-text p {
+        font-size: 26px;
+
+    }
+
 }

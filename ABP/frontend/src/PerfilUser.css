@@ -5,7 +5,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-family: Arial, sans-serif;
 }
@@ -15,13 +16,14 @@ html, body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90vw;
+    width: 80vw;
     max-width: 1200px;
-    height: 85vh;
+    /* height: 85vh; */
+    border: solid 3px #0d260e;
     padding: 20px;
     background-color: #f8f9fa;
     color: #333;
-    margin: 0 auto;
+    margin-bottom: 30px;
     border-radius: 25px;
     background-image: url(http://localhost:3010/static/media/wallpaper.a19aaaedcd0f8341e798.jpg);
 }
@@ -29,28 +31,65 @@ html, body {
 
 .profile-header {
     display: flex;
+    width: 100%;
     align-items: center;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    border-radius: 25px;
+    /* Borda inferior */
+    box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra interna */
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.profile-info h2 {
+    padding: 10px 0;
+    font-size: 18px;
 }
 
 .profile-image {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    margin-right: 15px; /* Reduz a margem para espaçamento simétrico */
 }
 
-.profile-info {
+.daily-tip {
     display: flex;
     flex-direction: column;
-    gap: 4px; /* Espaçamento simétrico entre os textos */
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px 0;
+}
+
+.daily-tip h2 {
+    font-size: 20px;
+    padding: 10px 0;
+}
+
+/* Dica diária */
+.daily-tip p {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+}
+
+.daily-tip span {
+    color: #666;
 }
 
 .profile-name {
     font-size: 24px;
     font-weight: bold;
-    text-align: left; /* Alinha o texto à esquerda */
+    text-align: left;
+    /* Alinha o texto à esquerda */
 }
 
 .profile-email,
@@ -60,23 +99,15 @@ html, body {
     text-align: left;
 }
 
-
-/* Dica diária */
-.daily-tip {
-    font-size: 18px;
-    text-align: left;
-    width: 100%;
-}
-
-.daily-tip span {
-    color: #666;
-}
-
 /* Seção de dietas */
 .diets-section {
+    display: flex;
     width: 100%;
     text-align: center;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    border-radius: 25px;
+    box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra interna */
 }
 
 
@@ -94,18 +125,17 @@ html, body {
     background-color: transparent;
     cursor: pointer;
     padding: 10px;
-    width: 300px; /* Ajuste a largura conforme necessário */
-    height: 300px; /* Ajuste a altura conforme necessário */
+    width: 300px;
+    /* Ajuste a largura conforme necessário */
+    height: 300px;
+    /* Ajuste a altura conforme necessário */
     filter: drop-shadow(2px 4px 6px black);
 }
 
-.diet-card p {
-    margin: 5px 0; /* Margem para o texto */
-    font-weight: bold; /* Para destacar o texto */
-}
-
-.diet-card:hover {
-    opacity: 0.8; /* Efeito de hover para visualização */
+.diet-card:hover,
+.weight-card:hover {
+    opacity: 0.8;
+    /* Efeito de hover para visualização */
 }
 
 
@@ -124,6 +154,7 @@ html, body {
 /* Seção de peso */
 .weight-section {
     display: flex;
+    align-items: center;
     justify-content: space-around;
     width: 100%;
     height: 35%;
@@ -133,41 +164,142 @@ html, body {
     background-color: #dcdcdc;
     padding: 10px;
     border-radius: 8px;
-    width: 300px;
-    height: 100%;
+    width: 30%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     font-weight: bold;
-    filter: drop-shadow(2px 4px 6px black);
+    border-radius: 25px;
+    box-shadow: inset 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.weight-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .weight-card p {
     font-size: 16px;
+    font-weight: bold;
     margin: 0;
 }
 
-.weight-card-i {
-    background-color: #dcdcdc;
-    padding: 10px;
-    border-radius: 8px;
-    width: 300px;
-    height: 300px; /* Define altura fixa para manter o tamanho */
+.button-to-calorie-tracker {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    font-weight: bold; 
-    filter: drop-shadow(2px 4px 6px black);
+    justify-content: center;
+    background-color: #004d00;
+    color: white;
+    padding: 15px 30px;
     border: none;
-}
-
-.weight-card-i:hover {
-    opacity: 0.8; /* Efeito de hover para visualização */
-}
-
-.weight-card-i p {
+    border-radius: 25px;
     font-size: 16px;
-    margin: 0;
+    cursor: pointer;
+}
+
+.button-to-calorie-tracker:hover {
+    background-color: #fff;
+    color: #003300;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa ao passar o mouse */
+    transform: scale(0.90);
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .profile-container {
+        width: 90%;
+        height: auto;
+        /* Permite que a altura do contêiner se ajuste automaticamente */
+        flex-direction: column;
+        padding-bottom: 35px;
+        margin-bottom: 30px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .profile-image {
+        width: 70px;
+        height: 70px;
+    }
+
+    .daily-tip h2 {
+        font-size: 18px;
+
+    }
+
+    .daily-tip p {
+        font-size: 16px;
+    }
+
+    .diets-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        /* Espaço entre os itens */
+        width: 100%;
+        /* Garante que a seção ocupe toda a largura */
+        padding: 10px;
+        height: auto;
+
+    }
+
+    .diet-objectives {
+        display: flex;
+        flex-direction: column;
+        /* Organiza os cartões em uma coluna */
+        justify-content: space-around;
+        /* Espaço entre os cartões */
+        width: 100%;
+        /* Garante que a seção ocupe toda a largura */
+
+    }
+
+    .diet-card {
+        width: 100%;
+        /* Ocupe toda a largura do contêiner */
+        height: auto;
+        background-color: transparent;
+        margin: 10px 0;
+    }
+
+    .diet-card img {
+        width: 70%;
+        /* Ajusta a imagem para ocupar toda a largura */
+        height: auto;
+        /* Mantém a proporção correta */
+    }
+
+    .weight-section {
+        
+        display: flex; 
+        flex-wrap: wrap; 
+        gap: 15px; 
+        width: 100%; 
+        padding: 10px; 
+        height: 100%;
+    }
+    
+    .weight-card {
+        flex: 1 1 calc(50% - 15px); /* Cada .weight-card ocupa 50% menos o gap */
+        max-height: 50%;
+        box-sizing: border-box; /* Inclui paddings e bordas na largura total */
+    }
+    
+    .button-to-calorie-tracker {
+        width: 100%; /* O botão ocupa toda a largura */
+        padding: 10px 20px;
+        font-size: 12px;
+        margin-top: 10px; /* Espaço acima do botão */
+    }
+    
+
 }

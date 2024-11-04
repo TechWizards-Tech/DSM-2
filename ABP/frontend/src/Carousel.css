@@ -6,17 +6,17 @@
 .carousel-container {
   display: flex;
   flex-direction: column;
-  width: 75%;
-  background-color: #fff;
+  max-width: 100%;
+  width: 40vw;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: -5px 6px 0px 0px rgba(0, 105, 0, 0.3);
-  height: 50%;
+  border-radius: 25px;
+  height: auto;
   border: solid 3px black;
-  background-image: url('./assets/wallpaper.jpg');
+  background-color: rgba(255, 255, 255, 0.650);
   background-size: cover;
   background-position: center;
-  margin: 10px;
+  margin: 10px auto;
+  /* Centraliza horizontalmente */
 }
 
 .progress-bar {
@@ -58,31 +58,30 @@
   margin: 10px;
 }
 
-
 /* Estilo padrão */
-.input-custom {
+.input-field .input-custom {
   /* display: flex; */
   width: 50%;
   border-radius: 0.375rem;
   border: none;
   color: #111827;
-  box-shadow: inset 0 0 0 1px #D1D5DB;
   padding: 0.625rem;
   font-size: 1.125rem;
   line-height: 1.5rem;
-  outline: 3px solid #98bd9d;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
 }
 
 .input-custom::placeholder {
   color: #98bd9d;
+  font-style: italic;
 }
 
 /* Quando em foco */
 .input-custom:focus {
   outline: 1px solid #4b7e56;
   /* focus:outline-2 */
-  box-shadow: inset 0 0 0 2px #4b7e56;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   /* focus:ring-2 focus:ring-inset focus:ring-purple-600 */
 }
 
@@ -94,7 +93,7 @@
   /* disabled:bg-gray-50 */
   color: #9CA3AF;
   /* disabled:text-gray-400 */
-  box-shadow: inset 0 0 0 1px #E5E7EB;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   /* disabled:ring-gray-200 */
 }
 
@@ -118,12 +117,7 @@
   /* data-[error=true]:focus:ring-red-500 */
 }
 
-/* Para telas pequenas (sm) */
-@media (max-width: 640px) {
-  .input-custom {
-    outline: 3px solid #98bd9d;
-  }
-}
+
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
@@ -138,32 +132,64 @@ input[type="number"]::-webkit-inner-spin-button {
   flex-wrap: wrap;
 } */
 
+.selection-buttons {
+  display: flex;
+  justify-content: center;
+  /* Centraliza os botões */
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  /* Garante que os botões não ultrapassem a largura do container */
+  margin: 20px auto;
+}
+
+.category-buttons,
+.gender-selection,
+.input-field,
+.diet-buttons,
 .objective-buttons {
   display: flex;
   justify-content: center;
-  gap: 5px;
+  /* Centraliza os elementos */
+  align-items: center;
+  flex-wrap: wrap;
+  /* Quebra os elementos para a próxima linha se necessário */
+  gap: 10px;
+  width: 100%;
+  /* Largura total do container */
+  margin: 20px auto;
+  /* Centraliza o container */
 }
 
-.category-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
+/* Para dispositivos com largura mínima de 320px e máxima de 768px */
+@media (max-width: 768px) {
+
+  .carousel-container {
+    width: 90%;
+    /* Ajusta a largura para caber em telas menores */
+    padding: 15px;
+    /* Reduz o padding para manter um layout limpo */
+  }
+
+  .input-custom {
+    width: 80%;
+    /* Ajusta a largura do input */
+  }
 }
 
-.gender-selection {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
 
-.input-field {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-}
+/* Para dispositivos com largura mínima de 769px e máxima de 1080px */
+@media (min-width: 769px) and (max-width: 1080px) {
+  @media (min-width: 769px) and (max-width: 1080px) {
+    .carousel-container {
+      width: 80%;
+      /* Reduz um pouco a largura para telas médias */
+      padding: 20px;
+    }
 
-.diet-buttons{
-  display: flex;
-  justify-content: center;
-  gap: 5px;
+    .input-custom {
+      width: 70%;
+      /* Ajusta a largura do input */
+    }
+  }
 }

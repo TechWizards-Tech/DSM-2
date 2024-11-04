@@ -69,11 +69,11 @@ const FoodForm = () => {
     };
 
     return (
-        <div className={isModalOpen ? 'blurred-background' : 'auth-button'} style={{ backgroundColor: 'transparent' }}>
+        <div className={isModalOpen ? 'blurred-background' : 'auth-button-meal'} style={{ backgroundColor: 'transparent' }}>
             <CalendarCheck
-                className='svg-stroke-green-700'
+                className='svg-stroke-green-700 set-style-foodform'
                 onClick={() => setIsModalOpen(true)}
-                style={{ cursor: 'pointer', width: '70px', height: '70px', transform:'translateX(-5%)' }}
+                style={{ cursor: 'pointer', transform:'translateX(-5%)' }}
             />
 
             {isModalOpen && (
@@ -139,7 +139,7 @@ const FoodForm = () => {
                             <option value="Janta">Janta</option>
                         </select>
                     
-                        <Button label={'Salvar'} onClick={handleSave} className='auth-button'/>
+                        <Button label={'Salvar'} onClick={handleSave} className='auth-buttonfont-style: italic;'/>
 
 
 

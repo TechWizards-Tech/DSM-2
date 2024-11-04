@@ -181,7 +181,7 @@ const Carousel = () => {
       </div>
 
       {/* Botões de navegação */}
-      <div className='objective-buttons'>
+      <div className='selection-buttons'>
         <Button label="Anterior" onClick={prevSlide} className="carousel-button prev-button" />
         {currentIndex < totalSlides - 1 ? (
           <Button

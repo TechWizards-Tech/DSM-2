@@ -81,7 +81,7 @@ const AuthForm: React.FC = () => {
           </div>
         )}
         <div className="form-group">
-          <label>Email</label>
+          <label>Email:</label>
           <input
             type="email"
             name="mail"
@@ -91,7 +91,7 @@ const AuthForm: React.FC = () => {
           />
         </div>
         <div className="form-group">
-          <label>Senha</label>
+          <label>Senha:</label>
           <input
             type="password"
             name="password"
@@ -100,7 +100,7 @@ const AuthForm: React.FC = () => {
             required
           />
         </div>
-        <button type="submit" className="auth-button">{isLogin ? 'Entrar' : 'Cadastrar'}</button>
+        <button type="submit" className="auth-button-form">{isLogin ? 'Entrar' : 'Cadastrar'}</button>
       </form>
     </div>
   );

@@ -3,13 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #d3d3d3; */
-    border-radius: 40px; /* Bordas arredondadas */
+    border-radius: 25px; /* Bordas arredondadas */
     padding: 10px 20px; /* Espaçamento interno */
     width: 500px; /* Largura fixa */
     max-width: 100%;
     height: 80px; /* Altura fixa */
-    box-shadow: -5px 6px 0px 0px rgba(0, 105, 0, 0.3);
+    background-color: rgba(252, 252, 252, 0.938);
+    border: solid 3px #0d260e;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
   }
   
   /* Seção de informações da refeição */
@@ -45,7 +46,7 @@
   
   .progress-bar {
     height: 6px;
-    background-color: #fff; /* Cor de fundo da barra */
+    background-color: #004d00; /* Cor de fundo da barra */
     border-radius: 3px;
     position: relative;
   }
@@ -80,3 +81,52 @@
     width: 50px;
     height: 50px;
   }
+
+  /* Responsividade para dispositivos pequenos (320px a 768px) */
+@media (max-width: 768px) {
+  .calories-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+  }
+  .colum{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0px; 
+  }
+
+  .meal-card {
+      width: 100%; /* Ajusta a largura para ocupar todo o espaço */
+      height: 90px; /* Ajusta a altura automaticamente */
+  }
+
+  .meal-info {
+      font-size: 14px; /* Ajusta o tamanho da fonte */
+  }
+
+  .progress-bar {
+      height: 4px; /* Reduz a altura da barra de progresso */
+  }
+
+  .add-button {
+      width: 30px; /* Reduz o tamanho do botão */
+      height: 30px;
+      font-size: 20px;
+  }
+
+  .modal-content {
+      width: 90%;
+      padding: 15px;
+  }
+
+  .input-custom {
+      width: 90%; /* Ajusta a largura do input */
+  }
+}
+
+

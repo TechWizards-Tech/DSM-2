@@ -1,19 +1,26 @@
 .input-custom {
     width: 60%;
     border-radius: 0.375rem;
-    border: none;
     color: #111827;
-    box-shadow: inset 0 0 0 1px #D1D5DB;
     padding: 0.625rem;
     font-size: 1.125rem;
     line-height: 1.5rem;
-    outline: 3px solid #98bd9d;
-    /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); */
-    box-shadow: -5px 6px 0px 0px rgba(0, 105, 0, 0.3);
+    background-color: white;
+    border: 1px solid #98bd9d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+
+  }
+  
+  .set-style-foodform{
+    background-color: transparent;
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
   }
   
   .input-custom::placeholder {
     color: #98bd9d;
+    font-style: italic;
   }
   
 
@@ -175,3 +182,5 @@ li {
   .dropdown::-webkit-scrollbar-thumb:hover {
     background-color: #25402c;
   }
+
+  

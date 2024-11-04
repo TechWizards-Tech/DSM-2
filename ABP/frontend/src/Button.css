@@ -8,6 +8,45 @@
   cursor: pointer;
 }
 
+.auth-button {
+  background-color: white;
+  font-weight: bold;
+  color: #004d00;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Borda esfumada */
+  transition: box-shadow 0.3s ease; /* Animação suave na transição */
+}
+
+.auth-button-form {
+  background-color: #004d00;
+  color: white ;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.auth-button-meal{
+  font-weight: bold;
+  color: #004d00;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+ }
+
 .button:hover {
   background-color: #003300;
+  color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra mais intensa ao passar o mouse */
+  transform: scale(0.90);
 }
+.auth-button:hover, .auth-button-form:hover, .auth-button-meal:hover{
+  transform: scale(0.90);
+}
+

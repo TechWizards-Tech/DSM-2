@@ -1,10 +1,8 @@
 .colum {
   display: flex;
   align-items: center;
-  background-color: transparent;
-  flex-direction: row;
   gap: 15px;
-  
+
 }
 
 .calories-container {
@@ -13,7 +11,7 @@
   background-color: transparent;
   gap: 10px;
   flex-direction: column;
-  margin: 10px;
+  padding: 10px;
 }
 
 .text-bold {
@@ -30,36 +28,8 @@
   color: #000;
 }
 
-.calories-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 10em;
-  height: 10em;
-  background-color: #dfecdf;
-  border-radius: 50% 0% 0% 50%;
-  border: 5px solid #98bd9d;
-  /* font-size: 20px; */
-  text-align: center;
-}
-
-
-.circle-center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 10em;
-  height: 10em;
-  background-color: #dfecdf;
-  /* border-radius: 50%; */
-  border: 5px solid #98bd9d;
-  /* font-size: 20px; */
-  text-align: center;
-}
-
-
+.calories-left,
+.circle-center,
 .calories-right {
   display: flex;
   flex-direction: column;
@@ -67,9 +37,40 @@
   align-items: center;
   width: 10em;
   height: 10em;
-  background-color: #dfecdf;
-  border-radius: 0% 50% 50% 0%;
-  border: 5px solid #98bd9d;
-  /* font-size: 20px; */
+  background-color: rgba(252, 252, 252, 0.938);
+  border: solid 3px #0d260e;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
+}
+
+.calories-left {
+  border-radius: 25% 0% 0% 25%;
+}
+
+.calories-right {
+  border-radius: 0% 25% 25% 0%;
+}
+
+/* General styles for small screens (320px to 768px) */
+@media(max-width: 768px) {
+
+  .calories-left,.calories-right,.circle-center{
+    display: flex;
+    min-width:30%;
+    height: 120px;
+    text-align: center;
+    padding: 5px;
+  }
+  .text-bold {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #000;
+  }
+  .text-fit {
+    font-size: 16px;
+    font-weight: lighter;
+    margin: 0;
+    color: #000;
+  } 
 }

@@ -45,38 +45,38 @@ const PerfilUser = () => {
                 </div>
 
                 <div className="daily-tip">
-                    <div><p>Dica do dia</p></div>
-                    <div><p>Comer com atenção plena melhora a digestão</p></div>
+                    <div><h2>Dica do dia</h2></div>
+                    <div><p>"Comer com atenção plena melhora a digestão."</p></div>
                 </div>
 
             </div>
 
-
-
             <div className="diets-section">
                 <div className="diet-objectives">
+
                     <button className="diet-card" onClick={handleObjectiveClick}>
                         <p>Meu objetivo</p>
                         <img src={perderpeso} alt="Objetivo" />
                     </button>
+
                     <button className="diet-card" onClick={handleDietClick}>
                         <p>Minha dieta especial</p>
                         <img src={especial} alt="Especial" />
                     </button>
+
                 </div>
             </div>
 
             <div className="weight-section">
                 <div className="weight-card">
-                    <p>Peso Atual</p>
-
+                    <h3>Peso Atual</h3>
                 </div>
                 <div className="weight-card">
-                    <p>Meta de peso</p>
+                    <h3>Meta de peso</h3>
 
                 </div>
-                <button className="weight-card" onClick={handleClick}>
-                    <p>Ingestão Diária</p>
+                <button className="weight-card button-to-calorie-tracker" onClick={handleClick}>
+                    <p>Ver sua ingestão diária ou adicionar um alimento</p>
                 </button>
             </div>
         </div>

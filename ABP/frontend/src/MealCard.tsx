@@ -28,11 +28,11 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, t
       </div>
 
 
-      <div className="add-period-container auth-button" style={{ backgroundColor: 'transparent' }}>
+      <div className="add-period-container auth-button-meal" style={{ backgroundColor: 'transparent' }}>
         <Clock className='timer-svg svg-stroke-green-700' />
       </div>
 
-      <div className="add-button-container auth-button">
+      <div className="add-button-container auth-button-meal">
         <CirclePlus className='timer-svg svg-stroke-green-700' />
         {/* <button className="add-button ">+</button> */}
       </div>
