@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
 import user from './services/user';
-import { saveToLocalStorage } from './utils/localStorage'; // Função para salvar dados no localStorage
+import { saveToLocalStorage } from './utils/localStorage';
+import { TokenProps } from './types'; // Importe TokenProps
 
 const AuthForm: React.FC = () => {
   const navigate = useNavigate();
@@ -42,12 +43,13 @@ const AuthForm: React.FC = () => {
           if ('error' in loginResponse) {
             setError('Erro ao efetuar login após o cadastro');
           } else {
-            saveToLocalStorage('userSession', loginResponse); // Salva a sessão
+            // Salvar a sessão no localStorage
+            saveToLocalStorage('userSession', loginResponse as TokenProps);
             navigate('/carousel'); // Redireciona para o carrossel
           }
         } else {
-          saveToLocalStorage('userSession', response); // Salva a sessão após login
-          navigate('/perfiluser'); // Redireciona para página de perfil do usuário
+          saveToLocalStorage('userSession', response as TokenProps); // Salva a sessão após login
+          navigate('/userprofile'); // Redireciona para página de perfil do usuário
         }
       }
     } catch (err: any) {

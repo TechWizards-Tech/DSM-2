@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Header from './Header';
@@ -6,14 +6,14 @@ import HeroSection from './HeroSection';
 import Carousel from './Carousel';
 import CalorieTracker from './CalorieTracker';
 import PerfilUser from './PerfilUser';
-import AuthForm from './AuthForm'; // Importe seu componente de autenticação
-import { loadFromLocalStorage } from './utils/localStorage'; // Função para carregar do localStorage
+import AuthForm from './AuthForm';
+import { loadFromLocalStorage } from './utils/localStorage';
+import { TokenProps } from './types'; // Importe TokenProps
 
 const App: React.FC = () => {
-  // Verifica se o usuário está logado
   const isLoggedIn = () => {
     const userSession = loadFromLocalStorage('userSession');
-    return userSession !== null; // Retorna true se a sessão estiver presente
+    return userSession !== null && 'token' in userSession; // Verifica se o token está presente
   };
 
   return (

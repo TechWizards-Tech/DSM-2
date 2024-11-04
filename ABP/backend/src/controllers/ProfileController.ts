@@ -20,58 +20,66 @@ class ProfileController {
 
   public async save(req: Request, res: Response): Promise<void> {
     const { age, weight, height_cm, objective, activity_level, diet_type, gender } = req.body; // Ajuste dos campos conforme a tabela
-    const { id } = res.locals;
+    const { id } = res.locals; // O id do usuário deve estar em res.locals
     console.log(id);
     console.log(req.body);
+    
     // Validações dos dados recebidos
     if (age === undefined || isNaN(age) || age < 0) {
-      res.json({ error: "Forneça uma idade válida em anos" });
+        res.json({ error: "Forneça uma idade válida em anos" });
+        return; // Adiciona retorno para evitar execução contínua
     } else if (!weight) {
-      res.json({ error: "Forneça o seu peso" });
+        res.json({ error: "Forneça o seu peso" });
+        return;
     } else if (!height_cm) {
-      res.json({ error: "Forneça a sua altura em centímetros" });
+        res.json({ error: "Forneça a sua altura em centímetros" });
+        return;
     } else if (objective === undefined) {
-      res.json({ error: "Forneça o objetivo" });
+        res.json({ error: "Forneça o objetivo" });
+        return;
     } else if (activity_level === undefined) {
-      res.json({ error: "Forneça o nível de atividade" });
+        res.json({ error: "Forneça o nível de atividade" });
+        return;
     } else if (diet_type === undefined) {
-      res.json({ error: "Forneça o tipo de dieta" });
+        res.json({ error: "Forneça o tipo de dieta" });
+        return;
     } else if (!gender || (gender !== "female" && gender !== "male")) {
-      res.json({ error: "Forneça o gênero (feminino ou masculino)" });
-    } else {
-      try {
+        res.json({ error: "Forneça o gênero (feminino ou masculino)" });
+        return;
+    }
+
+    try {
         // Verifica se o usuário já possui um perfil cadastrado
         const queryProfile: any = await query(
-          "SELECT id FROM profiles WHERE _user=$1",
-          [id]
+            "SELECT _user FROM profiles WHERE _user=$1",
+            [id]
         );
-  
+
         if (queryProfile.length === 0) {
-          // Cria um novo perfil
-          const result: any = await query(
-            `INSERT INTO profiles(_user, age, weight, height_cm, objective, activity_level, diet_type, gender) 
-             VALUES($1, $2, $3, $4, $5, $6, $7, $8)
-             RETURNING id, _user, age, weight, height_cm, objective, activity_level, diet_type, gender`,
-            [id, age, weight, height_cm, objective, activity_level, diet_type, gender]
-          );
-          res.json(result);
+            // Cria um novo perfil
+            const result: any = await query(
+                `INSERT INTO profiles(_user, age, weight, height_cm, objective, activity_level, diet_type, gender) 
+                 VALUES($1, $2, $3, $4, $5, $6, $7, $8)
+                 RETURNING _user, age, weight, height_cm, objective, activity_level, diet_type, gender`,
+                [id, age, weight, height_cm, objective, activity_level, diet_type, gender]
+            );
+            res.json(result);
         } else {
-          // Atualiza o perfil existente
-          const result: any = await query(
-            `UPDATE profiles 
-             SET age = $1, weight = $2, height_cm = $3, objective = $4, activity_level = $5, diet_type = $6, gender = $7 
-             WHERE _user = $8
-             RETURNING id, _user, age, weight, height_cm, objective, activity_level, diet_type, gender`,
-            [age, weight, height_cm, objective, activity_level, diet_type, gender, id]
-          );
-          res.json(result.rows.length ? result.rows : result);
+            // Atualiza o perfil existente
+            const result: any = await query(
+                `UPDATE profiles 
+                 SET age = $1, weight = $2, height_cm = $3, objective = $4, activity_level = $5, diet_type = $6, gender = $7 
+                 WHERE _user = $8
+                 RETURNING _user, age, weight, height_cm, objective, activity_level, diet_type, gender`,
+                [age, weight, height_cm, objective, activity_level, diet_type, gender, id]
+            );
+            res.json(result.rows.length ? result.rows : result);
         }
-      } catch (e: any) {
+    } catch (e: any) {
         res.status(502).json({ error: e.message });
-      }
     }
-  }
-  
+}
+
 
   public async update(req: Request, res: Response): Promise<void> {
     const { age, weight, height_cm, gender, objective, activity_level, diet_type } = req.body;
