@@ -233,19 +233,19 @@ Na Sprint 3, avançaremos permitindo que os usuários acessem seus perfis, o con
 
 Na Sprint 3, concluímos o desenvolvimento da nossa aplicação, integrando funcionalidades que aprimoram a experiência do usuário de maneira significativa:
 
-**Interface Responsiva e Dinâmica:** Finalizamos a criação de uma interface que se adapta perfeitamente a diferentes tamanhos de tela, garantindo uma experiência intuitiva e fluida em qualquer dispositivo.
+**Interface Responsiva e Dinâmica:** Finalizamos a criação de uma interface que se adapta perfeitamente a diferentes tamanhos de tela, tentando manter a experiência intuitiva e fluida em qualquer dispositivo.
 
 **Questionário Personalizado:** Implementamos um questionário inicial que coleta informações sobre gênero, objetivo, nível de atividade física, peso e altura. Essa personalização permite que os usuários tenham dietas mais alinhadas às suas necessidades.
 
 **Acesso à Base de Dados de Alimentos:** Os usuários agora têm acesso à nossa base de dados, onde podem consultar informações detalhadas sobre alimentos e seus macronutrientes.
 
-**Registro de Alimentos Consumidos:** Desenvolvemos a funcionalidade que permite registrar e contabilizar os alimentos consumidos ao longo do dia, facilitando o acompanhamento das dietas.
+**Registro de Alimentos Consumidos:** Implementamos a funcionalidade que permite registrar e contabilizar os alimentos consumidos ao longo do dia, facilitando o acompanhamento das dietas.
 
 **Cálculo Diário de Calorias:** Adicionamos um recurso que fornece um cálculo diário de calorias, permitindo aos usuários verificar se estão acima ou abaixo de suas metas e acompanhar seu progresso de forma eficaz.
 
 **Gerenciamento da Dieta:** Os usuários podem facilmente incluir ou excluir itens de suas dietas, proporcionando um controle maior sobre suas escolhas alimentares.
 
-**Histórico de Ingestão Calórica:** Implementamos uma funcionalidade que permite visualizar um histórico detalhado da ingestão calórica, ajudando na análise e reflexão sobre as decisões alimentares.
+**Histórico de Ingestão Calórica:** Implementamos uma funcionalidade que permite visualizar um histórico da ingestão calórica, ajudando na análise e reflexão sobre as decisões alimentares do usuário.
 
 **Opções de Dieta Personalizadas:** A aplicação agora oferece opções de dieta ajustadas às necessidades de cada usuário, garantindo que suas metas nutricionais sejam atendidas de maneira eficiente.
 
@@ -259,13 +259,13 @@ Estamos satisfeitos com os resultados alcançados e acreditamos que essas funcio
 
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
-| RF - 4     |      34     | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |     Pollyana, Felipe e Leandro           |      |
-| RF - 5     |     21      | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |   Pollyana, Felipe e Pamela              |      |
-| RF - 6     |      21     | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |    Pollyana, Felipe e Pamela             |      |
-| RF - 7     |      21     | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |     Pollyana, Felipe e Pamela      |      |
-| RF - 8     |      8      | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |    Pamela, Maria Eduarda e Leandro       |      |
-| RF - 10    |     21      | Visualizar um histórico de ingestão calórica.                                                             |    Pollyana, Felipe, Maria Eduarda, Raquel e Leandro          |      |
-| RNF - 3    |      21     | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |    Pollyana, Maria Eduarda, Raquel e Leandro     |      |
+| RF - 4     |      34     | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |     Pollyana, Felipe e Leandro           |   ✔    |    |
+| RF - 5     |     21      | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |   Pollyana, Felipe e Pamela              |   ✔    |   ✔    |
+| RF - 6     |      21     | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |    Pollyana, Felipe e Pamela             |   ✔    |    |
+| RF - 7     |      21     | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |     Pollyana, Felipe e Pamela      |   ✔    |    |
+| RF - 8     |      8      | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |    Pamela, Maria Eduarda e Leandro       |   ✔    |    |
+| RF - 10    |     21      | Visualizar um histórico de ingestão calórica.                                                             |    Pollyana, Felipe, Maria Eduarda, Raquel e Leandro          |   ✔    |    |
+| RNF - 3    |      21     | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |    Pollyana, Maria Eduarda, Raquel e Leandro     |   ✔    |   ✔    |
 
 <br>
 
