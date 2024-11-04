@@ -5,13 +5,20 @@ class User {
   async login(mail: string, password: string ): Promise<TokenProps | ErrorProps> {
     try {
       const { data } = await api.post("/login", { mail, password });
+      
+      // Salva o token e o ID do usuário no localStorage, caso o login tenha sucesso
+      if ('token' in data) {
+        localStorage.setItem("userToken", data.token); // Salva o token da sessão
+        localStorage.setItem("userId", data.id);       // Salva o ID do usuário
+      }
+
       return data;
     } catch (error: any) {
       return error;
     }
   }
 
-  async create(alias:string, mail: string, password: string): Promise<TokenProps | ErrorProps> {
+  async create(alias: string, mail: string, password: string): Promise<TokenProps | ErrorProps> {
     try {
       const { data } = await api.post("/user", { alias, mail, password });
       return data;
@@ -20,7 +27,7 @@ class User {
     }
   }
 
-  async updateAlias(alias:string): Promise<UserProps | ErrorProps> {
+  async updateAlias(alias: string): Promise<UserProps | ErrorProps> {
     try {
       const { data } = await api.put("/user/alias", { alias });
       return data;
@@ -29,7 +36,7 @@ class User {
     }
   }
 
-  async updateMail(mail:string): Promise<UserProps | ErrorProps> {
+  async updateMail(mail: string): Promise<UserProps | ErrorProps> {
     try {
       const { data } = await api.put("/user/mail", { mail });
       return data;
@@ -38,7 +45,7 @@ class User {
     }
   }
 
-  async updatePassword(password:string): Promise<UserProps | ErrorProps> {
+  async updatePassword(password: string): Promise<UserProps | ErrorProps> {
     try {
       const { data } = await api.put("/user/password", { password });
       return data;
@@ -56,7 +63,7 @@ class User {
     }
   }
 
-  async updateRole(id: string,role: string): Promise<UserProps | ErrorProps> {
+  async updateRole(id: string, role: string): Promise<UserProps | ErrorProps> {
     try {
       const { data } = await api.put("/user/role", { id, role });
       return data;
@@ -64,7 +71,6 @@ class User {
       return error;
     }
   }
-
 }
 
 const user = new User();
