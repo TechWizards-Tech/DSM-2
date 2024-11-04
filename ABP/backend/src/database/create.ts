@@ -24,22 +24,21 @@ async function init() {
         );
 
         
-                CREATE TABLE profiles (
-    id SERIAL NOT NULL,
-    _user INTEGER NOT NULL,
-    age SMALLINT NOT NULL, -- idade em anos
-    weight DECIMAL(5, 2) NOT NULL, -- peso com duas casas decimais
-    height_cm DECIMAL(5, 2) NOT NULL, -- altura em centímetros com duas casas decimais
-    objective SMALLINT NOT NULL CHECK (objective BETWEEN 0 AND 2), -- objetivo 0 a 2
-    activity_level SMALLINT NOT NULL CHECK (activity_level BETWEEN 0 AND 2), -- nível de atividade física 0 a 2
-    diet_type SMALLINT NOT NULL CHECK (diet_type BETWEEN 0 AND 2), -- tipo de dieta 0 a 2
-    gender enum_sex, -- tipo enum já existente para o gênero
-    PRIMARY KEY (id),
+               CREATE TABLE profiles (
+    _user INTEGER NOT NULL PRIMARY KEY,
+    age SMALLINT NOT NULL CHECK (age >= 0),
+    weight DECIMAL(5, 2) NOT NULL,
+    height_cm DECIMAL(5, 2) NOT NULL,
+    objective SMALLINT NOT NULL CHECK (objective BETWEEN 0 AND 2),
+    activity_level SMALLINT NOT NULL CHECK (activity_level BETWEEN 0 AND 2),
+    diet_type SMALLINT NOT NULL CHECK (diet_type BETWEEN 0 AND 2),
+    gender enum_sex,
     FOREIGN KEY (_user)
         REFERENCES users(id)
         ON DELETE RESTRICT
         ON UPDATE CASCADE
 );
+
 
 
         CREATE TABLE fields (
