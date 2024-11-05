@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { query } from "../database/connection";
+import { subDays, format } from 'date-fns'; //npm install date-fns
 
 class EatFoodController {
   public async list(req: Request, res: Response): Promise<void> {
@@ -91,6 +92,42 @@ class EatFoodController {
     }
   }
 
+  public async weeklyCalories(req: Request, res: Response, currentDate?: string, daysRemaining = 7, totalCalories = 0): Promise<void> {
+    const { id: user } = res.locals;
+  
+    // Define a data inicial (hoje) se não for passada como parâmetro
+    const date = currentDate || format(new Date(), 'yyyy-MM-dd');
+  
+    // Base da recursão: se não restam dias para calcular, retornar o resultado
+    if (daysRemaining === 0) {
+      res.json({ totalCalories });
+      return;
+    }
+  
+    try {
+      // Consulta para obter as calorias do dia atual
+      const result: any = await query(
+        `SELECT SUM(B.energy * A.quantity) AS total_energy
+           FROM eat_foods AS A
+           INNER JOIN foods AS B 
+           ON A.food = B.id
+           WHERE A._user = $1 AND A.date = $2`,
+        [user, date]
+      );
+  
+      // Soma as calorias do dia atual ao total
+      const dailyCalories = result[0]?.total_energy || 0;
+      totalCalories += dailyCalories;
+  
+      // Chama a função recursivamente para o próximo dia (dia anterior)
+      const previousDate = format(subDays(new Date(date), 1), 'yyyy-MM-dd');
+      await this.weeklyCalories(req, res, previousDate, daysRemaining - 1, totalCalories);
+  
+    } catch (error) {
+      console.error("Erro ao calcular as calorias dos últimos 7 dias:", error);
+      res.status(502).json({ error: "Erro ao calcular as calorias dos últimos 7 dias" });
+    }
+  }
   
 
   public async dailysum(req: Request, res: Response): Promise<void> {
