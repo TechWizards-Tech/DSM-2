@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { query } from "../database/connection";
+import { subDays, format } from 'date-fns'; //npm install date-fns
 
 class EatFoodController {
   public async list(req: Request, res: Response): Promise<void> {
@@ -91,6 +92,44 @@ class EatFoodController {
     }
   }
 
+  public async weeklyCalories(req: Request, res: Response, currentDate?: string, daysRemaining = 7, totalCalories = 0): Promise<void> {
+    const { id: user } = res.locals;
+  
+    // Define a data inicial (hoje) se não for passada como parâmetro
+    const date = currentDate || format(new Date(), 'yyyy-MM-dd');
+  
+    // Base da recursão: se não restam dias para calcular, retornar o resultado
+    if (daysRemaining === 0) {
+      res.json({ totalCalories });
+      return;
+    }
+  
+    try {
+      // Consulta para obter as calorias do dia atual
+      const result: any = await query(
+        `SELECT SUM(B.energy * A.quantity) AS total_energy
+           FROM eat_foods AS A
+           INNER JOIN foods AS B 
+           ON A.food = B.id
+           WHERE A._user = $1 AND A.date = $2`,
+        [user, date]
+      );
+  
+      // Soma as calorias do dia atual ao total
+      const dailyCalories = result[0]?.total_energy || 0;
+      totalCalories += dailyCalories;
+  
+      // Chama a função recursivamente para o próximo dia (dia anterior)
+      const previousDate = format(subDays(new Date(date), 1), 'yyyy-MM-dd');
+      await this.weeklyCalories(req, res, previousDate, daysRemaining - 1, totalCalories);
+  
+    } catch (error) {
+      console.error("Erro ao calcular as calorias dos últimos 7 dias:", error);
+      res.status(502).json({ error: "Erro ao calcular as calorias dos últimos 7 dias" });
+    }
+  }
+  
+
   public async dailysum(req: Request, res: Response): Promise<void> {
     const date = req.query.date as string;
     const { id: user } = res.locals;
@@ -114,6 +153,47 @@ class EatFoodController {
       } catch (e: any) {
         res.status(502).json({ error: e.message });
       }
+    }
+  }
+
+  public async calculateBMR(req: Request, res: Response): Promise<void> {
+    const { id: user } = res.locals;
+  
+    try {
+      // Obtém os dados do perfil do usuário
+      const profileData = await query(
+        `SELECT age, weight, height_cm AS height, objective, activity_level, gender 
+         FROM profiles 
+         WHERE _user = $1`,
+        [user]
+      );
+  
+      if (profileData.length === 0) {
+        res.status(404).json({ error: "Perfil não encontrado" });
+        return;
+      }
+  
+      const { age, weight, height, objective, activity_level, gender } = profileData[0];
+  
+      // Fórmula de TMB (Taxa Metabólica Basal) usando Harris-Benedict
+      let BMR: number;
+      if (gender === 'male') {
+        BMR = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+      } else {
+        BMR = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+      }
+  
+      // Multiplicadores de objetivo
+      const objectives: { [key: number]: number } = { 0: 0.8, 1: 1, 2: 1.2 }; // 0: perder, 1: manter, 2: ganhar
+      const activityLevels: { [key: number]: number } = { 0: 1.2, 1: 1.55, 2: 1.725 }; // 0: baixa, 1: média, 2: alta
+  
+      // Calcula o ajuste final baseado no objetivo e nível de atividade
+      const adjustedBMR = BMR * (objectives[objective] ?? 1) * (activityLevels[activity_level] ?? 1);
+  
+      res.json({ BMR: adjustedBMR.toFixed(2) });
+    } catch (error) {
+      console.error("Erro ao calcular TMB:", error);
+      res.status(502).json({ error: "Erro ao calcular TMB" });
     }
   }
   
