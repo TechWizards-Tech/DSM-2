@@ -3,6 +3,7 @@ import './Carousel.css';
 import Button from './Button';
 import profileService from './services/profile'; // Importa o serviço de perfil
 import { Gender } from './types'; // Importa o enum Gender
+import { useNavigate } from 'react-router-dom';
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -15,6 +16,8 @@ const Carousel = () => {
   const [age, setAge] = useState<number | null>(null);
 
   const totalSlides = 7;
+
+  const navigate = useNavigate();
 
   const loadFromLocalStorage = (key: string) => {
     const item = localStorage.getItem(key);
@@ -43,7 +46,8 @@ const Carousel = () => {
       const response = await profileService.create(profileData);
       console.log("Perfil criado com sucesso:", response);
       alert("Perfil criado com sucesso!");
-      // Redirecionar ou redefinir o estado aqui, se desejado
+      navigate('/userprofile');
+      
     } catch (error) {
       console.error("Erro ao criar perfil:", error);
       alert("Erro ao criar perfil. Tente novamente.");

@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden; /* Impede rolagem indesejada do body */
-  background-image: url('../public/21.jpg');
+  background-image: url('../public/19.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
