@@ -47,6 +47,8 @@ class ProfileController {
         return;
     }
 
+    
+
     try {
         // Verifica se o usuário já possui um perfil cadastrado
         const queryProfile: any = await query(
@@ -78,6 +80,49 @@ class ProfileController {
         res.status(502).json({ error: e.message });
     }
 }
+
+public async getUserProfile(req: Request, res: Response): Promise<void> {
+    const { userId } = req.query; // Obtém userId dos parâmetros de consulta
+    console.log("userId recebido:", userId); // Log para verificar o userId
+
+    // Verifica se o userId é fornecido e se é um número válido
+    if (!userId || typeof userId !== 'string' || isNaN(Number(userId)) || Number(userId) <= 0) {
+        res.status(400).json({ error: "Forneça um ID de usuário válido e positivo" });
+        return;
+    }
+    
+    const validUserId = Number(userId); // Converte userId para número
+    console.log("ID de usuário válido:", validUserId); // Confirma que o userId é o esperado
+
+    try {
+        const result = await query(
+            `
+            SELECT u.alias, u.mail, p.age, p.weight, p.height_cm
+            FROM users u
+            INNER JOIN profiles p ON p._user = u.id
+            WHERE u.id = $1
+            `,
+            [validUserId]
+        );
+
+        // Log para verificar o resultado da consulta
+        console.log("Resultado da consulta:", result);
+
+        // Acessando o resultado corretamente
+        if (!result || !Array.isArray(result) || result.length === 0) {
+            res.status(404).json({ error: "Usuário não encontrado" });
+            return;
+        }
+
+        // Retorna os dados do usuário e do perfil
+        const { alias, mail, age, weight, height_cm } = result[0]; // Acessa o primeiro registro diretamente
+        res.json({ alias, mail, age, weight, height_cm });
+    } catch (error) {
+        console.error("Erro ao buscar dados do usuário:", error);
+        res.status(500).json({ error: "Erro ao buscar dados do usuário" });
+    }
+}
+
 
 
 

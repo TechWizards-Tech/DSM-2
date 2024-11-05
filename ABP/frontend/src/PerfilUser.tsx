@@ -4,19 +4,37 @@ import user from './assets/user.jpeg';
 import perderpeso from './assets/perderpeso.jpg';
 import especial from './assets/especial.jpeg';
 import { useNavigate } from 'react-router';
+import profileService from './services/profile';
+import { ErrorProps } from './types'; // Certifique-se de que os tipos estão importados
 
 const PerfilUser = () => {
+    const [profileData, setProfileData] = useState<{
+        alias: string;
+        mail: string;
+        age: number;
+        weight: number;
+        height_cm: number;
+    } | null>(null);
     const navigate = useNavigate();
-    const [alias, setAlias] = useState('');
-    const [mail, setMail] = useState('');
 
     useEffect(() => {
-        const userSession = localStorage.getItem('userSession');
-        if (userSession) {
-            const parsedSession = JSON.parse(userSession);
-            setAlias(parsedSession.alias);
-            setMail(parsedSession.mail);
-        }
+        const fetchProfileData = async () => {
+            const userIdString = localStorage.getItem('userId');
+            if (userIdString) {
+                const userId = Number(userIdString);
+                const profile = await profileService.getUserProfile(userId);
+
+                if ('error' in profile) {
+                    console.error("Erro ao carregar perfil:", profile.error);
+                } else {
+                    setProfileData(profile);
+                }
+            } else {
+                console.error("ID do usuário não encontrado no localStorage.");
+            }
+        };
+
+        fetchProfileData();
     }, []);
 
     function handleClick() {
@@ -32,7 +50,7 @@ const PerfilUser = () => {
     };
 
     const handleIngestaoClick = () => {
-        console.log("Dieta especial clicada");
+        console.log("Ingestão clicada");
     };
 
     return (
@@ -44,27 +62,37 @@ const PerfilUser = () => {
                         alt="Foto de perfil"
                         className="profile-image"
                     />
-                    <h2 className="profile-name">{alias}</h2>
-                    <p className="profile-email">{mail}</p>
-                    <p className="profile-age-weight-height">19 anos. 50 kg, 1,51 cm.</p>
+                    <h2 className="profile-name">{profileData ? profileData.alias : 'Usuário'}</h2>
+                    <p className="profile-email">{profileData ? profileData.mail : 'email@exemplo.com'}</p>
+                    {profileData ? (
+                        <p className="profile-age-weight-height">
+                            {profileData.age} anos. {profileData.weight} kg, {profileData.height_cm} cm.
+                        </p>
+                    ) : (
+                        <p className="profile-age-weight-height">Carregando perfil...</p>
+                    )}
                 </div>
+
                 <div className="daily-tip">
                     <div><h2>Dica do dia</h2></div>
                     <div><p>"Comer com atenção plena melhora a digestão."</p></div>
                 </div>
             </div>
+
             <div className="diets-section">
                 <div className="diet-objectives">
                     <button className="diet-card" onClick={handleObjectiveClick}>
                         <p>Meu objetivo</p>
                         <img src={perderpeso} alt="Objetivo" />
                     </button>
+
                     <button className="diet-card" onClick={handleDietClick}>
                         <p>Minha dieta especial</p>
                         <img src={especial} alt="Especial" />
                     </button>
                 </div>
             </div>
+
             <div className="weight-section">
                 <div className="weight-card">
                     <h3>Peso Atual</h3>

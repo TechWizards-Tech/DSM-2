@@ -19,10 +19,10 @@ routes.use("/eat/food", validadeAcess, eatFood);
 routes.use("/eat/product", validadeAcess, eatProduct);
 routes.use("/field", field);
 routes.use("/product", validadeAcess, product);
-routes.use("/profile", validadeAcess, profile);
+routes.use("/profile", validadeAcess, profile); // Protege as rotas de perfil com validadeAcess
 routes.use("/user", user);
 
-//aceita qualquer método HTTP ou URL
-routes.use( (_:Request,res:Response) => res.status(404).json({error:"Requisição desconhecida"}) );
+// Captura qualquer método HTTP ou URL desconhecido
+routes.use((_: Request, res: Response) => res.status(404).json({ error: "Requisição desconhecida" }));
 
 export default routes;
