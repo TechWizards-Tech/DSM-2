@@ -50,6 +50,7 @@ class UserController {
 
   public create = async (req: Request, res: Response): Promise<void> => {
     const { alias, mail, password } = req.body;
+    console.log(alias, mail, password)
 
     if (!alias) {
       res.json({ error: "Forneça o nome de usuário" });

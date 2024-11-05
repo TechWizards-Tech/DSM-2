@@ -33,6 +33,7 @@ const Carousel = () => {
 
     // Validação de acesso usando o método do User service
     const hasAccess = await user.validateAccess();
+    console.log("hasAccess", hasAccess)
     if (!hasAccess) {
       alert("Acesso negado. Por favor, faça login novamente.");
       navigate('/login'); // Redireciona para a página de login, se necessário
