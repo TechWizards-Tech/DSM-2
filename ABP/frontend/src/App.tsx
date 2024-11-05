@@ -13,6 +13,7 @@ import { TokenProps } from './types'; // Importe TokenProps
 const App: React.FC = () => {
   const isLoggedIn = () => {
     const userSession = loadFromLocalStorage('userSession');
+    console.log("userSession", userSession);
     return userSession !== null && 'token' in userSession; // Verifica se o token está presente
   };
 

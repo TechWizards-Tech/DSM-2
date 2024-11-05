@@ -23,8 +23,14 @@ class ProfileService {
     gender: Gender;
   }): Promise<ProfileProps | ErrorProps> {
     try {
+      const token = localStorage.getItem("userToken");
+
       // O userId será obtido diretamente no backend em res.locals
-      const { data } = await api.post<ProfileProps>("/profile", profileData);
+      const { data } = await api.post<ProfileProps>("/profile", profileData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error: any) {
       return this.handleError(error);
