@@ -19,8 +19,8 @@ class ProfileController {
   }
 
   public async save(req: Request, res: Response): Promise<void> {
-    const { age, weight, height_cm, objective, activity_level, diet_type, gender, userId } = req.body; // Agora incluímos userId no corpo da requisição
-    console.log(userId); // ID do usuário a partir do front-end
+    const {id: userId} = res.locals;
+    const { age, weight, height_cm, objective, activity_level, diet_type, gender } = req.body; // Agora incluímos userId no corpo da requisição
     console.log(req.body);
     
     // Validações dos dados recebidos

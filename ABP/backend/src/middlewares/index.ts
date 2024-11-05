@@ -27,6 +27,7 @@ export const validadeAcess = (
         // Salva o objeto com os dados de login na propriedade locals da requisição.
         // A propriedade locals pode ser acessa em qualquer parte da requisição.
         res.locals = decoded;
+        console.log("locasl", decoded)
         // Chama a próxima função da requisição HTTP
         next(); 
       } else {
