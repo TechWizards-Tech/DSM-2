@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Carousel.css';
 import Button from './Button';
 import profileService from './services/profile'; // Importa o serviço de perfil
+import user from './services/user'; // Importa o serviço de usuário
 import { Gender } from './types'; // Importa o enum Gender
 import { useNavigate } from 'react-router-dom';
 
@@ -16,7 +17,6 @@ const Carousel = () => {
   const [age, setAge] = useState<number | null>(null);
 
   const totalSlides = 7;
-
   const navigate = useNavigate();
 
   const loadFromLocalStorage = (key: string) => {
@@ -31,23 +31,30 @@ const Carousel = () => {
       return;
     }
 
+    // Validação de acesso usando o método do User service
+    const hasAccess = await user.validateAccess();
+    if (!hasAccess) {
+      alert("Acesso negado. Por favor, faça login novamente.");
+      navigate('/login'); // Redireciona para a página de login, se necessário
+      return;
+    }
+
     try {
       const profileData = {
-        userId, // Inclui o userId
+        age: age !== null ? age : 0,
         objective: parseInt(selectedObjective || '0', 10),
         activity_level: parseInt(selectedOption || '0', 10),
         gender: selectedGender || Gender.Male,
         weight: parseFloat(weight || '0'),
         height_cm: parseFloat(height || '0'),
         diet_type: parseInt(selectedDiet || '0', 10),
-        age: age !== null ? age : 0,
       };
 
       const response = await profileService.create(profileData);
       console.log("Perfil criado com sucesso:", response);
       alert("Perfil criado com sucesso!");
       navigate('/userprofile');
-      
+
     } catch (error) {
       console.error("Erro ao criar perfil:", error);
       alert("Erro ao criar perfil. Tente novamente.");

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './AuthForm.css';
 import user from './services/user';
 import { saveToLocalStorage } from './utils/localStorage';
-import { TokenProps } from './types'; // Importe TokenProps
+import { TokenProps } from './types';
 
 const AuthForm: React.FC = () => {
   const navigate = useNavigate();
@@ -21,40 +21,36 @@ const AuthForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleLogin = async (mail: string, password: string) => {
+    const response = await user.login(mail, password);
+    if ('error' in response) {
+      setError(response.error);
+    } else {
+      saveToLocalStorage('userSession', response as TokenProps);
+      const isValid = await user.validateAccess(); // Valida o acesso após login
+      if (isValid) {
+        navigate('/carousel'); // Redireciona após login bem-sucedido e validação
+      } else {
+        setError('Sessão inválida. Faça login novamente.');
+      }
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
     setSuccess('');
 
-    try {
-      const response = isLogin
-        ? await user.login(formData.mail, formData.password)
-        : await user.create(formData.alias, formData.mail, formData.password);
-
+    if (isLogin) {
+      await handleLogin(formData.mail, formData.password);
+    } else {
+      const response = await user.create(formData.alias, formData.mail, formData.password);
       if ('error' in response) {
         setError(response.error);
       } else {
-        setSuccess(isLogin ? 'Login realizado com sucesso!' : 'Cadastro realizado com sucesso!');
-
-        // Se for cadastro, realiza login imediato
-        if (!isLogin) {
-          const loginResponse = await user.login(formData.mail, formData.password);
-
-          if ('error' in loginResponse) {
-            setError('Erro ao efetuar login após o cadastro');
-          } else {
-            // Salvar a sessão no localStorage
-            saveToLocalStorage('userSession', loginResponse as TokenProps);
-            navigate('/carousel'); // Redireciona para o carrossel
-          }
-        } else {
-          saveToLocalStorage('userSession', response as TokenProps); // Salva a sessão após login
-          navigate('/userprofile'); // Redireciona para página de perfil do usuário
-        }
+        setSuccess('Cadastro realizado com sucesso!');
+        await handleLogin(formData.mail, formData.password); // Realiza o login imediato após cadastro
       }
-    } catch (err: any) {
-      console.error('Erro completo:', err);
-      setError('Erro ao processar a solicitação');
     }
   };
 

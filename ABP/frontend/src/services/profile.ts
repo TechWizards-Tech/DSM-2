@@ -14,7 +14,6 @@ class ProfileService {
 
   // Método para criar um novo perfil
   async create(profileData: {
-    userId: number;
     age: number;
     weight: number;
     height_cm: number;
@@ -24,6 +23,7 @@ class ProfileService {
     gender: Gender;
   }): Promise<ProfileProps | ErrorProps> {
     try {
+      // O userId será obtido diretamente no backend em res.locals
       const { data } = await api.post<ProfileProps>("/profile", profileData);
       return data;
     } catch (error: any) {
@@ -33,7 +33,6 @@ class ProfileService {
 
   // Método para atualizar o perfil existente
   async update(profileData: {
-    userId: number;
     age: number;
     weight: number;
     height_cm: number;
@@ -89,8 +88,6 @@ class ProfileService {
     }
   }
   
-  
-
   // Função dedicada para tratar erros
   private handleError(error: any): ErrorProps {
     console.error("Erro ao acessar a API:", error);
