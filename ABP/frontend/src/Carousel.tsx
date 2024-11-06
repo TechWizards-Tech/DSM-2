@@ -13,10 +13,9 @@ const Carousel = () => {
   const [selectedGender, setSelectedGender] = useState<Gender | null>(null);
   const [weight, setWeight] = useState<string | null>(null);
   const [height, setHeight] = useState<string | null>(null);
-  const [selectedDiet, setSelectedDiet] = useState<string | null>(null);
   const [age, setAge] = useState<number | null>(null);
 
-  const totalSlides = 7;
+  const totalSlides = 6;
   const navigate = useNavigate();
 
   const loadFromLocalStorage = (key: string) => {
@@ -33,7 +32,7 @@ const Carousel = () => {
 
     // Validação de acesso usando o método do User service
     const hasAccess = await user.validateAccess();
-    console.log("hasAccess", hasAccess)
+    console.log("hasAccess", hasAccess);
     if (!hasAccess) {
       alert("Acesso negado. Por favor, faça login novamente.");
       navigate('/login'); // Redireciona para a página de login, se necessário
@@ -48,14 +47,13 @@ const Carousel = () => {
         gender: selectedGender || Gender.Male,
         weight: parseFloat(weight || '0'),
         height_cm: parseFloat(height || '0'),
-        diet_type: parseInt(selectedDiet || '0', 10),
+        diet_type: 0, // Assume que o usuário selecionou a primeira opção de dieta
       };
 
       const response = await profileService.create(profileData);
       console.log("Perfil criado com sucesso:", response);
       alert("Perfil criado com sucesso!");
       navigate('/userprofile');
-
     } catch (error) {
       console.error("Erro ao criar perfil:", error);
       alert("Erro ao criar perfil. Tente novamente.");
@@ -89,16 +87,10 @@ const Carousel = () => {
     nextSlide();
   };
 
-  const handleDietSelection = (diet: string) => {
-    setSelectedDiet(diet);
-    nextSlide();
-  };
-
   const slides = [
     { title: 'Qual é o seu objetivo?' },
     { title: 'Qual é o seu nível de atividade física diária?' },
     { title: 'Qual é o seu gênero?' },
-    { title: 'Dieta especial?' },
     { title: 'Qual é o seu peso?' },
     { title: 'Qual é a sua altura?' },
     { title: 'Qual é a sua idade?' }
@@ -142,14 +134,6 @@ const Carousel = () => {
           )}
 
           {currentIndex === 3 && (
-            <div className="diet-buttons">
-              <Button label="Dieta1" onClick={() => handleDietSelection('0')} className='auth-button' />
-              <Button label="Dieta2" onClick={() => handleDietSelection('1')} className='auth-button' />
-              <Button label="Dieta3" onClick={() => handleDietSelection('2')} className='auth-button' />
-            </div>
-          )}
-
-          {currentIndex === 4 && (
             <div className="input-field">
               <input
                 className="input-custom"
@@ -161,7 +145,7 @@ const Carousel = () => {
             </div>
           )}
 
-          {currentIndex === 5 && (
+          {currentIndex === 4 && (
             <div className="input-field">
               <input
                 className="input-custom"
@@ -173,7 +157,7 @@ const Carousel = () => {
             </div>
           )}
 
-          {currentIndex === 6 && (
+          {currentIndex === 5 && (
             <div className="input-field">
               <input
                 className="input-custom"
@@ -198,10 +182,9 @@ const Carousel = () => {
               (currentIndex === 0 && !selectedObjective) ||
               (currentIndex === 1 && !selectedOption) ||
               (currentIndex === 2 && !selectedGender) ||
-              (currentIndex === 3 && !selectedDiet) ||
-              (currentIndex === 4 && !weight) ||
-              (currentIndex === 5 && !height) ||
-              (currentIndex === 6 && age === null)
+              (currentIndex === 3 && !weight) ||
+              (currentIndex === 4 && !height) ||
+              (currentIndex === 5 && age === null)
             }
           />
         ) : (
