@@ -2,7 +2,7 @@ import { ErrorProps, ProfileProps, Gender } from "../types";
 import { api } from "./api";
 
 class ProfileService {
-  // Method to list the profile
+  // Método para listar o perfil
   async list(): Promise<ProfileProps | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
@@ -17,7 +17,7 @@ class ProfileService {
     }
   }
 
-  // Method to create a new profile
+  // Método para criar um novo perfil
   async create(profileData: {
     age: number;
     weight: number;
@@ -40,7 +40,7 @@ class ProfileService {
     }
   }
 
-  // Method to update the existing profile
+  // Método para atualizar o perfil existente
   async update(profileData: {
     age: number;
     weight: number;
@@ -63,7 +63,7 @@ class ProfileService {
     }
   }
 
-  // Method to delete the profile
+  // Método para deletar o perfil
   async delete(): Promise<ProfileProps | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
@@ -78,7 +78,7 @@ class ProfileService {
     }
   }
 
-  // Method to get user and profile data
+  // Método para buscar dados do usuário e do perfil
   async getUserProfile(): Promise<{ alias: string; mail: string; age: number; weight: number; height_cm: number } | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
@@ -106,10 +106,24 @@ class ProfileService {
     } catch (error: any) {
       return this.handleError(error);
     }
-}
+  }
 
+  // Método para obter o peso ideal
+  async getIdealWeight(): Promise<{ idealWeight: number } | ErrorProps> {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.get<{ idealWeight: number }>("/profile/idealWeight", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return data;
+    } catch (error: any) {
+      return this.handleError(error);
+    }
+  }
 
-  // Dedicated function to handle errors
+  // Função dedicada para lidar com erros
   private handleError(error: any): ErrorProps {
     console.error("Erro ao acessar a API:", error);
     return { error: error.message || "Erro desconhecido ao acessar a API." };

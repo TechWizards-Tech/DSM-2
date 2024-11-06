@@ -115,6 +115,49 @@ public async getUserProfile(req: Request, res: Response): Promise<void> {
 }
 
 
+public async getIdealWeight(req: Request, res: Response): Promise<void> {
+    const { id: userId } = res.locals;
+
+    try {
+        // Obtém a altura e gênero do perfil do usuário
+        const result = await query(
+            `SELECT height_cm, gender FROM profiles WHERE _user = $1`,
+            [userId]
+        );
+
+        if (!result || result.length === 0) {
+            res.status(404).json({ error: "Perfil do usuário não encontrado" });
+            return;
+        }
+
+        const { height_cm, gender } = result[0];
+
+        // Validação básica
+        if (!height_cm || !gender) {
+            res.status(400).json({ error: "Dados incompletos no perfil para calcular o peso ideal" });
+            return;
+        }
+
+        // Calcula o peso ideal com base na fórmula de Devine
+        let idealWeight;
+        if (gender === "male") {
+            idealWeight = 50 + 0.9 * (height_cm - 152.4);
+        } else if (gender === "female") {
+            idealWeight = 45.5 + 0.9 * (height_cm - 152.4);
+        } else {
+            res.status(400).json({ error: "Gênero inválido" });
+            return;
+        }
+
+        // Retorna o peso ideal
+        res.json({ idealWeight });
+    } catch (error: any) {
+        console.error("Erro ao calcular o peso ideal:", error);
+        res.status(500).json({ error: "Erro ao calcular o peso ideal" });
+    }
+}
+
+
 
 
 
