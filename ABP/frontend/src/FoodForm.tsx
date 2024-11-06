@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
-import { Calendar, CalendarCheck } from 'lucide-react';
 import './FoodForm.css';
+import { CalendarCheck } from 'lucide-react';
 import Button from './Button';
 
-const FoodForm = () => {
+interface FoodFormProps {
+    onAddRecord: (record: { food: string; date: string; amount: string; meal: string }) => void;
+}
+
+const FoodForm: React.FC<FoodFormProps> = ({ onAddRecord }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
+    // Lista de alimentos para busca
     const foodList = [
         'Arroz carreteiro',
         'Arroz, integral, cozido',
@@ -22,13 +27,10 @@ const FoodForm = () => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredFoods, setFilteredFoods] = useState<string[]>([]);
-    const [selectedFood, setSelectedFood] = useState<string | null>(null);
+    const [selectedFood, setSelectedFood] = useState<string | null>(null); // Estado de selectedFood definido corretamente
     const [consumptionDate, setConsumptionDate] = useState('');
     const [consumedAmount, setConsumedAmount] = useState('');
-    const [mealType, setMealType] = useState(''); // Novo estado para o tipo de refeição
-    const [consumptionRecords, setConsumptionRecords] = useState<
-        { food: string; date: string; amount: string; meal: string }[]
-    >([]);
+    const [mealType, setMealType] = useState('');
 
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const search = e.target.value;
@@ -55,14 +57,14 @@ const FoodForm = () => {
                 food: selectedFood,
                 date: consumptionDate,
                 amount: consumedAmount,
-                meal: mealType, // Adiciona o tipo de refeição ao registro
+                meal: mealType,
             };
-            setConsumptionRecords([...consumptionRecords, newRecord]);
+            onAddRecord(newRecord);
             setSearchTerm('');
             setSelectedFood(null);
             setConsumptionDate('');
             setConsumedAmount('');
-            setMealType(''); // Limpa o campo de refeição
+            setMealType('');
         } else {
             alert('Por favor, preencha todos os campos.');
         }
@@ -73,7 +75,7 @@ const FoodForm = () => {
             <CalendarCheck
                 className='svg-stroke-green-700 set-style-foodform'
                 onClick={() => setIsModalOpen(true)}
-                style={{ cursor: 'pointer', transform:'translateX(-5%)' }}
+                style={{ cursor: 'pointer', transform: 'translateX(-5%)' }}
             />
 
             {isModalOpen && (
@@ -99,7 +101,10 @@ const FoodForm = () => {
                                         key={index}
                                         className='dropli'
                                         onClick={() => handleSelectFood(food)}
-                                        style={{ backgroundColor: selectedFood === food ? '#4b7e56' : '', color: selectedFood === food ? '#f2f7f3' : '' }}
+                                        style={{
+                                            backgroundColor: selectedFood === food ? '#4b7e56' : '',
+                                            color: selectedFood === food ? '#f2f7f3' : ''
+                                        }}
                                     >
                                         {food}
                                     </li>
@@ -124,13 +129,11 @@ const FoodForm = () => {
                             placeholder="Ex: 3 colheres"
                         />
 
-                        {/* Novo campo de seleção para o tipo de refeição */}
                         <label>Periodo:</label>
                         <select
                             className='input-custom'
                             value={mealType}
                             onChange={(e) => setMealType(e.target.value)}
-
                         >
                             <option value="">Selecione</option>
                             <option value="Cafe da manha">Café da manhã</option>
@@ -138,19 +141,8 @@ const FoodForm = () => {
                             <option value="Cafe da tarde">Café da tarde</option>
                             <option value="Janta">Janta</option>
                         </select>
-                    
+
                         <Button label={'Salvar'} onClick={handleSave} className='auth-buttonfont-style: italic;'/>
-
-
-
-                        {consumptionRecords.map((record) => (
-                            <p>
-                                {record.food} - {record.amount} - {record.date} - {record.meal}
-                            </p>
-                        ))}
-
-
-
                     </div>
                 </div>
             )}
