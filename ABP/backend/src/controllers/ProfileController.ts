@@ -119,7 +119,7 @@ public async getIdealWeight(req: Request, res: Response): Promise<void> {
     const { id: userId } = res.locals;
 
     try {
-        // Obtém a altura e gênero do perfil do usuário
+        // Obtém a altura e o gênero do perfil do usuário
         const result = await query(
             `SELECT height_cm, gender FROM profiles WHERE _user = $1`,
             [userId]
@@ -133,29 +133,71 @@ public async getIdealWeight(req: Request, res: Response): Promise<void> {
         const { height_cm, gender } = result[0];
 
         // Validação básica
-        if (!height_cm || !gender) {
+        if (!height_cm) {
             res.status(400).json({ error: "Dados incompletos no perfil para calcular o peso ideal" });
             return;
         }
 
-        // Calcula o peso ideal com base na fórmula de Devine
-        let idealWeight;
-        if (gender === "male") {
-            idealWeight = 50 + 0.9 * (height_cm - 152.4);
-        } else if (gender === "female") {
-            idealWeight = 45.5 + 0.9 * (height_cm - 152.4);
-        } else {
-            res.status(400).json({ error: "Gênero inválido" });
-            return;
-        }
+        // Calcula a faixa de peso ideal baseada no IMC
+        const heightInMeters = height_cm / 100;
+        const idealWeightMin = 18.5 * Math.pow(heightInMeters, 2);
+        const idealWeightMax = 24.9 * Math.pow(heightInMeters, 2);
 
-        // Retorna o peso ideal
-        res.json({ idealWeight });
+        // Calcula o peso médio como um único valor ideal
+        const idealWeight = (idealWeightMin + idealWeightMax) / 2;
+
+        // Converte idealWeight para número e aplica toFixed
+        res.json({ idealWeight: Number(idealWeight.toFixed(2)) });
     } catch (error: any) {
         console.error("Erro ao calcular o peso ideal:", error);
         res.status(500).json({ error: "Erro ao calcular o peso ideal" });
     }
 }
+
+public async calculateBMR(req: Request, res: Response): Promise<void> {
+    const { id: user } = res.locals;
+
+    try {
+        // Obtém os dados do perfil do usuário
+        const profileData = await query(
+            `SELECT age, weight, height_cm AS height, objective, activity_level, gender 
+             FROM profiles 
+             WHERE _user = $1`,
+            [user]
+        );
+
+        if (profileData.length === 0) {
+            res.status(404).json({ error: "Perfil não encontrado" });
+            return;
+        }
+
+        const { age, weight, height, objective, activity_level, gender } = profileData[0];
+
+        // Fórmula de TMB (Taxa Metabólica Basal) usando Harris-Benedict
+        let BMR: number;
+        if (gender === 'male') {
+            BMR = 88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age);
+        } else {
+            BMR = 447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age);
+        }
+
+        // Multiplicadores de objetivo
+        const objectives: { [key: number]: number } = { 0: 0.8, 1: 1, 2: 1.2 }; // 0: perder, 1: manter, 2: ganhar
+        const activityLevels: { [key: number]: number } = { 0: 1.2, 1: 1.55, 2: 1.725 }; // 0: baixa, 1: média, 2: alta
+
+        // Calcula o ajuste final baseado no objetivo e nível de atividade e arredonda para um inteiro
+        const adjustedBMR = Math.round(BMR * (objectives[objective] ?? 1) * (activityLevels[activity_level] ?? 1));
+
+        // Retorna o BMR arredondado
+        res.json({ BMR: adjustedBMR });
+    } catch (error) {
+        console.error("Erro ao calcular TMB:", error);
+        res.status(502).json({ error: "Erro ao calcular TMB" });
+    }
+}
+
+
+
 
 
 

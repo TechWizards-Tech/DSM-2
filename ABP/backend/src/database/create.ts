@@ -132,7 +132,7 @@ CREATE TABLE tips (
                 ON UPDATE CASCADE,
             FOREIGN KEY(_user)
                 REFERENCES users(id)
-                ON DELETE RESTRICT
+                ON DELETE CASCADE
                 ON UPDATE CASCADE
         );
 
