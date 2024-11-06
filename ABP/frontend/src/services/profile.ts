@@ -123,6 +123,21 @@ class ProfileService {
     }
   }
 
+  async getRandomTip(): Promise<{ tip: string } | ErrorProps> {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.get<{ tip: string }>("/profile/randomTip", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return data;
+    } catch (error: any) {
+      return this.handleError(error);
+    }
+  }
+
+
   // Função dedicada para lidar com erros
   private handleError(error: any): ErrorProps {
     console.error("Erro ao acessar a API:", error);

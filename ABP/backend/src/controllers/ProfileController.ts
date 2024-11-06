@@ -243,6 +243,24 @@ public async getIdealWeight(req: Request, res: Response): Promise<void> {
     }
 }
 
+public async getRandomTip(req: Request, res: Response): Promise<void> {
+    try {
+        const result = await query(
+            `SELECT text FROM tips ORDER BY RANDOM() LIMIT 1`
+        );
+
+        if (!result || !result.length) {
+            res.status(404).json({ error: "Nenhuma dica encontrada" });
+            return;
+        }
+
+        const { text } = result[0];
+        res.json({ tip: text });
+    } catch (error) {
+        console.error("Erro ao buscar dica aleatória:", error);
+        res.status(500).json({ error: "Erro ao buscar dica" });
+    }
+}
 
   public async delete(_: Request, res: Response): Promise<void> {
     const { id } = res.locals;

@@ -15,6 +15,8 @@ const PerfilUser = () => {
         weight: number;
         height_cm: number;
     } | null>(null);
+    
+    const [idealWeight, setIdealWeight] = useState<number | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -28,7 +30,17 @@ const PerfilUser = () => {
             }
         };
 
+        const fetchIdealWeight = async () => {
+            const result = await profileService.getIdealWeight();
+            if ('error' in result) {
+                console.error("Erro ao calcular peso ideal:", result.error);
+            } else {
+                setIdealWeight(result.idealWeight);
+            }
+        };
+
         fetchProfileData();
+        fetchIdealWeight();
     }, []);
 
     const handleClick = () => {
@@ -56,7 +68,7 @@ const PerfilUser = () => {
                     <p className="profile-email">{profileData ? profileData.mail : 'email@exemplo.com'}</p>
                     {profileData ? (
                         <p className="profile-age-weight-height">
-                            {profileData.age} anos, {profileData.weight} kg, {profileData.height_cm} cm.
+                            {profileData.age} anos, {profileData.height_cm} cm.
                         </p>
                     ) : (
                         <p className="profile-age-weight-height">Carregando perfil...</p>
@@ -86,9 +98,15 @@ const PerfilUser = () => {
             <div className="weight-section">
                 <div className="weight-card">
                     <h3>Peso Atual</h3>
+                    
                 </div>
                 <div className="weight-card">
-                    <h3>Meta de peso</h3>
+                    <h3>Peso Ideal</h3>
+                    {idealWeight !== null ? (
+                        <p>{idealWeight.toFixed(1)} kg</p>
+                    ) : (
+                        <p>Calculando...</p>
+                    )}
                 </div>
                 <button className="weight-card button-to-calorie-tracker" onClick={handleClick}>
                     <p>Ver sua ingestão diária ou adicionar um alimento</p>
