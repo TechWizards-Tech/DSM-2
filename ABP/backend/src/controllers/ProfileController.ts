@@ -82,17 +82,8 @@ class ProfileController {
 }
 
 public async getUserProfile(req: Request, res: Response): Promise<void> {
-    const { userId } = req.query; // Obtém userId dos parâmetros de consulta
+    const { id: userId } = res.locals; // Obtém userId de res.locals
     console.log("userId recebido:", userId); // Log para verificar o userId
-
-    // Verifica se o userId é fornecido e se é um número válido
-    if (!userId || typeof userId !== 'string' || isNaN(Number(userId)) || Number(userId) <= 0) {
-        res.status(400).json({ error: "Forneça um ID de usuário válido e positivo" });
-        return;
-    }
-    
-    const validUserId = Number(userId); // Converte userId para número
-    console.log("ID de usuário válido:", validUserId); // Confirma que o userId é o esperado
 
     try {
         const result = await query(
@@ -102,7 +93,7 @@ public async getUserProfile(req: Request, res: Response): Promise<void> {
             INNER JOIN profiles p ON p._user = u.id
             WHERE u.id = $1
             `,
-            [validUserId]
+            [userId]
         );
 
         // Log para verificar o resultado da consulta
@@ -122,6 +113,7 @@ public async getUserProfile(req: Request, res: Response): Promise<void> {
         res.status(500).json({ error: "Erro ao buscar dados do usuário" });
     }
 }
+
 
 
 
