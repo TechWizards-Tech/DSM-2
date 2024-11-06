@@ -123,6 +123,22 @@ class ProfileService {
     }
   }
 
+  // Método para obter a Taxa Metabólica Basal (BMR)
+  async calculateBMR(): Promise<{ BMR: number } | ErrorProps> {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.get<{ BMR: number }>("/profile/calculateBMR", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return data;
+    } catch (error: any) {
+      return this.handleError(error);
+    }
+  }
+
+  // Método para obter uma dica aleatória
   async getRandomTip(): Promise<{ tip: string } | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
@@ -136,7 +152,6 @@ class ProfileService {
       return this.handleError(error);
     }
   }
-
 
   // Função dedicada para lidar com erros
   private handleError(error: any): ErrorProps {
