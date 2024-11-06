@@ -5,7 +5,7 @@ import perderpeso from './assets/perderpeso.jpg';
 import especial from './assets/especial.jpeg';
 import { useNavigate } from 'react-router';
 import profileService from './services/profile';
-import { ErrorProps } from './types'; // Certifique-se de que os tipos estão importados
+import { ErrorProps } from './types';
 
 const PerfilUser = () => {
     const [profileData, setProfileData] = useState<{
@@ -15,31 +15,37 @@ const PerfilUser = () => {
         weight: number;
         height_cm: number;
     } | null>(null);
+    
+    const [idealWeight, setIdealWeight] = useState<number | null>(null);
     const navigate = useNavigate();
 
     useEffect(() => {
         const fetchProfileData = async () => {
-            const userIdString = localStorage.getItem('userId');
-            if (userIdString) {
-                const userId = Number(userIdString);
-                const profile = await profileService.getUserProfile(userId);
+            const profile = await profileService.getUserProfile();
 
-                if ('error' in profile) {
-                    console.error("Erro ao carregar perfil:", profile.error);
-                } else {
-                    setProfileData(profile);
-                }
+            if ('error' in profile) {
+                console.error("Erro ao carregar perfil:", profile.error);
             } else {
-                console.error("ID do usuário não encontrado no localStorage.");
+                setProfileData(profile);
+            }
+        };
+
+        const fetchIdealWeight = async () => {
+            const result = await profileService.getIdealWeight();
+            if ('error' in result) {
+                console.error("Erro ao calcular peso ideal:", result.error);
+            } else {
+                setIdealWeight(result.idealWeight);
             }
         };
 
         fetchProfileData();
+        fetchIdealWeight();
     }, []);
 
-    function handleClick() {
+    const handleClick = () => {
         navigate("/calorietracker");
-    }
+    };
 
     const handleObjectiveClick = () => {
         console.log("Objetivo clicado");
@@ -47,10 +53,6 @@ const PerfilUser = () => {
 
     const handleDietClick = () => {
         console.log("Dieta especial clicada");
-    };
-
-    const handleIngestaoClick = () => {
-        console.log("Ingestão clicada");
     };
 
     return (
@@ -66,7 +68,7 @@ const PerfilUser = () => {
                     <p className="profile-email">{profileData ? profileData.mail : 'email@exemplo.com'}</p>
                     {profileData ? (
                         <p className="profile-age-weight-height">
-                            {profileData.age} anos. {profileData.weight} kg, {profileData.height_cm} cm.
+                            {profileData.age} anos, {profileData.height_cm} cm.
                         </p>
                     ) : (
                         <p className="profile-age-weight-height">Carregando perfil...</p>
@@ -74,8 +76,8 @@ const PerfilUser = () => {
                 </div>
 
                 <div className="daily-tip">
-                    <div><h2>Dica do dia</h2></div>
-                    <div><p>"Comer com atenção plena melhora a digestão."</p></div>
+                    <h2>Dica do dia</h2>
+                    <p>"Comer com atenção plena melhora a digestão."</p>
                 </div>
             </div>
 
@@ -96,9 +98,15 @@ const PerfilUser = () => {
             <div className="weight-section">
                 <div className="weight-card">
                     <h3>Peso Atual</h3>
+                    
                 </div>
                 <div className="weight-card">
-                    <h3>Meta de peso</h3>
+                    <h3>Peso Ideal</h3>
+                    {idealWeight !== null ? (
+                        <p>{idealWeight.toFixed(1)} kg</p>
+                    ) : (
+                        <p>Calculando...</p>
+                    )}
                 </div>
                 <button className="weight-card button-to-calorie-tracker" onClick={handleClick}>
                     <p>Ver sua ingestão diária ou adicionar um alimento</p>

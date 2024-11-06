@@ -82,17 +82,8 @@ class ProfileController {
 }
 
 public async getUserProfile(req: Request, res: Response): Promise<void> {
-    const { userId } = req.query; // Obtém userId dos parâmetros de consulta
+    const { id: userId } = res.locals; // Obtém userId de res.locals
     console.log("userId recebido:", userId); // Log para verificar o userId
-
-    // Verifica se o userId é fornecido e se é um número válido
-    if (!userId || typeof userId !== 'string' || isNaN(Number(userId)) || Number(userId) <= 0) {
-        res.status(400).json({ error: "Forneça um ID de usuário válido e positivo" });
-        return;
-    }
-    
-    const validUserId = Number(userId); // Converte userId para número
-    console.log("ID de usuário válido:", validUserId); // Confirma que o userId é o esperado
 
     try {
         const result = await query(
@@ -102,7 +93,7 @@ public async getUserProfile(req: Request, res: Response): Promise<void> {
             INNER JOIN profiles p ON p._user = u.id
             WHERE u.id = $1
             `,
-            [validUserId]
+            [userId]
         );
 
         // Log para verificar o resultado da consulta
@@ -122,6 +113,50 @@ public async getUserProfile(req: Request, res: Response): Promise<void> {
         res.status(500).json({ error: "Erro ao buscar dados do usuário" });
     }
 }
+
+
+public async getIdealWeight(req: Request, res: Response): Promise<void> {
+    const { id: userId } = res.locals;
+
+    try {
+        // Obtém a altura e gênero do perfil do usuário
+        const result = await query(
+            `SELECT height_cm, gender FROM profiles WHERE _user = $1`,
+            [userId]
+        );
+
+        if (!result || result.length === 0) {
+            res.status(404).json({ error: "Perfil do usuário não encontrado" });
+            return;
+        }
+
+        const { height_cm, gender } = result[0];
+
+        // Validação básica
+        if (!height_cm || !gender) {
+            res.status(400).json({ error: "Dados incompletos no perfil para calcular o peso ideal" });
+            return;
+        }
+
+        // Calcula o peso ideal com base na fórmula de Devine
+        let idealWeight;
+        if (gender === "male") {
+            idealWeight = 50 + 0.9 * (height_cm - 152.4);
+        } else if (gender === "female") {
+            idealWeight = 45.5 + 0.9 * (height_cm - 152.4);
+        } else {
+            res.status(400).json({ error: "Gênero inválido" });
+            return;
+        }
+
+        // Retorna o peso ideal
+        res.json({ idealWeight });
+    } catch (error: any) {
+        console.error("Erro ao calcular o peso ideal:", error);
+        res.status(500).json({ error: "Erro ao calcular o peso ideal" });
+    }
+}
+
 
 
 
@@ -208,6 +243,24 @@ public async getUserProfile(req: Request, res: Response): Promise<void> {
     }
 }
 
+public async getRandomTip(req: Request, res: Response): Promise<void> {
+    try {
+        const result = await query(
+            `SELECT text FROM tips ORDER BY RANDOM() LIMIT 1`
+        );
+
+        if (!result || !result.length) {
+            res.status(404).json({ error: "Nenhuma dica encontrada" });
+            return;
+        }
+
+        const { text } = result[0];
+        res.json({ tip: text });
+    } catch (error) {
+        console.error("Erro ao buscar dica aleatória:", error);
+        res.status(500).json({ error: "Erro ao buscar dica" });
+    }
+}
 
   public async delete(_: Request, res: Response): Promise<void> {
     const { id } = res.locals;

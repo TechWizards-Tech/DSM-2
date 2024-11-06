@@ -29,7 +29,7 @@ const AuthForm: React.FC = () => {
       saveToLocalStorage('userSession', response as TokenProps);
       const isValid = await user.validateAccess(); // Valida o acesso após login
       if (isValid) {
-        navigate('/carousel'); // Redireciona após login bem-sucedido e validação
+        navigate('/userprofile'); // Redireciona após login bem-sucedido e validação
       } else {
         setError('Sessão inválida. Faça login novamente.');
       }

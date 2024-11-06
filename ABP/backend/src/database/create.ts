@@ -6,7 +6,7 @@ async function init() {
     DO
     $$
     BEGIN
-        DROP TABLE IF EXISTS users, profiles, fields, categories, foods, products, votes, eat_foods, eat_products;
+        DROP TABLE IF EXISTS users, tips, profiles, fields, categories, foods, products, votes, eat_foods, eat_products;
 
         DROP TYPE IF EXISTS enum_sex, enum_role CASCADE;
 
@@ -39,7 +39,10 @@ async function init() {
         ON UPDATE CASCADE
 );
 
-
+CREATE TABLE tips (
+    id SERIAL PRIMARY KEY,
+    text TEXT NOT NULL
+);
 
         CREATE TABLE fields (
             id SERIAL NOT NULL,
