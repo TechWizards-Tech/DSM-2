@@ -239,6 +239,7 @@ export interface EatFoodProps {
   id: string;
   date: string;
   quantity: number; 
+  period: number;
   description: string;
   energy: number | null;
   protein: number | null; 

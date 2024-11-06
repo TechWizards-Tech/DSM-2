@@ -17,6 +17,7 @@ const PerfilUser = () => {
     } | null>(null);
     
     const [idealWeight, setIdealWeight] = useState<number | null>(null);
+    const [dailyTip, setDailyTip] = useState<string>('');  // Adiciona o estado para a dica do dia
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -39,8 +40,19 @@ const PerfilUser = () => {
             }
         };
 
+        const fetchRandomTip = async () => {
+            const result = await profileService.getRandomTip();
+            if ('error' in result) {
+                console.error("Erro ao carregar dica:", result.error);
+            } else {
+                setDailyTip(result.tip);  // Define a dica aleatória no estado
+            }
+        };
+
         fetchProfileData();
         fetchIdealWeight();
+        fetchRandomTip();  // Chama a função para pegar a dica
+
     }, []);
 
     const handleClick = () => {
@@ -68,7 +80,7 @@ const PerfilUser = () => {
                     <p className="profile-email">{profileData ? profileData.mail : 'email@exemplo.com'}</p>
                     {profileData ? (
                         <p className="profile-age-weight-height">
-                            {profileData.age} anos, {profileData.height_cm} cm.
+                            {profileData.age} anos, {profileData.weight} kg, {profileData.height_cm} cm.
                         </p>
                     ) : (
                         <p className="profile-age-weight-height">Carregando perfil...</p>
@@ -77,7 +89,7 @@ const PerfilUser = () => {
 
                 <div className="daily-tip">
                     <h2>Dica do dia</h2>
-                    <p>"Comer com atenção plena melhora a digestão."</p>
+                    <p>{dailyTip || "Carregando dica..."}</p>  {/* Exibe a dica aleatória */}
                 </div>
             </div>
 
@@ -98,7 +110,6 @@ const PerfilUser = () => {
             <div className="weight-section">
                 <div className="weight-card">
                     <h3>Peso Atual</h3>
-                    
                 </div>
                 <div className="weight-card">
                     <h3>Peso Ideal</h3>

@@ -21,7 +21,7 @@ const AuthForm: React.FC = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleLogin = async (mail: string, password: string) => {
+  const handleLogin = async (mail: string, password: string, redirectPath: string) => {
     const response = await user.login(mail, password);
     if ('error' in response) {
       setError(response.error);
@@ -29,7 +29,7 @@ const AuthForm: React.FC = () => {
       saveToLocalStorage('userSession', response as TokenProps);
       const isValid = await user.validateAccess(); // Valida o acesso após login
       if (isValid) {
-        navigate('/userprofile'); // Redireciona após login bem-sucedido e validação
+        navigate(redirectPath); // Redireciona conforme o caminho especificado
       } else {
         setError('Sessão inválida. Faça login novamente.');
       }
@@ -42,14 +42,14 @@ const AuthForm: React.FC = () => {
     setSuccess('');
 
     if (isLogin) {
-      await handleLogin(formData.mail, formData.password);
+      await handleLogin(formData.mail, formData.password, '/userprofile');
     } else {
       const response = await user.create(formData.alias, formData.mail, formData.password);
       if ('error' in response) {
         setError(response.error);
       } else {
         setSuccess('Cadastro realizado com sucesso!');
-        await handleLogin(formData.mail, formData.password); // Realiza o login imediato após cadastro
+        await handleLogin(formData.mail, formData.password, '/carousel'); // Realiza o login e redireciona para o carrossel
       }
     }
   };
