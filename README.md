@@ -1,10 +1,7 @@
 
 <h1 align="center">Fatec Jacareí- DSM 2º SEMESTRE</h1>
 
-<br>
-
 # <p>Equipe 💻: TechWizards </p>
-<br>
 
 # SOBRE O PROJETO
 
@@ -32,7 +29,7 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 |--------|-------------|-------------|-------------|--------|
 | 01     | [Sprint 01](#sprint-1) | 02/09/2024 | 20/09/2024 | ✔    |
 | 02     | [Sprint 02](#sprint-2) | 23/09/2024 | 11/10/2024 | ✔   |
-| 03     | [Sprint 03](#sprint-3) | 14/10/2024  | 08/11/2024 |  NÃO INICIADA    |
+| 03     | [Sprint 03](#sprint-3) | 14/10/2024  | 08/11/2024 | ✔   |
 
 <br>
 
@@ -49,11 +46,11 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | RF - 1                 | Criação de um protótipo do site usando Figma                                                              | #01✔        |
 | RF - 2                 | Criação e ajustes da interface onde o usuário faça login e cadastro com seu nome, email e senha.          | #01✔#02✔    |
 | RF - 3                 | Usuário é capaz de fazer Login de Acesso utilizando email e senha cadastrados.                            | #02✔        |
-| RF - 4                 | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |         |
-| RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |         |
-| RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |         |
+| RF - 4                 | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  | #03✔       |
+| RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        | #03✔       |
+| RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |            |
 | RF - 7                 | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |         |
-| RF - 8                 | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |         |
+| RF - 8                 | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |   #03✔       |
 | RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01✔      |
 | RF - 10                | Visualizar um histórico de ingestão calórica.                                                             |         |
 | RF - 11                | Acessar dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável.                   |  #01✔       |
@@ -65,10 +62,10 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 |----------------------------|-----------------------------------------------------------------------------------------------------|---------|
 | RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |   #01✔#02✔          |
 | RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |  #01✔        |
-| RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |         |
+| RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |  #03✔     |
 | RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01✔           |
 | RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔#02✔          |
-| RNF - 6                    | Conexão do backend com o banco de dados | #02✔        |
+| RNF - 6                    | Conexão do backend com o banco de dados | #02✔     |
 | RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔#02✔          |
 <br>
 
@@ -259,13 +256,13 @@ Estamos satisfeitos com os resultados alcançados e acreditamos que essas funcio
 
 | ID REFERENCIA |Pioridade (Scrum Poker Planning) | REQUISITO DA SPRINT| Responsável |TAREFA INICIADA | TAREFA CONCLUIDA | 
 |---------------|--------------------|---------------|-----------------|-----------------|------------------|
-| RF - 4     |      34     | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |     Pollyana, Felipe e Leandro           |   ✔    |    |
-| RF - 5     |     21      | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |   Pollyana, Felipe e Pamela              |   ✔    |   ✔    |
-| RF - 6     |      21     | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |    Pollyana, Felipe e Pamela             |   ✔    |    |
-| RF - 7     |      21     | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |     Pollyana, Felipe e Pamela      |   ✔    |    |
-| RF - 8     |      8      | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |    Pamela, Maria Eduarda e Leandro       |   ✔    |    |
+| RF - 4     |     34      | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |     Pollyana, Felipe e Leandro           |   ✔    | ✔    |
+| RF - 5     |     21      | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |   Pollyana, Felipe e Pamela              |   ✔    | ✔    |
+| RF - 6     |     21     | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |    Pollyana, Felipe e Pamela             |   ✔    | ✔    |
+| RF - 7     |     21     | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |     Pollyana, Felipe e Pamela      |   ✔    |    |
+| RF - 8     |     8      | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |    Pamela, Maria Eduarda e Leandro       |   ✔    |    |
 | RF - 10    |     21      | Visualizar um histórico de ingestão calórica.                                                             |    Pollyana, Felipe, Maria Eduarda, Raquel e Leandro          |   ✔    |    |
-| RNF - 3    |      21     | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |    Pollyana, Maria Eduarda, Raquel e Leandro     |   ✔    |   ✔    |
+| RNF - 3    |     21     | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |    Pollyana, Maria Eduarda, Raquel e Leandro     |   ✔    |   ✔    |
 
 <br>
 
@@ -275,7 +272,10 @@ Estamos satisfeitos com os resultados alcançados e acreditamos que essas funcio
 
 ### • Sprint Retrospective
 
-1. O que funcionou bem durante o sprint?
+1. Indentificação dos principais desafios enfrentados durante a sprint?
 
-2. O que não funcionou tão bem durante o sprint?
+Nosso maior desafio foi conseguir executar os comandos no React e no Typescript, sendo que não tínhamos uma base dessas linguagens de programação ainda que foram adquiridas posteriormente as entregas das sprints. 
 
+2. Lições aprendidas e melhoria propostas para futuros projetos?
+
+Uma lição importante foi a necessidade de garantir um aprendizado mais sólido das linguagens de programação antes de iniciar o projeto, o que permitiria um desenvolvimento mais eficiente. A cobrança para entregar resultados antes de ter uma base nas tecnologias, em React e Typescript, causou dificuldades no desenvolvimento. Para futuros projetos, sugerimos que o aprendizado das ferramentas e linguagens seja realizado de forma antecipada, permitindo que os membros da equipe adquiram o conhecimento necessário e possam aplicar o que aprenderam de forma eficiente no semestre seguinte, com maior domínio.
