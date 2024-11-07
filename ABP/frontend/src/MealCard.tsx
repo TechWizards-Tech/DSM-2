@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './MealCard.css'; // Estilos CSS
-import { AlarmClock, CirclePlus, Clock, Timer } from 'lucide-react';
+import { CirclePlus } from 'lucide-react';
+import FoodForm from './FoodForm'; // Importe seu componente FoodForm
 
 interface MealCardProps {
   time: string;
@@ -13,9 +14,17 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, t
   // Calcula a porcentagem de calorias consumidas
   const progress = (caloriesConsumed / totalCalories) * 100;
 
+  // Estado para controlar a visibilidade do FoodForm
+  const [isFoodFormOpen, setIsFoodFormOpen] = useState<boolean>(false);
+
+  // Função para abrir/fechar o FoodForm
+  const handleFoodFormToggle = () => {
+    setIsFoodFormOpen(!isFoodFormOpen);
+  };
+
   return (
     <div className="meal-card bg-green-100">
-      <div className="meal-info ">
+      <div className="meal-info">
         <p className="meal-time">{time}</p>
         <p className="meal-name">{mealName}</p>
         <p className="meal-calories">
@@ -27,15 +36,16 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, t
         <div className="progress-bar" style={{ width: `${progress}%` }}></div>
       </div>
 
-
-      <div className="add-period-container auth-button-meal" style={{ backgroundColor: 'transparent' }}>
-        <Clock className='timer-svg svg-stroke-green-700' />
-      </div>
-
+      {/* Ícone CirclePlus para abrir o FoodForm */}
       <div className="add-button-container auth-button-meal">
-        <CirclePlus className='timer-svg svg-stroke-green-700' />
-        {/* <button className="add-button ">+</button> */}
+        <CirclePlus
+          className="timer-svg svg-stroke-green-700"
+          onClick={handleFoodFormToggle} // Chama a função para abrir/fechar o FoodForm
+        />
       </div>
+
+      {/* Renderiza o FoodForm se isFoodFormOpen for true */}
+      {isFoodFormOpen && <FoodForm closeForm={handleFoodFormToggle} />}
     </div>
   );
 };

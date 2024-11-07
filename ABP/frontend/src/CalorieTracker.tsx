@@ -1,7 +1,8 @@
 import React from 'react';
 import './CalorieTracker.css'; // Importa os estilos
 import MealCard from './MealCard';
-import FoodForm from './FoodForm';
+// import FoodForm from './FoodForm';
+import CalendarDropdown from './CalendarDropdown';
 
 const CalorieTracker = () => {
     const caloriesConsumed = 9999; // valor inicial
@@ -26,7 +27,8 @@ const CalorieTracker = () => {
 
 
                 <div className="calories-right">
-                    <FoodForm />
+                    {/* <FoodForm /> */}
+                    <CalendarDropdown/>
                 </div>
             </div>
 

@@ -1,0 +1,39 @@
+/* Altera a cor da fonte do mês para preto e remove a borda */
+.custom-calendar .react-datepicker__current-month {
+    color: white; /* Cor preta para o nome do mês */
+    border: none; /* Remove a borda */
+}
+
+/* Se você também quiser alterar a cor das datas */
+.custom-calendar .react-datepicker__day {
+    color: black;
+}
+
+/* Para alterar o estilo de fundo do calendário */
+.custom-calendar .react-datepicker__header {
+    background-color: #f0f0f0; /* Altere conforme necessário */
+}
+
+@media (max-width: 768px) {
+    .custom-calendar {
+        position: fixed; /* Fixa o calendário na tela */
+        top: 20%; /* Distância do topo */
+        left: 70%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Ajusta para centralizar corretamente */
+        width: 90%; /* Faz o calendário ocupar 90% da largura da tela */
+        max-width: 350px; /* Limita a largura máxima */
+        z-index: 1000; /* Garante que fique na frente de outros elementos */
+    }
+
+    /* Ajusta a posição do triângulo (seta) para que ele fique no centro */
+    .react-datepicker__triangle {
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+
+    /* Evitar overflow à direita e garantir que o calendário não ultrapasse a tela */
+    .react-datepicker {
+        max-width: 50%;
+        width: 50%; /* Garante que o calendário ocupe 100% da largura disponível */
+    }
+}
