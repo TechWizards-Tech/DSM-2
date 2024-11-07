@@ -16,13 +16,16 @@ routes.put("/", ProfileController.update);
 routes.delete("/", ProfileController.delete);
 
 // Rota para buscar alias e mail do usuário, junto com age, weight, height_cm do perfil
-routes.get("/getUserProfile", ProfileController.getUserProfile); // Alterado para GET
+routes.get("/getUserProfile", ProfileController.getUserProfile);
 
 // Rota para calcular o peso ideal do usuário com base na altura e gênero
-routes.get("/idealWeight", ProfileController.getIdealWeight); // Nova rota adicionada para peso ideal
+routes.get("/idealWeight", ProfileController.getIdealWeight);
+
+// Rota para calcular a TMB (Taxa Metabólica Basal)
+routes.get("/calculateBMR", ProfileController.calculateBMR); // Nova rota para calcular a TMB
 
 // Rota para obter uma dica aleatória
-routes.get("/randomTip", ProfileController.getRandomTip); // Nova rota para obter uma dica aleatória
+routes.get("/randomTip", ProfileController.getRandomTip);
 
 // Rota para capturar qualquer método ou URL desconhecido
 routes.use((_: Request, res: Response) => 
