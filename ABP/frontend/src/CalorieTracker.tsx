@@ -7,13 +7,11 @@ import profileService from './services/profile';
 const CalorieTracker = () => {
     const [caloriesConsumed] = useState(9999);
     const [caloriesToConsume, setCaloriesToConsume] = useState<number | null>(null);
-    const [caloriesExercise] = useState(9999);
     const [consumptionRecords, setConsumptionRecords] = useState<
         { food: string; date: string; amount: string; meal: string }[]
     >([]);
 
     useEffect(() => {
-        // Função para obter o valor de caloriesToConsume (BMR)
         const fetchCaloriesToConsume = async () => {
             const response = await profileService.calculateBMR();
             if ("BMR" in response) {
@@ -34,6 +32,9 @@ const CalorieTracker = () => {
     }) => {
         setConsumptionRecords([...consumptionRecords, newRecord]);
     };
+
+    const filterRecordsByMeal = (mealType: string) =>
+        consumptionRecords.filter(record => record.meal === mealType);
 
     return (
         <div className="calories-container">
@@ -57,31 +58,31 @@ const CalorieTracker = () => {
 
             <MealCard
                 time='08:00'
-                mealName='Cafe Manha'
+                mealName='Cafe da Manha'
                 caloriesConsumed={10}
                 totalCalories={110}
-                consumptionRecords={consumptionRecords}
+                consumptionRecords={filterRecordsByMeal('Cafe da manha')}
             />
             <MealCard
                 time='12:00'
                 mealName='Almoço'
                 caloriesConsumed={10}
                 totalCalories={320}
-                consumptionRecords={consumptionRecords}
+                consumptionRecords={filterRecordsByMeal('Almoço')}
             />
             <MealCard
                 time='17:00'
-                mealName='Cafe Tarde'
+                mealName='Cafe da Tarde'
                 caloriesConsumed={10}
                 totalCalories={120}
-                consumptionRecords={consumptionRecords}
+                consumptionRecords={filterRecordsByMeal('Cafe da tarde')}
             />
             <MealCard
                 time='20:00'
                 mealName='Janta'
                 caloriesConsumed={10}
                 totalCalories={450}
-                consumptionRecords={consumptionRecords}
+                consumptionRecords={filterRecordsByMeal('Janta')}
             />
         </div>
     );

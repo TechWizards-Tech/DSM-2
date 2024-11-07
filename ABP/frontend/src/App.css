@@ -2,7 +2,8 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden; /* Impede rolagem indesejada do body */
-  background-image: url('../public/19.jpg');
+  /* background-image: url('../public/14.jpg'); */
+  background-image: url('../public/18.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -39,7 +40,7 @@ body {
   flex-direction: column; /* Pode ser ajustado conforme a necessidade */
   justify-content: flex-start; /* Alinha itens ao topo */
   align-items: center; /* Centraliza horizontalmente */
-  padding-top: 60px; /* Espaçamento acima para não sobrepor o header */
+  padding-top: 30px; /* Espaçamento acima para não sobrepor o header */
   height: calc(100vh - 60px); /* Altura do main subtraindo a altura do header */
   overflow-y: auto; /* Permite rolagem se o conteúdo for maior */
   scroll-behavior: smooth; /* Comportamento de rolagem suave */
@@ -93,8 +94,8 @@ h2 {
 
 @media (orientation: landscape) {
   .main {
-    padding-top: 60px; /* Certifique-se de que o padding é suficiente */
-    overflow-y: auto; /* Permite rolagem quando necessário */
+    /* padding-top: 60px; */
+    overflow-y: auto;
   }
 }
 

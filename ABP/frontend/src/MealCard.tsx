@@ -14,6 +14,13 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, t
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const progress = (caloriesConsumed / totalCalories) * 100;
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
+    };
+
+
     return (
         <div className="meal-card bg-green-100">
             <div className="meal-info">
@@ -29,24 +36,31 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, t
             </div>
 
             <div className="add-period-container" style={{ backgroundColor: 'transparent' }}>
-                <Clock
-                    className='timer-svg svg-stroke-green-700'
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                />
-                {isDropdownOpen && (
-                    <ul className="dropdown">
-                        {consumptionRecords.map((record, index) => (
-                            <li key={index}>
-                                {record.food} - {record.amount} - {record.date} - {record.meal}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+            <Clock
+                className="timer-svg svg-stroke-green-700"
+                onClick={toggleModal}
+                style={{ cursor: 'pointer' }}
+            />
+                {isModalOpen && (
+                <div className="modal-overlay" onClick={toggleModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <span className="close-button" onClick={toggleModal}>&times;</span>
+                        <h3>Registro de Consumo</h3>
+                        <ul className="modal-list">
+                            {consumptionRecords.map((record, index) => (
+                                <li key={index}>
+                                    {record.food} - {record.amount} - {record.date} - {record.meal}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                </div>
+            )}
             </div>
 
-            <div className="add-button-container auth-button-meal">
+            {/* <div className="add-button-container auth-button-meal">
                 <CirclePlus className='timer-svg svg-stroke-green-700' />
-            </div>
+            </div> */}
         </div>
     );
 };

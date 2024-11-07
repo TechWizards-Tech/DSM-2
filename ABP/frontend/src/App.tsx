@@ -9,6 +9,8 @@ import PerfilUser from './PerfilUser';
 import AuthForm from './AuthForm';
 import { loadFromLocalStorage } from './utils/localStorage';
 import { TokenProps } from './types'; // Importe TokenProps
+import DietaEspecial from './DietaEspecial';
+import Objetivo from './Objetivo';
 
 const App: React.FC = () => {
   const isLoggedIn = () => {
@@ -31,6 +33,8 @@ const App: React.FC = () => {
               <Route path="/calorietracker" element={isLoggedIn() ? <CalorieTracker /> : <Navigate to="/auth" />} />
               <Route path="/userprofile" element={isLoggedIn() ? <PerfilUser /> : <Navigate to="/auth" />} />
               <Route path="/auth" element={<AuthForm />} /> {/* Rota para a autenticação */}
+              <Route path="/dietaespecial" element={isLoggedIn() ? <DietaEspecial /> : <Navigate to="/auth" />} />
+              <Route path="/objetivo" element={isLoggedIn() ? <Objetivo /> : <Navigate to="/auth" />} />
             </Routes>
           </div>
         </div>

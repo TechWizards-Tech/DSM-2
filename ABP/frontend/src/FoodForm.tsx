@@ -10,7 +10,6 @@ interface FoodFormProps {
 const FoodForm: React.FC<FoodFormProps> = ({ onAddRecord }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // Lista de alimentos para busca
     const foodList = [
         'Arroz carreteiro',
         'Arroz, integral, cozido',
@@ -27,7 +26,7 @@ const FoodForm: React.FC<FoodFormProps> = ({ onAddRecord }) => {
 
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredFoods, setFilteredFoods] = useState<string[]>([]);
-    const [selectedFood, setSelectedFood] = useState<string | null>(null); // Estado de selectedFood definido corretamente
+    const [selectedFood, setSelectedFood] = useState<string | null>(null);
     const [consumptionDate, setConsumptionDate] = useState('');
     const [consumedAmount, setConsumedAmount] = useState('');
     const [mealType, setMealType] = useState('');

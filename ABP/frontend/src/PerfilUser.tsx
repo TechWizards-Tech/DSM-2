@@ -6,6 +6,7 @@ import especial from './assets/especial.jpeg';
 import { useNavigate } from 'react-router';
 import profileService from './services/profile';
 import { ErrorProps } from './types';
+import { CircleUserRound } from 'lucide-react';
 
 const PerfilUser = () => {
     const [profileData, setProfileData] = useState<{
@@ -61,21 +62,26 @@ const PerfilUser = () => {
 
     const handleObjectiveClick = () => {
         console.log("Objetivo clicado");
+        navigate('/objetivo');
     };
 
     const handleDietClick = () => {
         console.log("Dieta especial clicada");
+        navigate('/dietaespecial');
     };
 
     return (
         <div className="profile-container">
             <div className="profile-header">
                 <div className="profile-info">
-                    <img
+                    {/* <img
                         src={user}
                         alt="Foto de perfil"
                         className="profile-image"
-                    />
+                    /> */}
+                    
+                    <CircleUserRound className='foto svg-stroke-green-700'/>
+                    
                     <h2 className="profile-name">{profileData ? profileData.alias : 'Usuário'}</h2>
                     <p className="profile-email">{profileData ? profileData.mail : 'email@exemplo.com'}</p>
                     {profileData ? (
