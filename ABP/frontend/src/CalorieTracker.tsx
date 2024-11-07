@@ -1,15 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './CalorieTracker.css';
 import MealCard from './MealCard';
 import FoodForm from './FoodForm';
+import profileService from './services/profile';
 
 const CalorieTracker = () => {
     const [caloriesConsumed] = useState(9999);
-    const [caloriesToConsume] = useState(2802);
+    const [caloriesToConsume, setCaloriesToConsume] = useState<number | null>(null);
     const [caloriesExercise] = useState(9999);
     const [consumptionRecords, setConsumptionRecords] = useState<
         { food: string; date: string; amount: string; meal: string }[]
     >([]);
+
+    useEffect(() => {
+        // Função para obter o valor de caloriesToConsume (BMR)
+        const fetchCaloriesToConsume = async () => {
+            const response = await profileService.calculateBMR();
+            if ("BMR" in response) {
+                setCaloriesToConsume(response.BMR);
+            } else {
+                console.error("Erro ao obter BMR:", response.error);
+            }
+        };
+
+        fetchCaloriesToConsume();
+    }, []);
 
     const handleAddConsumptionRecord = (newRecord: {
         food: string;
@@ -30,7 +45,9 @@ const CalorieTracker = () => {
 
                 <div className="circle-center">
                     <p className='text-bold'>Consumir</p>
-                    <p className='text-fit'>{caloriesToConsume} kcal</p>
+                    <p className='text-fit'>
+                        {caloriesToConsume !== null ? `${caloriesToConsume} kcal` : 'Carregando...'}
+                    </p>
                 </div>
 
                 <div className="calories-right">
@@ -66,7 +83,6 @@ const CalorieTracker = () => {
                 totalCalories={450}
                 consumptionRecords={consumptionRecords}
             />
-
         </div>
     );
 };
