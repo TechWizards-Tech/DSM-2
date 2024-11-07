@@ -67,7 +67,7 @@ class EatService {
   }
 
   // Método para registrar um alimento consumido
-  async createFood(food: string, date: string, quantity: number, period: number): Promise<EatFoodProps | ErrorProps> {
+  async createFood(food: number, date: Date, quantity: number, period: number): Promise<EatFoodProps | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
       const { data } = await api.post<EatFoodProps>("/eat", { food, date, quantity, period }, {
@@ -80,6 +80,8 @@ class EatService {
       return this.handleError(error);
     }
   }
+  
+  
 
   // Método para deletar um alimento consumido pelo ID
   async deleteFood(id: string): Promise<EatFoodProps | ErrorProps> {
