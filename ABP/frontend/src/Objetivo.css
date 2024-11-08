@@ -1,0 +1,101 @@
+.dietas-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.diet-title {
+  color: #fff;
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #004d00;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.objective-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.auth-button {
+  background-color: #004d00;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #003300;
+}
+
+.diet-plan-content {
+  text-align: left;
+  width: 100%;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.diet-plan-content h2 {
+  color: #fff;
+  background-color: #004d00;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.calories-info {
+  color: #333;
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-top: 15px;
+  padding: 10px;
+  background-color: #b1d2b1;
+  border-radius: 8px;
+  text-align: center;
+}
+
+h3 {
+  color: #333;
+  font-size: 1.2em;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* .prev-button {
+  background-color: #004d00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1em;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.prev-button:hover {
+  background-color: #003300;
+} */
