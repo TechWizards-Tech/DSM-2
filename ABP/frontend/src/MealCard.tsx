@@ -61,11 +61,11 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, p
                     style={{ cursor: 'pointer' }}
                 />
                 {isModalOpen && (
-                    <div className="modal-overlay" onClick={toggleModal}>
-                        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                    <div className="modal-overlay-meal" onClick={toggleModal}>
+                        <div className="modal-content-meal" onClick={(e) => e.stopPropagation()}>
                             <span className="close-button" onClick={toggleModal}>&times;</span>
                             <h3>Registro de Consumo</h3>
-                            <table className="modal-table">
+                            <table className="modal-table-meal">
                                 <thead>
                                     <tr>
                                         <th>Alimento</th>
