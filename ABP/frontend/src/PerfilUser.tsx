@@ -86,7 +86,7 @@ const PerfilUser = () => {
                     <p className="profile-email">{profileData ? profileData.mail : 'email@exemplo.com'}</p>
                     {profileData ? (
                         <p className="profile-age-weight-height">
-                            {profileData.age} anos, {profileData.weight} kg, {profileData.height_cm} cm.
+                            {profileData.age} anos, {profileData.height_cm} cm.
                         </p>
                     ) : (
                         <p className="profile-age-weight-height">Carregando perfil...</p>
@@ -114,9 +114,14 @@ const PerfilUser = () => {
             </div>
 
             <div className="weight-section">
-                <div className="weight-card">
-                    <h3>Peso Atual</h3>
-                </div>
+    <div className="weight-card">
+        <h3>Peso Atual</h3>
+        {profileData ? (
+            <p>{profileData.weight} kg</p> // Exibe o peso atual
+        ) : (
+            <p>Carregando...</p>
+        )}
+    </div>
                 <div className="weight-card">
                     <h3>Peso Ideal</h3>
                     {idealWeight !== null ? (
@@ -126,7 +131,7 @@ const PerfilUser = () => {
                     )}
                 </div>
                 <button className="weight-card button-to-calorie-tracker" onClick={handleClick}>
-                    <p>Ver sua ingestão diária ou adicionar um alimento</p>
+                    <p>Diário de alimentação</p>
                 </button>
             </div>
         </div>
