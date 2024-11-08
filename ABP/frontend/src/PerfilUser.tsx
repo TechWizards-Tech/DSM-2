@@ -125,7 +125,7 @@ const PerfilUser = () => {
                 <div className="weight-card">
                     <h3>Peso Ideal</h3>
                     {idealWeight !== null ? (
-                        <p>{idealWeight.toFixed(1)} kg</p>
+                        <p>{idealWeight.toFixed(0)} kg</p>
                     ) : (
                         <p>Calculando...</p>
                     )}
