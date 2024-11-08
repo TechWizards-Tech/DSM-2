@@ -62,14 +62,14 @@ const CalorieTracker = () => {
                 <div className="calories-left">
                     <p className='text-bold'>Consumidas</p>
                     <p className='text-fit'>
-                        {caloriesConsumed !== null ? `${caloriesConsumed} kcal` : 'Carregando...'}
+                        {caloriesConsumed !== null ? `${Math.round(caloriesConsumed)} kcal` : 'Carregando...'}
                     </p>
                 </div>
 
                 <div className="circle-center">
                     <p className='text-bold'>Consumir</p>
                     <p className='text-fit'>
-                        {caloriesToConsume !== null ? `${caloriesToConsume} kcal` : 'Carregando...'}
+                        {caloriesToConsume !== null ? `${Math.round(caloriesToConsume)} kcal` : 'Carregando...'}
                     </p>
                 </div>
 
@@ -89,31 +89,32 @@ const CalorieTracker = () => {
             <MealCard
                 time="08:00"
                 mealName="Café da Manhã"
-                caloriesConsumed={mealCalories[0] || 0}
+                caloriesConsumed={Math.round(mealCalories[0] || 0)} // Aplicando Math.round aqui
                 period={0}
                 date={selectedDate} // Passando a data selecionada como prop
             />
             <MealCard
                 time="12:00"
                 mealName="Almoço"
-                caloriesConsumed={mealCalories[1] || 0}
+                caloriesConsumed={Math.round(mealCalories[1] || 0)} // Aplicando Math.round aqui
                 period={1}
                 date={selectedDate} // Passando a data selecionada como prop
             />
             <MealCard
                 time="17:00"
                 mealName="Café da Tarde"
-                caloriesConsumed={mealCalories[2] || 0}
+                caloriesConsumed={Math.round(mealCalories[2] || 0)} // Aplicando Math.round aqui
                 period={2}
                 date={selectedDate} // Passando a data selecionada como prop
             />
             <MealCard
                 time="20:00"
                 mealName="Jantar"
-                caloriesConsumed={mealCalories[3] || 0}
+                caloriesConsumed={Math.round(mealCalories[3] || 0)} // Aplicando Math.round aqui
                 period={3}
                 date={selectedDate} // Passando a data selecionada como prop
-            /> </div>
+            /> 
+        </div>
     );
 };
 
