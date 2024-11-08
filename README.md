@@ -267,7 +267,13 @@ Estamos satisfeitos com os resultados alcançados e acreditamos que essas funcio
 <br>
 
 ### • Burndown Sprint 3
+
 <br>
+
+![Burndown 3](https://github.com/user-attachments/assets/55f2ba77-6777-41ca-bb59-d4db32097b52)
+
+
+
 
 
 ### • Sprint Retrospective
