@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './FoodForm.css';
-import { CalendarCheck } from 'lucide-react';
+import { CalendarCheck , Ham } from 'lucide-react';
 import Button from './Button';
 
 
@@ -9,7 +9,7 @@ const FoodForm: React.FC = () => {
 
     return (
         <div className={isModalOpen ? 'blurred-background' : 'auth-button-meal'} style={{ backgroundColor: 'transparent' }}>
-            <CalendarCheck
+            <Ham
                 className='svg-stroke-green-700 set-style-foodform'
                 onClick={() => setIsModalOpen(true)}
                 style={{ cursor: 'pointer', transform: 'translateX(-5%)' }}
