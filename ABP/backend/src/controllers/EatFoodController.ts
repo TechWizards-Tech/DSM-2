@@ -138,7 +138,8 @@ class EatFoodController {
                  WHERE A._user = $1 AND A.date = $2`,
                 [user, date]
             );
-
+            
+            console.log({total_energy: result[0].total_energy});
             res.json({ total_energy: result[0].total_energy });
         } catch (e: any) {
             res.status(502).json({ error: e.message });
