@@ -236,15 +236,17 @@ export interface EatProductProps {
 }
 
 export interface EatFoodProps {
-  id: string;
-  date: string;
-  quantity: number; 
-  period: number;
-  description: string;
-  energy: number | null;
-  protein: number | null; 
-  carbohydrate: number | null;
-  dietary_fiber: number | null;
-  calcium: number | null;
-  sodium: number | null;
+  id: string;  // ID do consumo (SERIAL)
+  food: number;  // ID do alimento (INTEGER), referenciando a tabela 'foods'
+  date: string;  // Data do consumo (DATE)
+  quantity: number;  // Quantidade consumida (FLOAT)
+  period: number;  // Período do consumo (INTEGER)
+  description: string;  // Descrição do alimento (proveniente da tabela 'foods')
+  energy: number | null;  // Energia do alimento (pode ser nula)
+  protein: number | null;  // Proteína do alimento (pode ser nula)
+  carbohydrate: number | null;  // Carboidrato do alimento (pode ser nulo)
+  dietary_fiber: number | null;  // Fibra alimentar do alimento (pode ser nula)
+  calcium: number | null;  // Cálcio do alimento (pode ser nulo)
+  sodium: number | null;  // Sódio do alimento (pode ser nulo)
 }
+

@@ -1,64 +1,107 @@
 import { EatFoodProps, EatProductProps, ErrorProps } from "../types";
 import { api } from "./api";
 
-class Eat {
-  async listProducts(date:string): Promise<EatProductProps[] | ErrorProps> {
+class EatService {
+  // Método para listar produtos consumidos em uma data específica
+  async listProducts(date: string): Promise<EatProductProps[] | ErrorProps> {
     try {
-      const params = {date};
-      const { data } = await api.get("/eat/product", { params });
+      const token = localStorage.getItem("userToken");
+      const params = { date };
+      const { data } = await api.get<EatProductProps[]>("/eat/product", {
+        params,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error: any) {
-      return error;
+      return this.handleError(error);
     }
   }
 
-  async createProduct(product:string, date:string, quantity:number): Promise<EatProductProps[] | ErrorProps> {
+  // Método para registrar um produto consumido
+  async createProduct(product: string, date: string, quantity: number): Promise<EatProductProps[] | ErrorProps> {
     try {
-      const { data } = await api.post("/eat/product", { product, date, quantity });
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.post<EatProductProps[]>("/eat/product", { product, date, quantity }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error: any) {
-      return error;
+      return this.handleError(error);
     }
   }
 
-  async deleteProduct(id:string): Promise<EatProductProps | ErrorProps> {
+  // Método para deletar um produto consumido pelo ID
+  async deleteProduct(id: string): Promise<EatProductProps | ErrorProps> {
     try {
-      const { data } = await api.delete(`/eat/product/${id}`);
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.delete<EatProductProps>(`/eat/product/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error: any) {
-      return error;
+      return this.handleError(error);
     }
   }
 
-  async listFoods(date:string): Promise<EatFoodProps[] | ErrorProps> {
+  // Método para listar alimentos consumidos em uma data específica
+  async listFoods(date: Date, period: number): Promise<EatFoodProps[] | ErrorProps> {
     try {
-      const params = {date};
-      const { data } = await api.get("/eat/food", { params });
+      const token = localStorage.getItem("userToken");
+      const params = { date: date.toISOString().split('T')[0], period };
+      const { data } = await api.get<EatFoodProps[]>("/eat/food", {
+        params,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error: any) {
-      return error;
+      return this.handleError(error);
     }
   }
 
-  async createFood(food:string, date:string, quantity:number): Promise<EatProductProps[] | ErrorProps> {
+  // Método para registrar um alimento consumido
+  async createFood(food: number, date: string, quantity: number, period: number): Promise<EatFoodProps | ErrorProps> {
     try {
-      const { data } = await api.post("/eat/food", { food, date, quantity });
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.post<EatFoodProps>("/eat/food", { food, date, quantity, period }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error: any) {
-      return error;
+      return this.handleError(error);
     }
   }
 
-  async deleteFood(id:string): Promise<EatFoodProps | ErrorProps> {
+  // Método para deletar um alimento consumido pelo ID
+  async deleteFood(id: string): Promise<EatFoodProps | ErrorProps> {
     try {
-      const { data } = await api.delete(`/eat/food/${id}`);
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.delete<EatFoodProps>(`/eat/food/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       return data;
     } catch (error: any) {
-      return error;
+      return this.handleError(error);
     }
   }
 
+  // Função dedicada para lidar com erros
+  private handleError(error: any): ErrorProps {
+    console.error("Erro ao acessar a API:", error);
+    return { error: error.message || "Erro desconhecido ao acessar a API." };
+  }
 }
 
-const eat = new Eat();
-export default eat;
+const eatService = new EatService();
+export default eatService;
