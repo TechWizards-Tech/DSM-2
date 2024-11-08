@@ -81,6 +81,7 @@ class ProfileService {
   // Método para buscar dados do usuário e do perfil
   async getUserProfile(): Promise<{ alias: string; mail: string; age: number; weight: number; height_cm: number } | ErrorProps> {
     try {
+      console.log("testetesteteste")
       const token = localStorage.getItem("userToken");
       const { data } = await api.get<{
         alias: string;

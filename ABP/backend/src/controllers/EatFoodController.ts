@@ -38,6 +38,7 @@ class EatFoodController {
   public create = async (req: Request, res: Response): Promise<void> => {
     const { food, date, quantity, period } = req.body;
     const { id: user } = res.locals;
+    console.log("CHEGUEI");
   
     if (this.isInvalid(food)) {
       res.json({ error: "Forneça o alimento" });

@@ -120,21 +120,23 @@ CREATE TABLE tips (
         );
 
         CREATE TABLE eat_foods (
-            id SERIAL NOT NULL,
-            _user INTEGER NOT NULL,
-            food INTEGER NOT NULL,
-            date DATE NULL,
-            quantity FLOAT NULL,
-            PRIMARY KEY(id),
-            FOREIGN KEY(food)
-                REFERENCES foods(id)
-                ON DELETE RESTRICT
-                ON UPDATE CASCADE,
-            FOREIGN KEY(_user)
-                REFERENCES users(id)
-                ON DELETE CASCADE
-                ON UPDATE CASCADE
-        );
+    id SERIAL NOT NULL,
+    _user INTEGER NOT NULL,
+    food INTEGER NOT NULL,
+    date DATE NULL,
+    quantity FLOAT NULL,
+    period INTEGER NULL,
+    PRIMARY KEY(id),
+    FOREIGN KEY(food)
+        REFERENCES foods(id)
+        ON DELETE RESTRICT
+        ON UPDATE CASCADE,
+    FOREIGN KEY(_user)
+        REFERENCES users(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
 
         CREATE TABLE eat_products (
             id SERIAL NOT NULL,

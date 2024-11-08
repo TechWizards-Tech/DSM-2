@@ -54,7 +54,7 @@ class EatService {
     try {
       const token = localStorage.getItem("userToken");
       const params = { date: date.toISOString().split('T')[0], period };
-      const { data } = await api.get<EatFoodProps[]>("/eat", {
+      const { data } = await api.get<EatFoodProps[]>("/eat/food", {
         params,
         headers: {
           Authorization: `Bearer ${token}`,
@@ -67,10 +67,10 @@ class EatService {
   }
 
   // Método para registrar um alimento consumido
-  async createFood(food: number, date: Date, quantity: number, period: number): Promise<EatFoodProps | ErrorProps> {
+  async createFood(food: number, date: string, quantity: number, period: number): Promise<EatFoodProps | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
-      const { data } = await api.post<EatFoodProps>("/eat", { food, date, quantity, period }, {
+      const { data } = await api.post<EatFoodProps>("/eat/food", { food, date, quantity, period }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -80,14 +80,12 @@ class EatService {
       return this.handleError(error);
     }
   }
-  
-  
 
   // Método para deletar um alimento consumido pelo ID
   async deleteFood(id: string): Promise<EatFoodProps | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
-      const { data } = await api.delete<EatFoodProps>(`/eat/${id}`, {
+      const { data } = await api.delete<EatFoodProps>(`/eat/food/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
