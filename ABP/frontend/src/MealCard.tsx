@@ -22,7 +22,7 @@ const MealCard: React.FC <MealCardProps> = () => {
         <div className="meal-card bg-green-100">
             <div className="meal-info">
                 <p className="meal-time">08:00</p>
-                <p className="meal-name">cafe</p>
+                <p className="meal-name"></p>
                 <p className="meal-calories">10kcal</p>
             </div>
 

@@ -20,21 +20,34 @@ class EatService {
   }
 
   // Método para somar calorias diárias
-// Método para obter as calorias diárias
-async getDailyCalories(date: string): Promise<number | ErrorProps> {
-  try {
+  async getDailyCalories(date: string): Promise<number | ErrorProps> {
+    try {
       const token = localStorage.getItem("userToken");
       const { data } = await api.post<{ total_energy: number }>("/eat/food/daily", { date }, {
-          headers: {
-              Authorization: `Bearer ${token}`,
-          },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
       return data.total_energy;
-  } catch (error: any) {
+    } catch (error: any) {
       return this.handleError(error);
+    }
   }
-}
 
+  // Método para somar calorias por período
+  async getCaloriesByPeriod(date: string, period: number): Promise<number | ErrorProps> {
+    try {
+      const token = localStorage.getItem("userToken");
+      const { data } = await api.post<{ total_energy: number }>("/eat/food/period", { date, period }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      return data.total_energy;
+    } catch (error: any) {
+      return this.handleError(error);
+    }
+  }
 
   // Método para registrar um produto consumido
   async createProduct(product: string, date: string, quantity: number): Promise<EatProductProps[] | ErrorProps> {
