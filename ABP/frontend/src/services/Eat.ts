@@ -113,17 +113,20 @@ class EatService {
   async deleteFood(id: string): Promise<EatFoodProps | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
-      const { data } = await api.delete<EatFoodProps>(`/eat/food/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const { data } = await api.post<EatFoodProps>('/eat/food/delete', // Usando POST para a exclusão
+        { id }, // Passando o ID no corpo da requisição
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       return data;
     } catch (error: any) {
       return this.handleError(error);
     }
   }
-
+  
   // Função dedicada para lidar com erros
   private handleError(error: any): ErrorProps {
     console.error("Erro ao acessar a API:", error);

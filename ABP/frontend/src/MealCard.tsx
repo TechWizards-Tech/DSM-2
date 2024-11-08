@@ -13,7 +13,6 @@ interface MealCardProps {
 
 const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, period, date }) => {
     const [foodConsumptionData, setFoodConsumptionData] = useState<any[]>([]); // Alimentos consumidos para o período
-
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const toggleModal = () => {
@@ -33,6 +32,15 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, p
     useEffect(() => {
         fetchFoodConsumption(); // Chama a função para buscar alimentos assim que o componente é montado
     }, [date, period]); // Recarrega sempre que a data ou o período mudam
+
+    // Função para excluir um alimento
+    const handleDeleteFood = async (id: string) => {
+        const response = await eatService.deleteFood(id); // Chama a função de exclusão do serviço
+
+            // Atualize a lista de alimentos consumidos após a exclusão
+            fetchFoodConsumption(); // Essa função deve atualizar a lista de alimentos consumidos
+        
+    };
 
     return (
         <div className="meal-card bg-green-100">
@@ -73,8 +81,8 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, p
                                 </thead>
                                 <tbody>
                                     {foodConsumptionData.length > 0 ? (
-                                        foodConsumptionData.map((item, index) => (
-                                            <tr key={index}>
+                                        foodConsumptionData.map((item) => (
+                                            <tr key={item.id}>
                                                 <td>{item.description}</td>
                                                 <td>{item.quantity}</td>
                                                 <td>{item.energy} kcal</td>
@@ -85,9 +93,7 @@ const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, p
                                                 <td>{item.sodium} mg</td>
                                                 <td>
                                                     <button 
-                                                        onClick={() => {
-                                                            console.log("Excluir item:", item.description);
-                                                        }}
+                                                        onClick={() => handleDeleteFood(item.id)}  // Chama a função para excluir
                                                         style={{ color: 'white', backgroundColor: 'red', border: 'none', padding: '5px 10px', cursor: 'pointer' }}
                                                     >
                                                         Excluir
