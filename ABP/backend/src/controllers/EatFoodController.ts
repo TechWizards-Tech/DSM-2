@@ -123,30 +123,31 @@ class EatFoodController {
   }
 
   public async dailysum(req: Request, res: Response): Promise<void> {
-    const date = req.query.date as string;
+    const date = req.body.date as string;  // Agora usando req.body.date
     const { id: user } = res.locals;
-  
+
     if (!isValidDate(date)) {
-      res.json({ error: "Forneça uma data válida" });
+        res.json({ error: "Forneça uma data válida" });
     } else {
-      try {
-        const result: any = await query(
-          `SELECT A.date, 
-                  SUM(B.energy * A.quantity) AS total_energy
-            FROM eat_foods AS A 
-            INNER JOIN foods AS B 
-            ON A.food = B.id
-            WHERE A._user = $1 AND A.date = $2
-            GROUP BY A.date`,
-          [user, date]
-        );
-  
-        res.json(result);
-      } catch (e: any) {
-        res.status(502).json({ error: e.message });
-      }
+        try {
+            const result: any = await query(
+                `SELECT COALESCE(SUM(B.energy * A.quantity) / 100, 0) AS total_energy
+                 FROM eat_foods AS A 
+                 INNER JOIN foods AS B 
+                 ON A.food = B.id
+                 WHERE A._user = $1 AND A.date = $2`,
+                [user, date]
+            );
+
+            res.json({ total_energy: result[0].total_energy });
+        } catch (e: any) {
+            res.status(502).json({ error: e.message });
+        }
     }
-  }
+}
+
+  
+  
 
   public update = async (req: Request, res: Response): Promise<void> => {
     const { id, food, date, quantity } = req.body;

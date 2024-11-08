@@ -5,7 +5,7 @@ const routes = Router();
 
 routes.get("/", controller.list); //lista de alimentos por periodo
 routes.get("/period", controller.periodsum); // soma de calorias por periodo
-routes.get("/daily", controller.dailysum); // soma de calorias diaria
+routes.post("/daily", controller.dailysum); // soma de calorias diaria
 routes.post("/", controller.create);
 routes.put("/", controller.update);
 routes.delete("/", controller.delete);
