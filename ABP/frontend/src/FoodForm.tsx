@@ -133,7 +133,7 @@ const FoodForm = () => {
                             type="text"
                             value={consumedAmount}
                             onChange={(e) => setConsumedAmount(e.target.value)}
-                            placeholder="Ex: 3 colheres"
+                            placeholder="Ex: 100 gramas"
                         />
 
                         <label>Periodo:</label>
