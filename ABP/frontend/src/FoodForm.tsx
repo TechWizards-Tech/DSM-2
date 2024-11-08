@@ -37,6 +37,10 @@ const FoodForm = () => {
         }
     };
 
+    useEffect(() => {
+        handleSearch();
+    }, [searchTerm]);
+
     // Função para salvar o consumo de alimento
     const handleSave = async () => {
         if (selectedFoodId && consumptionDate && consumedAmount && mealType !== null) {
@@ -93,19 +97,20 @@ const FoodForm = () => {
 
                         <label>Busca alimento ou produto consumido:</label>
                         <input
-                            className='search'
+                            className='search input-custom'
                             type="text"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            onKeyPress={handleKeyPress}
+                            // onKeyPress={handleKeyPress}
                             placeholder="Digite para buscar"
                         />
                         {filteredFoods.length > 0 && (
                             <ul className="dropdown-search">
                                 {filteredFoods.map((food) => (
                                     <li
+                                        className='dropli'
                                         key={food.id}
-                                        onClick={() => handleFoodSelect(food.id, food.description)} // Atualiza o searchTerm com a descrição do alimento
+                                        onClick={() => handleFoodSelect(food.id, food.description)}
                                         style={{ cursor: 'pointer' }}
                                     >
                                         {food.description}
