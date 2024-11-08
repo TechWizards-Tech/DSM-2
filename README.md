@@ -48,11 +48,11 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 | RF - 3                 | Usuário é capaz de fazer Login de Acesso utilizando email e senha cadastrados.                            | #02✔        |
 | RF - 4                 | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  | #03✔       |
 | RF - 5                 | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        | #03✔       |
-| RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |            |
-| RF - 7                 | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |         |
+| RF - 6                 | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |   #03✔     |
+| RF - 7                 | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. | #03✔     |
 | RF - 8                 | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |   #03✔       |
 | RF - 9                 | Elaborar uma interface intuitiva e dinâmica para visualizar as informações e acompanhar o progresso diário. |  #01✔      |
-| RF - 10                | Visualizar um histórico de ingestão calórica.                                                             |         |
+| RF - 10                | Visualizar um histórico de ingestão calórica.                                                             |#03✔          |
 | RF - 11                | Acessar dicas que beneficiam os diferentes tipos de dietas, para uma vida mais saudável.                   |  #01✔       |
 <br>
 
@@ -60,13 +60,13 @@ Clique [aqui](https://trello.com/b/YUAmGpXq/backlog-list-2-semestre) para acessa
 
 | REQUISITO NÃO_FUNCIONAL_ID | REQUISITOS                                                                                          | SPRINTS |
 |----------------------------|-----------------------------------------------------------------------------------------------------|---------|
-| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |   #01✔#02✔          |
-| RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |  #01✔        |
+| RNF - 1                    | Usar Typescript, Node.js para o backend e Typescript, React para o frontend. |   #01✔#02✔#03✔    |
+| RNF - 2                    | Ter um banco capaz de acomodar o aumento de usuários e dados mantendo a eficiência e oferecendo um histórico com a utilização do PostgresSQL. |  #01✔ #03✔    |
 | RNF - 3                    | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |  #03✔     |
 | RNF - 4                    | Deve ser compatível com os navegadores web, garantindo a execução do Node.JS. | #01✔           |
-| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔#02✔          |
-| RNF - 6                    | Conexão do backend com o banco de dados | #02✔     |
-| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔#02✔          |
+| RNF - 5                    | Ter toda a documentação disponível e registrada na plataforma Github, de forma organizada e bem documentada. |  #01✔#02✔ #03✔   |
+| RNF - 6                    | Conexão do backend com o banco de dados | #02✔ #03✔   |
+| RNF - 7                    | Utilizar a metodologia ágil SCRUM para a gestão e acompanhamento do desenvolvimento das tarefas do projeto e suas prioridades. | #01✔#02✔#03✔     |
 <br>
 
 ## :page_with_curl: USER STORIES
@@ -259,9 +259,9 @@ Estamos satisfeitos com os resultados alcançados e acreditamos que essas funcio
 | RF - 4     |     34      | Usuário deve ser capaz de acessar uma opção de dieta de acordo com as suas necessidades.                  |     Pollyana, Felipe e Leandro           |   ✔    | ✔    |
 | RF - 5     |     21      | Acessar uma base de dados com as informações dos alimentos e seus macronutrientes.                        |   Pollyana, Felipe e Pamela              |   ✔    | ✔    |
 | RF - 6     |     21     | Registrar e contabilizar os alimentos consumidos ao longo do dia de acordo com a base de dados.           |    Pollyana, Felipe e Pamela             |   ✔    | ✔    |
-| RF - 7     |     21     | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |     Pollyana, Felipe e Pamela      |   ✔    |    |
-| RF - 8     |     8      | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |    Pamela, Maria Eduarda e Leandro       |   ✔    |    |
-| RF - 10    |     21      | Visualizar um histórico de ingestão calórica.                                                             |    Pollyana, Felipe, Maria Eduarda, Raquel e Leandro          |   ✔    |    |
+| RF - 7     |     21     | Acessar um cálculo diário de calorias, sendo com o saldo superior ou inferior à meta, acompanhando o progresso. |     Pollyana, Felipe e Pamela      |   ✔    |  ✔  |
+| RF - 8     |     8      | Implementação e exibição das dicas para os usuários dentro da plataforma.                                 |    Pamela, Maria Eduarda e Leandro       |   ✔    | ✔   |
+| RF - 10    |     21      | Visualizar um histórico de ingestão calórica.                                                             |    Pollyana, Felipe, Maria Eduarda, Raquel e Leandro          |   ✔    | ✔   |
 | RNF - 3    |     21     | Ter uma interface dinâmica, responsiva e usual para uma melhor experiência do usuário em diferentes tamanhos de telas. |    Pollyana, Maria Eduarda, Raquel e Leandro     |   ✔    |   ✔    |
 
 <br>
