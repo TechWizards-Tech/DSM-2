@@ -183,9 +183,11 @@ class EatFoodController {
   };
 
   public delete = async (req: Request, res: Response): Promise<void> => {
-    const { id } = req.body;
-    const { id: user } = res.locals;
-
+    const { id } = req.body; // O ID agora será passado no corpo da requisição (req.body)
+    const { id: user } = res.locals; // ID do usuário
+  
+    console.log("delete");
+  
     if (this.isInvalid(id)) {
       res.status(500).json({ error: "Forneça o consumo a ser excluído" });
     } else {
@@ -193,21 +195,23 @@ class EatFoodController {
         const result: any = await query(
           `DELETE FROM eat_foods 
           WHERE id=$1 AND _user=$2 
-          RETURNING id::varchar, food, date, quantity`,
+          RETURNING id::varchar, food, date, quantity`, 
           [id, user]
         );
+  
         if (result.rowcount > 0) {
-          res.json(result.rows);
+          res.json(result.rows); // Se a exclusão for bem-sucedida, retorna os dados excluídos
         } else if (result.rowcount === 0) {
-          res.json({ error: "O consumo não está cadastrado" });
+          res.json({ error: "O consumo não está cadastrado" }); // Caso não encontre o consumo para excluir
         } else {
-          res.json(result);
+          res.json(result); // Caso haja algum outro erro, retorna o resultado
         }
       } catch (e: any) {
-        res.status(502).json({ error: e.message });
+        res.status(502).json({ error: e.message }); // Erro ao executar a query
       }
     }
   };
+  
 }
 
 function isValidDate(dateString: string): boolean {
