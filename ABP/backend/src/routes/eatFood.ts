@@ -3,7 +3,7 @@ import {EatFoodController as controller} from "../controllers";
 
 const routes = Router();
 
-routes.get("/", controller.list); //lista de alimentos por periodo
+routes.post("/list", controller.list); //lista de alimentos por periodo
 routes.post("/period", controller.periodsum); // soma de calorias por periodo
 routes.post("/daily", controller.dailysum); // soma de calorias diaria
 routes.post("/", controller.create);

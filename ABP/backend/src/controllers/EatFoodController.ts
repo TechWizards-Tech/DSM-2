@@ -4,8 +4,7 @@ import { subDays, format } from 'date-fns';
 
 class EatFoodController {
   public async list(req: Request, res: Response): Promise<void> {
-    const date = req.query.date as string;
-    const period = Number(req.query.period);
+    const { date, period } = req.body;  // Recuperando os dados do corpo da requisição
     const { id: user } = res.locals;
 
     if (!isValidDate(date)) {
@@ -29,7 +28,7 @@ class EatFoodController {
         res.status(502).json({ error: e.message });
       }
     }
-  }
+}
 
   private isInvalid(value: any) {
     return value === undefined || value === "";

@@ -79,13 +79,11 @@ class EatService {
     }
   }
 
-  // Método para listar alimentos consumidos em uma data específica
-  async listFoods(date: Date, period: number): Promise<EatFoodProps[] | ErrorProps> {
+  // Método para listar alimentos consumidos em uma data e período específicos
+  async listFoodsByPeriod(date: string, period: number): Promise<EatFoodProps[] | ErrorProps> {
     try {
       const token = localStorage.getItem("userToken");
-      const params = { date: date.toISOString().split('T')[0], period };
-      const { data } = await api.get<EatFoodProps[]>("/eat/food", {
-        params,
+      const { data } = await api.post<EatFoodProps[]>("/eat/food/list", { date, period }, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
