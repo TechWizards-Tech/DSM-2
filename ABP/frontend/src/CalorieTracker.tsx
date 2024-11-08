@@ -10,6 +10,7 @@ const CalorieTracker = () => {
     const [caloriesConsumed, setCaloriesConsumed] = useState<number | null>(null);
     const [caloriesToConsume, setCaloriesToConsume] = useState<number | null>(null);
     const [selectedDate, setSelectedDate] = useState<string>(new Date().toISOString().split('T')[0]);
+    const [mealCalories, setMealCalories] = useState<{ [key: number]: number }>({}); // Definição corrigida
 
     useEffect(() => {
         const fetchCaloriesToConsume = async () => {
@@ -32,6 +33,23 @@ const CalorieTracker = () => {
 
         fetchCaloriesToConsume();
         fetchDailyCalories();
+    }, [selectedDate]);
+
+    useEffect(() => {
+        const fetchMealCalories = async () => {
+            const calories: { [key: number]: number } = {}; // Tipo de calories atualizado
+            for (let period = 0; period <= 3; period++) {
+                const response = await eatService.getCaloriesByPeriod(selectedDate, period);
+                if (typeof response === "number") {
+                    calories[period] = response;
+                } else {
+                    console.error(`Erro ao obter calorias para o período ${period}:`, response.error);
+                }
+            }
+            setMealCalories(calories);
+        };
+
+        fetchMealCalories();
     }, [selectedDate]);
 
     const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,11 +86,34 @@ const CalorieTracker = () => {
                 </div>
             </div>
 
-            <MealCard time="08:00" mealName="Café da Manhã" caloriesConsumed={10} period={0} />
-            <MealCard time="12:00" mealName="Almoço" caloriesConsumed={10} period={1} />
-            <MealCard time="17:00" mealName="Café da Tarde" caloriesConsumed={10} period={2} />
-            <MealCard time="20:00" mealName="Jantar" caloriesConsumed={10} period={3} />
-        </div>
+            <MealCard
+                time="08:00"
+                mealName="Café da Manhã"
+                caloriesConsumed={mealCalories[0] || 0}
+                period={0}
+                date={selectedDate} // Passando a data selecionada como prop
+            />
+            <MealCard
+                time="12:00"
+                mealName="Almoço"
+                caloriesConsumed={mealCalories[1] || 0}
+                period={1}
+                date={selectedDate} // Passando a data selecionada como prop
+            />
+            <MealCard
+                time="17:00"
+                mealName="Café da Tarde"
+                caloriesConsumed={mealCalories[2] || 0}
+                period={2}
+                date={selectedDate} // Passando a data selecionada como prop
+            />
+            <MealCard
+                time="20:00"
+                mealName="Jantar"
+                caloriesConsumed={mealCalories[3] || 0}
+                period={3}
+                date={selectedDate} // Passando a data selecionada como prop
+            /> </div>
     );
 };
 

@@ -1,29 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './MealCard.css';
-import { Clock, CirclePlus } from 'lucide-react';
+import { Clock } from 'lucide-react';
+import eatService from './services/Eat'; // Certifique-se de importar o serviço correto
 
 interface MealCardProps {
     time: string;
     mealName: string;
     caloriesConsumed: number;
     period: number;
+    date: string; // A data também será passada como prop
 }
 
-const MealCard: React.FC <MealCardProps> = () => {
-
-    const foodConsumptionData = [
-        {
-            alimento: "Arroz, tipo 2, cozido",
-            consumo: "22 g",
-            calorias: "28,60",
-            proteina: "0,57",
-            carboidratos: "6,20",
-            fibraAlimentar: "0,24",
-            calcio: "0,66",
-            sodio: "0,44",
-        },
-        // Adicione mais itens aqui, se necessário
-    ];
+const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, period, date }) => {
+    const [foodConsumptionData, setFoodConsumptionData] = useState<any[]>([]); // Alimentos consumidos para o período
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -31,13 +20,26 @@ const MealCard: React.FC <MealCardProps> = () => {
         setIsModalOpen(!isModalOpen);
     };
 
+    // Função para buscar os alimentos consumidos
+    const fetchFoodConsumption = async () => {
+        const response = await eatService.listFoodsByPeriod(date, period); // Usando a função listFoodsByPeriod passando date e period
+        if (Array.isArray(response)) {
+            setFoodConsumptionData(response);
+        } else {
+            console.error("Erro ao buscar alimentos consumidos:", response.error);
+        }
+    };
+
+    useEffect(() => {
+        fetchFoodConsumption(); // Chama a função para buscar alimentos assim que o componente é montado
+    }, [date, period]); // Recarrega sempre que a data ou o período mudam
 
     return (
         <div className="meal-card bg-green-100">
             <div className="meal-info">
-                <p className="meal-time">08:00</p>
-                <p className="meal-name">cafe</p>
-                <p className="meal-calories">10kcal</p>
+                <p className="meal-time">{time}</p>
+                <p className="meal-name">{mealName}</p>
+                <p className="meal-calories">{caloriesConsumed} kcal</p>
             </div>
 
             <div className="progress-bar-container">
@@ -56,45 +58,50 @@ const MealCard: React.FC <MealCardProps> = () => {
                             <span className="close-button" onClick={toggleModal}>&times;</span>
                             <h3>Registro de Consumo</h3>
                             <table className="modal-table">
-                            <thead>
-                                <tr>
-                                    <th>Alimento</th>
-                                    <th>Consumo</th>
-                                    <th>Calorias</th>
-                                    <th>Proteína</th>
-                                    <th>Carboidratos</th>
-                                    <th>Fibra alimentar</th>
-                                    <th>Cálcio</th>
-                                    <th>Sódio</th>
-                                    <th>Ação</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {foodConsumptionData.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{item.alimento}</td>
-                                        <td>{item.consumo}</td>
-                                        <td>{item.calorias}</td>
-                                        <td>{item.proteina}</td>
-                                        <td>{item.carboidratos}</td>
-                                        <td>{item.fibraAlimentar}</td>
-                                        <td>{item.calcio}</td>
-                                        <td>{item.sodio}</td>
-                                        <td>
-                                            <button 
-                                                onClick={() => {
-                                                    // Função de exclusão, se necessário
-                                                    console.log("Excluir item:", item.alimento);
-                                                }}
-                                                style={{ color: 'white', backgroundColor: 'red', border: 'none', padding: '5px 10px', cursor: 'pointer' }}
-                                            >
-                                                Excluir
-                                            </button>
-                                        </td>
+                                <thead>
+                                    <tr>
+                                        <th>Alimento</th>
+                                        <th>Consumo (g)</th>
+                                        <th>Calorias</th>
+                                        <th>Proteína (g)</th>
+                                        <th>Carboidratos (g)</th>
+                                        <th>Fibra alimentar (g)</th>
+                                        <th>Cálcio (mg)</th>
+                                        <th>Sódio (mg)</th>
+                                        <th>Ação</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {foodConsumptionData.length > 0 ? (
+                                        foodConsumptionData.map((item, index) => (
+                                            <tr key={index}>
+                                                <td>{item.description}</td>
+                                                <td>{item.quantity}</td>
+                                                <td>{item.energy} kcal</td>
+                                                <td>{item.protein} g</td>
+                                                <td>{item.carbohydrate} g</td>
+                                                <td>{item.dietary_fiber} g</td>
+                                                <td>{item.calcium} mg</td>
+                                                <td>{item.sodium} mg</td>
+                                                <td>
+                                                    <button 
+                                                        onClick={() => {
+                                                            console.log("Excluir item:", item.description);
+                                                        }}
+                                                        style={{ color: 'white', backgroundColor: 'red', border: 'none', padding: '5px 10px', cursor: 'pointer' }}
+                                                    >
+                                                        Excluir
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    ) : (
+                                        <tr>
+                                            <td colSpan={9}>Nenhum alimento registrado para este período.</td>
+                                        </tr>
+                                    )}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 )}

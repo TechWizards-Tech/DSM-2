@@ -4,8 +4,7 @@ import { subDays, format } from 'date-fns';
 
 class EatFoodController {
   public async list(req: Request, res: Response): Promise<void> {
-    const date = req.query.date as string;
-    const period = Number(req.query.period);
+    const { date, period } = req.body;  // Recuperando os dados do corpo da requisição
     const { id: user } = res.locals;
 
     if (!isValidDate(date)) {
@@ -29,7 +28,7 @@ class EatFoodController {
         res.status(502).json({ error: e.message });
       }
     }
-  }
+}
 
   private isInvalid(value: any) {
     return value === undefined || value === "";
@@ -63,33 +62,31 @@ class EatFoodController {
     }
   };
 
+
   public async periodsum(req: Request, res: Response): Promise<void> {
-    const date = req.query.date as string;
-    const period = Number(req.query.period);
+    const { date, period } = req.body;  // Agora obtendo a data e o período do corpo da requisição
     const { id: user } = res.locals;
-  
+
     if (!isValidDate(date)) {
-      res.json({ error: "Forneça uma data válida" });
+        res.json({ error: "Forneça uma data válida" });
     } else {
-      try {
-        const result: any = await query(
-          `SELECT A.date, 
-                  A.period, 
-                  SUM(B.energy * A.quantity) AS total_energy
-            FROM eat_foods AS A 
-            INNER JOIN foods AS B 
-            ON A.food = B.id
-            WHERE A._user = $1 AND A.date = $2 AND A.period = $3
-            GROUP BY A.date, A.period`,
-          [user, date, period]
-        );
-  
-        res.json(result);
-      } catch (e: any) {
-        res.status(502).json({ error: e.message });
-      }
+        try {
+            const result: any = await query(
+                `SELECT COALESCE(SUM(B.energy * A.quantity), 0)/100 AS total_energy
+                 FROM eat_foods AS A
+                 INNER JOIN foods AS B 
+                 ON A.food = B.id
+                 WHERE A._user = $1 AND A.date = $2 AND A.period = $3`,
+                [user, date, period]
+            );
+
+            // Retornando apenas o total_energy
+            res.json({ total_energy: result[0]?.total_energy || 0 });
+        } catch (e: any) {
+            res.status(502).json({ error: e.message });
+        }
     }
-  }
+}
 
   public async weeklyCalories(req: Request, res: Response, currentDate?: string, daysRemaining = 7, totalCalories = 0): Promise<void> {
     const { id: user } = res.locals;
@@ -138,7 +135,8 @@ class EatFoodController {
                  WHERE A._user = $1 AND A.date = $2`,
                 [user, date]
             );
-
+            
+            console.log({total_energy: result[0].total_energy});
             res.json({ total_energy: result[0].total_energy });
         } catch (e: any) {
             res.status(502).json({ error: e.message });
