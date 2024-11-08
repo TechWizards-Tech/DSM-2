@@ -7,9 +7,6 @@ import profileService from './services/profile';
 const CalorieTracker = () => {
     const [caloriesConsumed] = useState(9999);
     const [caloriesToConsume, setCaloriesToConsume] = useState<number | null>(null);
-    const [consumptionRecords, setConsumptionRecords] = useState<
-        { food: string; date: string; amount: string; meal: string }[]
-    >([]);
 
     useEffect(() => {
         const fetchCaloriesToConsume = async () => {
@@ -24,17 +21,6 @@ const CalorieTracker = () => {
         fetchCaloriesToConsume();
     }, []);
 
-    const handleAddConsumptionRecord = (newRecord: {
-        food: string;
-        date: string;
-        amount: string;
-        meal: string;
-    }) => {
-        setConsumptionRecords([...consumptionRecords, newRecord]);
-    };
-
-    const filterRecordsByMeal = (mealType: string) =>
-        consumptionRecords.filter(record => record.meal === mealType);
 
     return (
         <div className="calories-container">
@@ -53,6 +39,10 @@ const CalorieTracker = () => {
 
                 <div className="calories-right">
                     <FoodForm />
+                </div>
+
+                <div className="data">
+                    
                 </div>
 
             </div>
