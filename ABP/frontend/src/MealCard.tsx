@@ -9,7 +9,9 @@ interface MealCardProps {
     period: number;
 }
 
-const MealCard: React.FC <MealCardProps> = () => {
+const MealCard: React.FC<MealCardProps> = ({ time, mealName, caloriesConsumed, period }) => {
+
+
 
     const foodConsumptionData = [
         {
@@ -34,11 +36,11 @@ const MealCard: React.FC <MealCardProps> = () => {
 
     return (
         <div className="meal-card bg-green-100">
-            <div className="meal-info">
-                <p className="meal-time">08:00</p>
-                <p className="meal-name"></p>
-                <p className="meal-calories">10kcal</p>
-            </div>
+        <div className="meal-info">
+            <p className="meal-time">{time}</p>  {/* Use time prop here */}
+            <p className="meal-name">{mealName}</p>  {/* Use mealName prop here */}
+            <p className="meal-calories">{caloriesConsumed} kcal</p>  {/* Use caloriesConsumed prop here */}
+        </div>
 
             <div className="progress-bar-container">
                 <div className="progress-bar"></div>
