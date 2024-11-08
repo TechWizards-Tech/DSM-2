@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { CalendarCheck } from 'lucide-react';
+import { CalendarCheck, Ham } from 'lucide-react';
 import './FoodForm.css';
 import Button from './Button';
 import eatService from './services/Eat'; // Usando EatService para registrar consumo
@@ -81,8 +81,8 @@ const FoodForm = () => {
 
     return (
         <div className={isModalOpen ? 'blurred-background' : 'auth-button-meal'} style={{ backgroundColor: 'transparent' }}>
-            <CalendarCheck
-                className='svg-stroke-green-700 set-style-foodform'
+            <Ham
+                className='svg-stroke-green-700 set-style-foodform hover-bg'
                 onClick={() => setIsModalOpen(true)}
                 style={{ cursor: 'pointer', transform: 'translateX(-5%)' }}
             />

@@ -32,7 +32,7 @@ const MealCard: React.FC <MealCardProps> = () => {
 
             <div className="add-period-container" style={{ backgroundColor: 'transparent' }}>
                 <Clock
-                    className="timer-svg svg-stroke-green-700"
+                    className="timer-svg svg-stroke-green-700 hover-bg"
                     onClick={toggleModal}
                     style={{ cursor: 'pointer' }}
                 />

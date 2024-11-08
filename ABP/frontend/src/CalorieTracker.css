@@ -47,9 +47,7 @@
   border-radius: 25% 0% 0% 25%;
 }
 
-.calories-right {
-  border-radius: 0% 25% 25% 0%;
-}
+
 
 /* General styles for small screens (320px to 768px) */
 @media(max-width: 768px) {
@@ -73,4 +71,23 @@
     margin: 0;
     color: #000;
   } 
+}
+
+.date {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10em;
+  height: 10em;
+  background-color: rgba(252, 252, 252, 0.938);
+  border: solid 3px #0d260e;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 0% 25% 25% 0%;
+}
+
+.hover-bg:hover {
+  background-color: var(--green-300);
+  border-radius: 10px;
 }
