@@ -52,37 +52,34 @@ const CalorieTracker = () => {
                 </div>
 
                 <div className="calories-right">
-                    <FoodForm onAddRecord={handleAddConsumptionRecord} />
+                    <FoodForm />
                 </div>
+
             </div>
 
             <MealCard
-                time='08:00'
-                mealName='Cafe da Manha'
+                time="08:00"
+                mealName="Cafe da Manha"
                 caloriesConsumed={10}
-                totalCalories={110}
-                consumptionRecords={filterRecordsByMeal('Cafe da manha')}
+                period={0}
             />
             <MealCard
                 time='12:00'
                 mealName='Almoço'
                 caloriesConsumed={10}
-                totalCalories={320}
-                consumptionRecords={filterRecordsByMeal('Almoço')}
+                period={1}
             />
             <MealCard
                 time='17:00'
                 mealName='Cafe da Tarde'
                 caloriesConsumed={10}
-                totalCalories={120}
-                consumptionRecords={filterRecordsByMeal('Cafe da tarde')}
+                period={2}
             />
             <MealCard
                 time='20:00'
                 mealName='Janta'
                 caloriesConsumed={10}
-                totalCalories={450}
-                consumptionRecords={filterRecordsByMeal('Janta')}
+                period={3}
             />
         </div>
     );

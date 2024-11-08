@@ -1,12 +1,12 @@
-import React from 'react';
-import './Carousel.css';
+import React, { useState } from 'react';
+import './Objetivo.css';
+import Button from './Button';
 
 const Objetivo = () => {
-  // Blocos HTML com informações nutricionais para cada objetivo
-  const slides = [
-    {
-      title: 'Perder Peso',
-      calories: '1500-1600 kcal/dia',
+  const [selectedDietType, setSelectedDietType] = useState<string | null>(null);
+
+  const dietPlans: { [key: string]: { content: JSX.Element; calories: string } } = {
+    perderPeso: {
       content: (
         <>
           <h3>Café da Manhã</h3>
@@ -35,10 +35,9 @@ const Objetivo = () => {
           </ul>
         </>
       ),
+      calories: '1500-1600 kcal/dia',
     },
-    {
-      title: 'Manter Peso',
-      calories: '2000-2200 kcal/dia',
+    manterPeso: {
       content: (
         <>
           <h3>Café da Manhã</h3>
@@ -67,10 +66,9 @@ const Objetivo = () => {
           </ul>
         </>
       ),
+      calories: '2000-2200 kcal/dia',
     },
-    {
-      title: 'Ganhar Peso',
-      calories: '2500-2700 kcal/dia',
+    ganharPeso: {
       content: (
         <>
           <h3>Café da Manhã</h3>
@@ -99,18 +97,31 @@ const Objetivo = () => {
           </ul>
         </>
       ),
+      calories: '2500-2700 kcal/dia',
     },
-  ];
+  };
 
   return (
     <div className="dietas-container">
-      {slides.map((slide, index) => (
-        <div key={index} className="diet-plan">
-          <h2>{slide.title}</h2>
-          <p><strong>Calorias aproximadas:</strong> {slide.calories}</p>
-          <div className="diet-content">{slide.content}</div>
+      {!selectedDietType ? (
+        <>
+          <h2 className="diet-title">Escolha o Objetivo</h2>
+          <div className="objective-buttons">
+            <Button label="Perder Peso" onClick={() => setSelectedDietType('perderPeso')} className="auth-button" />
+            <Button label="Manter Peso" onClick={() => setSelectedDietType('manterPeso')} className="auth-button" />
+            <Button label="Ganhar Peso" onClick={() => setSelectedDietType('ganharPeso')} className="auth-button" />
+          </div>
+        </>
+      ) : (
+        <div className="diet-plan-content">
+          <h2>{`Dieta para ${selectedDietType.replace(/([A-Z])/g, ' $1')}`}</h2>
+          <p className="calories-info">
+            <strong>Calorias aproximadas:</strong> {dietPlans[selectedDietType].calories}
+          </p>
+          {dietPlans[selectedDietType].content}
+          <Button label="Voltar" onClick={() => setSelectedDietType(null)} className="carousel-button prev-button" />
         </div>
-      ))}
+      )}
     </div>
   );
 };
