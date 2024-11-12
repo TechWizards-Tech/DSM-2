@@ -1,36 +1,9 @@
 import { Request, Response } from "express";
 import {query} from "../database/connection";
-import fields from "./fields";
+
 
 class FoodController {
-  public listById = async (req: Request, res: Response): Promise<void> =>  {
-    const id = req.query.idfood as string;
-    if (!id || isNaN(parseInt(id)) || parseInt(id) < 1) {
-      res.status(500).json({ error: "Forneça o identificador do alimento" });
-    } else {
-      try {
-        const queryFood: any = await query(
-          `SELECT A.id::varchar, B.id::varchar as idcategory, B.name as "category", A.description, moisture, energy, protein, lipids, cholesterol, carbohydrate, dietary_fiber, ash, calcium, magnesium, manganese, phosphorus, iron, sodium, potassium, copper, zinc, retinol, re, era, thiamin, riboflavin, pyridoxine, niacin, vitamin_c
-            FROM foods as A, categories as B
-            WHERE A.category = B.id AND A.id=$1`,
-          [id]
-        );
-        if ("message" in queryFood) {
-          res.status(500).json(queryFood);
-        } else {
-          if( queryFood.length === 1){
-            const items = await this.formattedResult(queryFood);
-            res.json(items[0]);
-          }
-          else{
-            res.status(502).json({ error: "Alimento não catalogado" });
-          }
-        }
-      } catch (e: any) {
-        res.status(502).json({ error: e.message });
-      }
-    }
-  }
+
 
   public async listByDescription(req: Request, res: Response): Promise<void> {
     let term = req.query.term as string;
@@ -108,37 +81,7 @@ class FoodController {
     }
   }
 
-  private async formattedResult(foods:any[]): Promise<any[]> {
-
-    const results = foods.map(food => {
-      const formattedItem:any = {
-        id: food.id,
-        description: food.description,
-        category: {
-          id: food.idcategory,
-          name: food.category,
-        },
-      };
-    
-      // Iterar sobre as propriedades do item, ignorando `id` e `description`
-      for (const key in food) {
-        if (key !== 'id' && key !== 'description' && key !== 'idcategory' && key !== 'category') {
-          const field = fields.find(f => f.field === key);
-          if (field) {
-            formattedItem[key] = {
-              label: field.name,
-              value: food[key],
-              unit: field.unit
-            };
-          }
-        }
-      }
-    
-      return formattedItem;
-    });
-
-    return results;
-  }
+  
 }
 
 const controller = new FoodController();
