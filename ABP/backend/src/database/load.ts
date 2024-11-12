@@ -7,37 +7,10 @@ async function load() {
     $$
     BEGIN
 
-        TRUNCATE fields CASCADE;
+       
         TRUNCATE foods CASCADE;
         TRUNCATE categories CASCADE;
 
-        INSERT INTO fields (id,name,unit,field)
-        VALUES 
-        (1,'Umidade','%','moisture'),
-        (2,'Calorias (energia)','kcal','energy'),
-        (3,'Proteína','g','protein'),
-        (4,'Lipídeos','g','lipids'),
-        (5,'Colesterol','mg','cholesterol'),
-        (6,'Carboidrato','g','carbohydrate'),
-        (7,'Fibra alimentar','g','dietary_fiber'),
-        (8,'Cinzas','g','ash'),
-        (9,'Cálcio','mg','calcium'),
-        (10,'Magnésio','mg','magnesium'),
-        (11,'Manganês','mg','manganese'),
-        (12,'Fósforo','mg','phosphorus'),
-        (13,'Ferro','mg','iron'),
-        (14,'Sódio','mg','sodium'),
-        (15,'Potássio','mg','potassium'),
-        (16,'Cobre','mg','copper'),
-        (17,'Zinco','mg','zinc'),
-        (18,'Retinol','mcg','retinol'),
-        (19,'RE (Equivalente de Retinol)','mcg','re'),
-        (20,'RAE (Equivalente de Atividade de Retinol)','mcg','era'),
-        (21,'Tiamina','mg','thiamin'),
-        (22,'Riboflavina','mg','riboflavin'),
-        (23,'Piridoxina','mg','pyridoxine'),
-        (24,'Niacina','mg','niacin'),
-        (25,'Vitamina C','mg','vitamin_c');
 
         INSERT INTO tips (text) VALUES
 ('Comer com atenção plena melhora a digestão.'),

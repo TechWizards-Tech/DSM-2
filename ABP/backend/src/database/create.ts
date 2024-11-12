@@ -44,15 +44,7 @@ CREATE TABLE tips (
     text TEXT NOT NULL
 );
 
-        CREATE TABLE fields (
-            id SERIAL NOT NULL,
-            name VARCHAR(50) NULL,
-            unit VARCHAR(5) NULL,
-            field VARCHAR(30) NULL,
-            PRIMARY KEY(id)
-        );
-
-        CREATE TABLE categories (
+            CREATE TABLE categories (
             id SERIAL NOT NULL,
             name VARCHAR(40) NULL,
             PRIMARY KEY(id)
@@ -94,30 +86,7 @@ CREATE TABLE tips (
                 ON UPDATE CASCADE
         );
 
-        CREATE TABLE products (
-            id SERIAL NOT NULL,
-            _user INTEGER NOT NULL,
-            description VARCHAR(50) NOT NULL,
-            serving_size FLOAT NOT NULL,
-            serving_size_unit VARCHAR(10) NOT NULL,
-            quantity_per_serving FLOAT NULL,
-            quantity_per_serving_unit VARCHAR(20) NULL,
-            energy FLOAT NULL,
-            protein FLOAT NULL,
-            carbohydrate FLOAT NULL,
-            sugar FLOAT NULL,
-            dietary_fiber FLOAT NULL,
-            total_fat FLOAT NULL,
-            saturated_fat FLOAT NULL,
-            trans_fat FLOAT NULL,
-            calcium FLOAT NULL,
-            sodium FLOAT NULL,
-            PRIMARY KEY(id),
-            FOREIGN KEY(_user)
-                REFERENCES users(id)
-                ON DELETE RESTRICT
-                ON UPDATE CASCADE
-        );
+       
 
         CREATE TABLE eat_foods (
     id SERIAL NOT NULL,
@@ -138,22 +107,7 @@ CREATE TABLE tips (
 );
 
 
-        CREATE TABLE eat_products (
-            id SERIAL NOT NULL,
-            _user INTEGER NOT NULL,
-            product INTEGER NOT NULL,
-            date DATE NULL,
-            quantity FLOAT NULL,
-            PRIMARY KEY(id),
-            FOREIGN KEY(_user)
-                REFERENCES users(id)
-                ON DELETE RESTRICT
-                ON UPDATE CASCADE,
-            FOREIGN KEY(product)
-                REFERENCES products(id)
-                ON DELETE RESTRICT
-                ON UPDATE CASCADE
-        );
+      
     END;
     $$;
     `);
