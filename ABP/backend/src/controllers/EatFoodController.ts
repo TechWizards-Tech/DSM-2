@@ -3,8 +3,10 @@ import { query } from "../database/connection";
 import { subDays, format } from 'date-fns';
 
 class EatFoodController {
+  
+  
   public async list(req: Request, res: Response): Promise<void> {
-    const { date, period } = req.body;  // Recuperando os dados do corpo da requisição
+    const { date, period } = req.body;
     const { id: user } = res.locals;
 
     if (!isValidDate(date)) {
@@ -13,8 +15,13 @@ class EatFoodController {
       try {
         const result: any = await query(
           `SELECT A.id::varchar, A.date, A.quantity, 
-            A.period, B.description, B.energy, B.protein, 
-            B.carbohydrate, B.dietary_fiber, B.calcium, B.sodium
+            A.period, B.description, 
+            ROUND(CAST(B.energy AS numeric) / 100, 2) AS energy, 
+            ROUND(CAST(B.protein AS numeric) / 100, 2) AS protein, 
+            ROUND(CAST(B.carbohydrate AS numeric) / 100, 2) AS carbohydrate, 
+            ROUND(CAST(B.dietary_fiber AS numeric) / 100, 2) AS dietary_fiber, 
+            ROUND(CAST(B.calcium AS numeric) / 100, 2) AS calcium, 
+            ROUND(CAST(B.sodium AS numeric) / 100, 2) AS sodium
           FROM eat_foods AS A 
           INNER JOIN foods AS B 
           ON A.food = B.id
@@ -28,7 +35,11 @@ class EatFoodController {
         res.status(502).json({ error: e.message });
       }
     }
-}
+  }
+  
+  
+  
+  
 
   private isInvalid(value: any) {
     return value === undefined || value === "";
